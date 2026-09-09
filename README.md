@@ -1,204 +1,108 @@
-# 13th-template
+# Robot Learning for Physical AI
 
-<h1 align="center"> 13th Template </h1>
+> 로봇 러닝의 기초를 학습하고 Physical AI 오픈소스 분석·재현·기여로 연결하는 가짜연구소 13기 프로젝트입니다.
 
-<div align="center">
-<a href="https://pseudo-lab.com"><img src="https://img.shields.io/badge/PseudoLab-S13-3776AB" alt="PseudoLab"/></a>
-<a href="https://discord.gg/EPurkHVtp2"><img src="https://img.shields.io/badge/Discord-BF40BF" alt="Discord Community"/></a>
-<a href="https://github.com/Pseudo-Lab/10th-template/stargazers"><img src="https://img.shields.io/github/stars/Pseudo-Lab/10th-template" alt="Stars Badge"/></a>
-<a href="https://github.com/Pseudo-Lab/10th-template/network/members"><img src="https://img.shields.io/github/forks/Pseudo-Lab/10th-template" alt="Forks Badge"/></a>
-<a href="https://github.com/Pseudo-Lab/10th-template/pulls"><img src="https://img.shields.io/github/issues-pr/Pseudo-Lab/10th-template" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/Pseudo-Lab/10th-template/issues"><img src="https://img.shields.io/github/issues/Pseudo-Lab/10th-template" alt="Issues Badge"/></a>
-<a href="https://github.com/Pseudo-Lab/10th-template/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/Pseudo-Lab/10th-template?color=2b9348"></a>
-</div>
-<br>
-
-<!-- sheilds: https://shields.io/ -->
-<!-- hits badge: https://hits.seeyoufarm.com/ -->
-
-> Welcome to OOO repository! We aim to OOO, offering tools and frameworks for OOO, OOO, and OOO. Join us in advancing the field of OOO through open collaboration and innovation!
-
-# 프로젝트 계획서 양식
-
-# 🚀 [프로젝트 이름]
-
-> **한 줄 소개**
->
-> 우리가 만들고 싶은 것을 한 문장으로 소개해주세요.
-> 예) `LLM 시대의 개발자 생산성을 높이는 작은 실험을 함께합니다.`
+[프로젝트 페이지](https://pseudo-lab.com/projects/326b9bb8-c161-4757-ace1-09da00c852d9) · [가짜연구소](https://pseudo-lab.com/) · [Discord](https://discord.gg/EPurkHVtp2)
 
 ## ✨ Why this project?
 
-### 우리가 이걸 왜 만들까요?
+ETH Zurich의 「Robot Learning: From Fundamentals to Foundation Models」 강의를 기반으로 로봇 러닝을 학습하고, 이를 Physical AI 오픈소스 활동으로 연결합니다. 개념 학습과 구현을 함께 진행하고, 실제 오픈소스의 재현성과 사용성을 살펴봅니다.
 
-> 이 프로젝트가 시작된 배경과 우리가 발견한 문제를 이야기해주세요.
+후반부에는 Physical AI 오픈소스를 분담하여 분석한 후 직접 설치하고 재현합니다. 발견한 문제는 기존 프로젝트의 issue나 PR로 기여합니다. 여러 프로젝트에서 반복되는 미해결 문제가 확인되면 이를 해결하는 오픈소스 MVP를 개발하고 공개합니다. 구현 범위는 가용한 컴퓨팅 리소스에 따라 조정될 수 있습니다.
 
-* 어떤 문제를 발견했나요?
-* 왜 지금 이 문제를 해결해보고 싶나요?
-* 기존에는 어떤 방식으로 해결하고 있었나요?
-* 우리가 이 프로젝트를 통해 새롭게 시도해보고 싶은 것은 무엇인가요?
-
-### 🎯 우리가 풀고 싶은 문제
-
-**[Problem Statement]**
-
-> “__________한 사람들이 __________ 때문에 어려움을 겪고 있다.”
-
----
+스터디 종료 후에도 학습, 논문 재현과 오픈소스 개발을 지속하는 Physical AI 리서치랩으로 활동을 확장하고자 합니다.
 
 ## 🎯 Goal
 
-### 우리가 이번 시즌에 만들고 싶은 것
-
-프로젝트가 끝났을 때 **무엇이 만들어져 있으면 성공이라고 할 수 있을까요?**
-
-* [ ] 목표 1
-* [ ] 목표 2
-* [ ] 목표 3
+- [ ] 로봇 제어, MDP, imitation learning과 reinforcement learning의 핵심 원리를 이해하고 구현합니다.
+- [ ] Behavioral Cloning, DAgger, PPO와 SAC를 MuJoCo 기반 환경에서 실습합니다.
+- [ ] Generative policy, transformer, world model, VLA와 embodied reasoning을 학습합니다.
+- [ ] Physical AI 오픈소스를 설치·실행하고 재현성, 사용성, 확장성과 라이선스를 분석합니다.
+- [ ] 발견한 문제를 issue, 문서, 테스트 또는 코드 PR로 기여합니다.
+- [ ] 반복적으로 확인된 문제를 해결하는 오픈소스 MVP를 설계하고 공개합니다.
 
 ### 📦 Expected Outcome
 
-최종적으로 다음과 같은 결과물을 만드는 것을 목표로 합니다.
+- 강의 학습 및 발표 기록
+- 강의에서 제공하는 4개 프로그래밍 과제 수행 기록
+- Physical AI 오픈소스 분석·재현 기록과 기여 내역
+- 반복되는 미해결 문제가 확인되면 이를 해결하는 오픈소스 MVP
 
-* `Result / Product`
-* `Research / Experiment`
-* `Demo`
-* `Documentation`
-* `Open Source Repository`
-* 기타: `__________`
+## 🗺️ Weekly Roadmap
 
-> **완벽한 결과물을 만드는 것보다, 함께 실험하고 실제로 작동하는 무언가를 남기는 것을 목표로 합니다.**
+정기 모임은 **매주 화요일 21:00–23:00, 디스코드 Room-CS**에서 진행합니다. 날짜와 미정 주차는 추후 확정합니다. 아래는 프로젝트 페이지에 등록된 계획이며, 주차별 결과물은 아직 미정입니다.
 
----
+| 주차 | 주요 활동 |
+|---|---|
+| W01 | 목표, 운영 방식, 발표 순서, 과제 진행법과 AI 사용 규정 공유. 사전 자습한 강의 1강 토론 |
+| W02 | 로봇 제어 기초와 Markov Decision Process |
+| W03 | Behavioral Cloning, covariate shift와 DAgger |
+| W04 | Value function, policy gradient와 exploration |
+| W05 | PPO, SAC와 offline·online reinforcement learning |
+| W06 | Energy-based model과 diffusion model |
+| W07 | Decision Transformer, ACT와 trajectory sequence modeling |
+| W08 | 미정 |
+| W09 | World model과 planning |
+| W10 | Generalist robot policy와 VLA |
+| W11 | Embodied reasoning 및 test-time scaling |
+| W12 | Physical AI와 robot learning의 최신 연구 방향 및 미해결 문제 토론 |
+| W13 | 미정 |
+| W14 | 미정 |
+| W15 | 미정 |
+| W16 | 미정 |
 
-# 🗺️ Weekly Roadmap
+## 👥 Team
 
-> **프로젝트의 16주 여정을 계획해주세요.**
-> 각 주차별로 **언제, 무엇을 하고, 무엇을 남길지** 간단하게 작성합니다.
+| 역할 | 이름 | 담당 |
+|---|---|---|
+| Builder | [박진호](https://github.com/jjinCode) | 프로젝트 기획·리딩 및 운영 |
+| Runner | 추후 확정 | 사전 학습, 순환 발표, 과제 수행, 오픈소스 분석·기여 |
 
-| Week    | 날짜         | 시간          | 주요 활동 | 결과물 |
-| ------- | ---------- | ----------- | ----- | --- |
-| **W01** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W02** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W03** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W04** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W05** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W06** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W07** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W08** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W09** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W10** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W11** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W12** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W13** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W14** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W15** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
-| **W16** | YYYY.MM.DD | HH:MM–HH:MM |       |     |
+프로젝트 정원은 6명입니다. 빌더와 러너는 서로 질문과 피드백을 주고받으며 함께 학습합니다.
 
-### 📌 작성 가이드
+## 🧑‍🤝‍🧑 How We Work
 
-**날짜**
-정기적으로 만나는 날짜 또는 해당 주차의 주요 활동일을 적어주세요.
+- 매주 지정된 강의와 자료를 사전 학습합니다.
+- 발표 순서는 참여자끼리 정합니다. 담당자는 강사처럼 개념, 수식, 코드와 선택 이유를 직접 설명하고 질문에 답합니다.
+- 강의 과제, 코드 리뷰, 오픈소스 조사와 개발 활동에 참여합니다.
+- 작은 것부터 실험하고 과정과 실패를 기록하며 서로의 성장을 돕습니다.
+- 팀 성과를 공유하며, 팀원의 자료를 사용할 때는 허락을 구합니다.
 
-**시간**
-모임 시작–종료 시간을 적어주세요.
-예: `19:00–21:00`
+### 참여 조건
 
-**주요 활동**
-그 주에 팀이 함께 할 핵심 활동을 한 줄로 적어주세요.
+- 머신러닝과 딥러닝의 기본 원리를 이해하고 PyTorch 학습 코드를 읽고 수정할 수 있어야 합니다.
+- Python 개발 및 Git/GitHub 사용 경험이 필요합니다.
+- 강화학습, 로보틱스, MuJoCo, VLM/VLA 경험은 필수가 아니지만 강의와 실습 난이도가 높습니다. 새로운 기술을 스스로 조사하고 문제를 해결할 수 있어야 합니다.
+- Physical AI, 로보틱스, VLM/VLA 분야로 연구 또는 커리어를 확장하려는 분을 환영합니다.
 
-**결과물**
-그 주가 끝났을 때 남아 있어야 하는 것을 적어주세요.
+### AI 사용 규정
 
-> **Tip.** 모든 주차를 촘촘하게 계획할 필요는 없습니다.
-> 프로젝트의 흐름이 보이도록 **Explore → Build → Test → Share**의 여정을 설계해보세요.
+학습, 자료 조사, 번역, 코드 작성과 디버깅 과정에서 AI 및 AI agent 사용을 권장합니다.
 
-> 일정은 프로젝트에 맞게 자유롭게 수정해주세요.
+단, AI가 생성한 내용을 이해하지 않은 채 발표에서 읽거나 코드와 문서를 그대로 복사하는 행위는 허용하지 않습니다. 참여자는 자신이 제출하거나 발표한 결과물의 동작 원리, 선택 이유, 한계와 오류 가능성을 직접 설명할 수 있어야 합니다.
 
----
+필요하면 질의응답, 코드 수정 또는 재현을 통해 이해 여부를 확인합니다. 규정 위반 시 1회 경고하며, 2회 확인되면 스터디에서 하차합니다. AI 사용 여부가 아니라 AI 결과를 검증하고 자신의 지식으로 전환했는지를 평가합니다.
 
-# 👥 Team
+## 📚 Archive
 
-## Core Team
+학습 자료, 발표, 과제 수행 기록, 오픈소스 재현 및 기여 내역을 활동에 따라 추가합니다. 아직 공개된 결과물은 없습니다.
 
-| Role         | Name    | 담당           |
-| ------------ | ------- | ------------ |
-| 🧭 Builder   | `@name` | 프로젝트 리딩      |
-| 🧑‍💻 Member | `@name` | `__________` |
-| 🎨 Member    | `@name` | `__________` |
+## 🌱 How to Engage
 
----
-
-# 🧑‍🤝‍🧑 How We Work
-
-우리는 이렇게 일합니다.
-
-```text
-Explore → Design → Build → Test → Improve → Share
-```
-
-### 우리의 원칙
-
-* 🧪 작은 것부터 만들어봅니다.
-* 📖 과정과 실패도 기록합니다.
-* 🤝 서로의 성장을 돕습니다.
-
----
-
-# 📚 Archive
-
-## 결과물
-
-* 🔗 Repository: `URL`
-* 🌐 Demo: `URL`
-* 📝 Blog / Article: `URL`
-* 🎥 Presentation: `URL`
-
-## 주요 기록
-
-| Date         | Content  | Link  |
-| ------------ | -------- | ----- |
-| `2026.09.01` | 프로젝트 킥오프 | `URL` |
-| `2026.09.15` | MVP 공개   | `URL` |
-| `2026.10.01` | 최종 결과 공유 | `URL` |
-
-> Let's build something together. 🚀
-
-## 🌱 참여 안내 (How to Engage)
-- 빌더로 참여 — 프로젝트 기획·운영 주도
-- 러너로 참여 — 연구·개발·테스트 등 실행
-- 청강 참여 — 공개 세션 참여 가능
-
-❗️참여 링크: [가짜연구소 디스코드](https://discord.gg/EPurkHVtp2)
-❗️커뮤니케이션 채널: 디스코드 #{{채널명}}
-
-**누구나 청강을 통해 모임을 참여하실 수 있습니다.**  
-1. 특별한 신청 없이 정기 모임 시간에 맞추어 디스코드 #Room-GH 채널로 입장
-2. Magical Week 중 행사에 참가
-3. Pseudo Lab 행사에서 만나기
+참여 안내는 [프로젝트 페이지](https://pseudo-lab.com/projects/326b9bb8-c161-4757-ace1-09da00c852d9)와 [가짜연구소 Discord](https://discord.gg/EPurkHVtp2)를 확인해주세요. 정기 모임 장소는 Room-CS입니다.
 
 ## Acknowledgement 🙏
 
-이 프로젝트는 가짜연구소 Open Academy로 진행됩니다.
-여러분의 참여와 기여가 ‘우연한 혁명(Serendipity Revolution)’을 가능하게 합니다. 모두에게 깊은 감사를 전합니다.
-OOO is developed as part of Pseudo-Lab's Open Research Initiative. Special thanks to our contributors and the open source community for their valuable insights and contributions.
+이 프로젝트는 가짜연구소 Open Academy로 진행됩니다. 참여자와 오픈소스 기여자들의 지식 공유와 협업에 감사드립니다.
 
-## About Pseudo Lab 👋🏼</h2>
+## About Pseudo Lab 👋🏼
 
-[Pseudo-Lab](https://pseudo-lab.com/) is a non-profit organization focused on advancing machine learning and AI technologies. Our core values of Sharing, Motivation, and Collaborative Joy drive us to create impactful open-source projects. With over 5k+ researchers, we are committed to advancing machine learning and AI technologies.
+[가짜연구소](https://pseudo-lab.com/)는 Sharing, Motivation, Collaborative Joy를 바탕으로 함께 성장하는 비영리 AI 커뮤니티입니다.
 
-<h2>Contributors 😃</h2>
-<a href="https://github.com/Pseudo-Lab/10th-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Pseudo-Lab/10th-template" />
-</a>
-<br><br>
+## Contributors 😃
 
-<h2>License 🗞</h2>
+[기여자 목록](https://github.com/Pseudo-Lab/robot-learning-for-physical-ai/graphs/contributors)
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+## License 🗞
 
-🚩 추가 팁 (Usage Tips)
-- 불필요한 프로젝트 유형 예시는 제거하거나 자유롭게 수정하세요.
-- 체크박스(✅)와 표를 적절히 활용하면 진행 상황 한눈에 파악이 쉽습니다.
-- ‘빌더’와 ‘러너’의 역할 분담과 상호 피드백 문화 강화에 README 내 문장으로 강조를 절대 잊지 마세요.
-- README가 단순 안내서 이상으로 공동체 철학과 가치를 담는 협업 선언문임을 상각하시며 작성하세요.
+공식 빌더 템플릿의 MIT License 안내를 따릅니다. 외부 강의 자료, 과제 및 오픈소스 코드에는 각 원저작물의 라이선스와 이용 조건이 적용됩니다.

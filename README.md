@@ -4,29 +4,54 @@
 
 [프로젝트 페이지](https://pseudo-lab.com/projects/326b9bb8-c161-4757-ace1-09da00c852d9) · [가짜연구소](https://pseudo-lab.com/) · [Discord](https://discord.gg/EPurkHVtp2)
 
-## ✨ Why this project?
+## 프로젝트 소개
 
-ETH Zurich의 「Robot Learning: From Fundamentals to Foundation Models」 강의를 기반으로 로봇 러닝을 학습하고, 이를 Physical AI 오픈소스 활동으로 연결합니다. 개념 학습과 구현을 함께 진행하고, 실제 오픈소스의 재현성과 사용성을 살펴봅니다.
+ETH Zurich의 「Robot Learning: From Fundamentals to Foundation Models」 강의를 따라 로봇 러닝을 공부합니다. 매주 한 강을 다루며, 발표자가 강의 내용을 설명하고 함께 질문하는 방식으로 진행합니다. 과제는 학습 주제와 팀 여건에 맞는 항목을 선택해 실습합니다.
 
-후반부에는 Physical AI 오픈소스를 분담하여 분석한 후 직접 설치하고 재현합니다. 발견한 문제는 기존 프로젝트의 issue나 PR로 기여합니다. 여러 프로젝트에서 반복되는 미해결 문제가 확인되면 이를 해결하는 오픈소스 MVP를 개발하고 공개합니다. 구현 범위는 가용한 컴퓨팅 리소스에 따라 조정될 수 있습니다.
+후반부에는 Physical AI 오픈소스를 나누어 조사하고 직접 설치해 봅니다. 재현 과정에서 찾은 문제는 해당 프로젝트에 issue나 PR로 남깁니다. 공통으로 겪는 문제가 확인되면 이를 해결할 작은 오픈소스 MVP를 만듭니다. 구현 범위는 사용할 수 있는 컴퓨팅 자원에 맞춰 정합니다.
 
-스터디 종료 후에도 학습, 논문 재현과 오픈소스 개발을 지속하는 Physical AI 리서치랩으로 활동을 확장하고자 합니다.
+시즌 종료 후에는 참여자들과 후속 연구·개발 주제를 정하고 Physical AI 리서치랩 활동을 이어갈 계획입니다.
+
+## 강의 자료
+
+- [ETH Zurich — Robot Learning: From Fundamentals to Foundation Models](https://cvg.ethz.ch/lectures/Robot-Learning/)
+- [공식 과제 저장소](https://github.com/mees-robot-learning-course/ethz-course-2026)
+- 강의 1강은 OT 전에 자습하고, 정규 모임에서는 2강부터 시작합니다.
 
 ## 🎯 Goal
 
 - [ ] 로봇 제어, MDP, imitation learning과 reinforcement learning의 핵심 원리를 이해하고 구현합니다.
-- [ ] Behavioral Cloning, DAgger, PPO와 SAC를 MuJoCo 기반 환경에서 실습합니다.
+- [ ] 강의 과제 중 일부를 골라 Behavioral Cloning, DAgger, PPO 또는 SAC의 동작을 실험합니다.
 - [ ] Generative policy, transformer, world model, VLA와 embodied reasoning을 학습합니다.
 - [ ] Physical AI 오픈소스를 설치·실행하고 재현성, 사용성, 확장성과 라이선스를 분석합니다.
 - [ ] 발견한 문제를 issue, 문서, 테스트 또는 코드 PR로 기여합니다.
 - [ ] 반복적으로 확인된 문제를 해결하는 오픈소스 MVP를 설계하고 공개합니다.
+- [ ] 시즌 종료 후에도 연구와 개발을 이어갈 Physical AI 리서치랩 기반을 만듭니다.
 
 ### 📦 Expected Outcome
 
 - 강의 학습 및 발표 기록
-- 강의에서 제공하는 4개 프로그래밍 과제 수행 기록
+- 선택한 프로그래밍 과제의 구현·실험 기록
 - Physical AI 오픈소스 분석·재현 기록과 기여 내역
-- 반복되는 미해결 문제가 확인되면 이를 해결하는 오픈소스 MVP
+- 반복되는 미해결 문제가 확인되면 이를 다루는 오픈소스 MVP
+
+## 🏁 Milestones
+
+1. **학습 체계 구축**
+   - 공통 개발 환경, 발표 일정, 과제 방식, AI 사용 규정 확정
+2. **핵심 알고리즘 구현**
+   - Imitation Learning과 Reinforcement Learning 학습
+   - 선택한 과제의 일부를 구현하고 실험 결과 공유
+3. **Physical AI 연구 주제 선정**
+   - Transformer, World Model, VLA와 Embodied Reasoning 학습
+   - 참여자별 관심 연구 주제 선정
+4. **오픈소스 분석 및 재현**
+   - Physical AI 오픈소스 설치·재현
+   - 재현성, 사용성, 확장성과 라이선스 분석
+5. **신규 오픈소스 MVP 개발 및 공개**
+   - 확인된 생태계 문제를 다루는 MVP 개발
+   - 컴퓨팅 자원에 맞춰 구현 범위 조정
+   - 후속 리서치랩 활동 계획 수립
 
 ## 🗺️ Weekly Roadmap
 
@@ -49,7 +74,7 @@ ETH Zurich의 「Robot Learning: From Fundamentals to Foundation Models」 강�
 | W13 | 미정 |
 | W14 | 미정 |
 | W15 | 미정 |
-| W16 | 미정 |
+| W16 | Ending: 학습 및 오픈소스 활동 결과 공유, 회고와 후속 활동 논의 |
 
 ## 👥 Team
 
@@ -64,8 +89,8 @@ ETH Zurich의 「Robot Learning: From Fundamentals to Foundation Models」 강�
 
 - 매주 지정된 강의와 자료를 사전 학습합니다.
 - 발표 순서는 참여자끼리 정합니다. 담당자는 강사처럼 개념, 수식, 코드와 선택 이유를 직접 설명하고 질문에 답합니다.
-- 강의 과제, 코드 리뷰, 오픈소스 조사와 개발 활동에 참여합니다.
-- 작은 것부터 실험하고 과정과 실패를 기록하며 서로의 성장을 돕습니다.
+- 과제 전체 완주를 목표로 하지 않습니다. 학습 주제와 팀 여건에 맞는 항목을 골라 수행합니다.
+- 코드 리뷰와 오픈소스 조사·개발에 참여하고 시행착오를 기록합니다.
 - 팀 성과를 공유하며, 팀원의 자료를 사용할 때는 허락을 구합니다.
 
 ### 참여 조건
@@ -105,4 +130,4 @@ ETH Zurich의 「Robot Learning: From Fundamentals to Foundation Models」 강�
 
 ## License 🗞
 
-공식 빌더 템플릿의 MIT License 안내를 따릅니다. 외부 강의 자료, 과제 및 오픈소스 코드에는 각 원저작물의 라이선스와 이용 조건이 적용됩니다.
+이 저장소에서 프로젝트 구성원이 직접 작성한 코드와 문서는 [MIT License](LICENSE)를 따릅니다. 외부 강의 자료, 과제, 논문, 모델, 데이터셋 및 오픈소스 코드는 각 원저작물의 라이선스와 이용 조건을 따릅니다.

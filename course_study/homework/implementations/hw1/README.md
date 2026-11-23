@@ -1,6 +1,6 @@
 # HW1 · PyTorch로 이미지 분류기 만들기
 
-네 노트북은 텐서의 축을 다루는 연산에서 시작해 학습 루프와 두 종류의 이미지 분류기까지 이어집니다. [공식 원본](../../original/hw1/) · [실행용 사본 준비](../../)
+네 노트북에서 텐서 연산과 학습 루프를 구현하고, MNIST에서 MLP와 TinyViT의 분류 정확도를 측정합니다. [공식 원본](../../original/hw1/) · [실행용 사본 준비](../../)
 
 <a id="ex1"></a>
 ## Ex1 · 텐서 연산
@@ -15,7 +15,7 @@
 <a id="ex3"></a>
 ## Ex3 · MNIST 분류
 
-`Linear`, normalization, dropout과 cross-entropy를 구현한 뒤 숫자 이미지의 클래스 점수를 학습합니다. 가장 높은 점수를 받은 숫자를 예측값으로 택했을 때, 기존 모델이 전체 시험 이미지 **10,000장 중 9,694장(96.94%)**을 맞혔습니다. [구현 변경분](changes/hw1_pytorch_tutorial/src/ex3.ipynb.rcs) · [정답 수와 분모](results/metrics.json)
+`Linear`, normalization, dropout과 cross-entropy를 구현한 뒤 숫자 이미지의 클래스 점수를 학습합니다. 점수가 가장 높은 클래스를 예측값으로 사용했습니다. MNIST 시험 이미지 **10,000장 중 9,694장(96.94%)**을 맞혔습니다. [구현 변경분](changes/hw1_pytorch_tutorial/src/ex3.ipynb.rcs) · [MNIST 평가 결과](results/metrics.json)
 
 <a id="ex4"></a>
 ## Ex4 · TinyViT

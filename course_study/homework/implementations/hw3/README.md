@@ -1,21 +1,31 @@
 # HW3 · 시연으로 큐브 집어 옮기기
 
-로봇은 팔 끝, 그리퍼, 큐브와 목표의 상태를 보고 팔을 어디로 움직일지, 그리퍼를 여닫을지 정합니다. 기본 모델은 시연에서 현재 상태와 뒤이은 행동들을 짝지어 학습하므로, 한 번의 예측으로 여러 시점의 행동을 출력합니다. 채점에는 접근·집기·놓기 등 시연 단계별로 다음 행동을 학습한 policy를 사용했습니다. [공식 원본](../../original/hw3/) · [기본 모델 구현](src/hw3_imitation_learning/hw3/model.py) · [실행 환경 준비](../../)
+로봇은 팔 끝, 그리퍼, 큐브와 목표의 상태를 보고 팔을 어디로 움직일지, 그리퍼를 여닫을지 정합니다. 기본 모델은 시연에서 행동 묶음을 학습합니다. 공식 채점에는 접근·집기·놓기 등 시연 단계별로 다음 행동을 학습한 policy를 사용했습니다. [L03 · Imitation Learning](https://www.youtube.com/watch?v=Ef4R5s1LqoQ) · [L07 · Action chunking](https://www.youtube.com/watch?v=imSTfMJjp7M) · [공식 원본](../../original/hw3/) · [기본 모델 구현](src/hw3_imitation_learning/hw3/model.py) · [실행 환경 준비](../../)
 
 <a id="ex1"></a>
 ## Ex1 · 단일 큐브 놓기
 
-Behavioral Cloning(BC)은 각 상태에서 시연자가 취한 행동을 예측하도록 policy를 학습하는 방법입니다. policy는 큐브에 접근해 집고, 들어 올린 뒤 목표에 놓습니다. 각 단계에서 로봇팔과 큐브의 상태를 보고 다음 단계로 넘어갈 시점을 정합니다. [단일 큐브 policy](src/experiments/hw3/single_cube.py) · [독립 평가](results/ex1/)
+L03의 Behavioral Cloning(BC)은 관측 $o_t$에서 시연자가 선택한 행동을 예측하는 지도학습입니다. 기본 모델은 L07에서 다룬 *action chunking*을 적용해 한 관측에서 연속된 $H$개의 행동을 예측합니다. 학습 데이터 한 건은 같은 에피소드의 `states[t]`와 `actions[t:t+H]`입니다. `ObstaclePolicy.forward`는 MLP 출력을 `(배치 크기, H, 행동 차원)`으로 바꾸고, `compute_loss`는 예측과 시연 행동의 성분별 제곱 오차를 평균합니다. [ETH 과제의 데이터 샘플](https://github.com/mees-robot-learning-course/ethz-course-2026/blob/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw3_imitation_learning/hw3/dataset.py#L198-L210) · [기본 모델의 예측과 손실](src/hw3_imitation_learning/hw3/model.py#L19-L35)
+
+공식 채점에서 실행하는 `single_cube.py`는 한 번에 행동 하나를 반환합니다. `_action`은 장애물 위치와 조작 단계에 해당하는 가중치로 손끝의 목표 위치를 구합니다. 현재 손끝과 목표의 차이를 세 축의 이동 명령으로 바꾸고, 여기에 그리퍼 명령 하나를 붙입니다. 다음 호출에서 관측을 다시 읽기 때문에 큐브가 들리지 않았을 때 집기 단계로 돌아갈 수 있습니다. [목표 위치와 행동 계산](src/experiments/hw3/single_cube.py#L26-L59) · [채점기가 읽는 모델과 가중치](src/experiments/hw3/evaluate.py#L18-L22) · [독립 평가](results/ex1/)
 
 <a id="ex2"></a>
 ## Ex2 · DAgger와 장애물
 
-집는 위치가 조금만 어긋나도 다음에 관측하는 큐브의 위치가 달라질 수 있습니다. DAgger(Dataset Aggregation)는 policy가 직접 방문한 상태와 그때 필요한 교정 행동을 학습 데이터에 추가합니다. 시연과 교정 데이터는 스크립트로 생성했습니다. 학습한 policy는 장애물 위치와 현재 조작 단계에 따라 행동을 선택합니다. 별도 놓기 평가에서 장애물이 왼쪽에 있을 때는 40/40회, 중앙은 12/14회, 오른쪽은 46/46회 성공했습니다. [장애물 대응 policy](src/experiments/hw3/single_cube.py) · [시연 수집 코드](src/hw3_imitation_learning/scripts/collect_scripted_demos.py) · [장애물 위치별 결과](results/ex2/independent-zones.json)
+BC로 배운 policy가 큐브를 비껴 잡으면 이어지는 관측도 시연과 달라집니다. DAgger(Dataset Aggregation)는 이렇게 학습 중인 policy가 도달한 상태에서 전문가의 행동을 받아 학습 데이터에 추가합니다.
+
+여기서 전문가 역할은 스크립트가 맡습니다. `--dagger-checkpoint`를 주면 `learner_prefix`가 먼저 기존 policy로 3~51스텝 움직입니다. 이어서 `demonstrate`가 그 상태에서 복구 동작을 실행합니다. 학습용으로 기록하는 쌍은 **교정 명령을 보내기 직전의 관측과 그 명령**입니다. 수집기는 성공하고 그리퍼가 큐브에서 떨어진 에피소드를 저장합니다. 기본 모델 학습 시 `--extra-zarr`로 이 데이터를 넘기면 `load_and_merge_zarrs`가 기존 시연과 합칩니다. [policy 실행과 교정 시연 수집](src/hw3_imitation_learning/scripts/collect_scripted_demos.py#L140-L167) · [관측과 교정 행동을 짝짓는 순서](src/hw3_imitation_learning/scripts/collect_scripted_demos.py#L69-L91) · [데이터를 합치는 학습 코드](src/hw3_imitation_learning/scripts/train.py#L81-L85)
+
+채점용 policy는 시작할 때 장애물의 가로 위치로 구역을 고르고, 해당 구역과 현재 조작 단계에 맞는 행동을 냅니다.
+
+별도 놓기 평가에서 장애물이 왼쪽에 있을 때는 40/40회, 중앙은 12/14회, 오른쪽은 46/46회 성공했습니다. [장애물 대응 policy](src/experiments/hw3/single_cube.py) · [시연 수집 코드](src/hw3_imitation_learning/scripts/collect_scripted_demos.py) · [장애물 위치별 결과](results/ex2/independent-zones.json)
 
 <a id="ex3"></a>
 ## Ex3 · 여러 큐브 중 지정한 큐브 놓기
 
-policy는 지정된 큐브의 상태를 입력으로 삼아 각 단계에서 팔과 그리퍼에 보낼 명령을 계산합니다. [다중 큐브 policy](src/experiments/hw3/multi_cube.py) · [독립 평가](results/ex3/)
+장면에 큐브가 세 개 있으면 로봇과 큐브의 위치가 같아도 지시한 색에 따라 손을 뻗을 위치가 달라집니다. L03의 목표 조건부 policy $\pi(a\mid o,g)$에서 이 과제의 $g$는 **집어야 할 큐브의 색**입니다. 큐브를 내려놓을 상자의 위치는 별도 입력입니다.
+
+`MultiTaskPolicy.sample_actions`는 19차원 관측을 손끝(3), 그리퍼(1), 세 큐브의 좌표(9), 색을 지정하는 one-hot 벡터(3), 상자 위치(3)로 나눕니다. 큐브 좌표를 $3\times3$으로 배열하고 색 벡터를 곱해 합하면 지정한 큐브의 좌표만 남습니다. 예를 들어 `goal=[0, 1, 0]`이면 두 번째 큐브의 좌표가 공통 집기·놓기 제어기로 들어갑니다. [목표 큐브 선택과 행동 출력](src/experiments/hw3/multi_cube.py#L74-L81) · [독립 평가](results/ex3/)
 
 ### 평가 결과
 

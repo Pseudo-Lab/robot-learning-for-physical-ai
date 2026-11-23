@@ -1,26 +1,52 @@
 # HW4 · GridWorld에서 SO100 로봇팔까지
 
-GridWorld에서는 상태 전이 확률로 행동을 고르고, CartPole에서는 경험으로 이산 행동의 가치를 학습합니다. 로봇팔 과제에서는 PPO와 SAC가 여섯 관절에 보낼 연속 제어 명령을 학습합니다. [공식 원본](../../original/hw4/) · [실행 환경 준비](../../)
+GridWorld에서는 상태 전이 확률로 행동을 고르고, CartPole에서는 경험으로 이산 행동의 가치를 학습합니다. 로봇팔 과제에서는 PPO와 SAC가 여섯 관절에 보낼 연속 제어 명령을 학습합니다. [L04 · Reinforcement Learning I](https://www.youtube.com/watch?v=90raNpc11tQ) · [L05 · Reinforcement Learning II](https://www.youtube.com/watch?v=AdTGz8YnnlE) · [공식 원본](../../original/hw4/) · [실행 환경 준비](../../)
 
 <a id="ex1"></a>
 ## Ex1 · GridWorld
 
-Policy iteration은 현재 policy로 얻을 누적 reward를 추정한 뒤 각 상태에서 더 유리한 행동을 고릅니다. Value iteration은 각 상태에서 가장 유리한 행동의 가치를 반복해서 갱신합니다. 두 구현 모두 입력 100개에서 정확성 검사를 통과했습니다. 별도 실험에서는 100스텝 안에 목표에 닿을 확률을 최대화하는 policy를 구했습니다. 미끄러짐 확률이 0.2일 때 그 이론적 상한은 **90.0017%**이며, 고정 시드 100회에서 91회 도달했습니다. [구현](src/hw4_reinforcement_learning/exercises/ex1_mdp.py) · [유한 시간 도달 확률 계산](src/experiments/hw4/gridworld.py) · [평가 결과](results/grid_optimal.json)
+같은 칸에서 같은 행동을 해도 미끄러지면 다른 칸에 도착합니다. L04의 Bellman 계산은 가능한 전이를 모두 고려해 행동 가치를 구합니다. `action_values`는 `env.P[state][action]`에서 전이 확률, 다음 칸, reward, 종료 여부를 읽습니다. 각 경우의 `reward + gamma * values[nxt]`를 확률로 가중해 더하고, 종료되는 전이에서는 즉시 reward만 남깁니다. [전이 확률로 행동 가치 계산](src/hw4_reinforcement_learning/exercises/ex1_mdp.py#L4-L12)
+
+두 알고리즘은 이 행동 가치들을 다르게 사용합니다. **Policy iteration**은 현재 policy의 행동 확률로 평균을 내어 상태 가치를 평가한 뒤, 가치가 가장 큰 행동들에 같은 확률을 배분합니다. **Value iteration**은 매 갱신에서 곧바로 행동 가치의 최댓값을 현재 칸의 새 가치로 씁니다. [policy 평가와 개선](src/hw4_reinforcement_learning/exercises/ex1_mdp.py#L22-L47) · [최댓값을 쓰는 갱신](src/hw4_reinforcement_learning/exercises/ex1_mdp.py#L54-L65)
+
+두 구현 모두 입력 100개에서 정확성 검사를 통과했습니다. 별도 실험에서는 100스텝 안에 목표에 닿을 확률을 최대화하는 policy를 구했습니다. 미끄러짐 확률이 0.2일 때 그 이론적 상한은 **90.0017%**이며, 고정 시드 100회에서 91회 도달했습니다. [구현](src/hw4_reinforcement_learning/exercises/ex1_mdp.py) · [유한 시간 도달 확률 계산](src/experiments/hw4/gridworld.py) · [평가 결과](results/grid_optimal.json)
 
 <a id="ex2"></a>
 ## Ex2 · CartPole에서 DQN
 
-DQN(Deep Q-Network)은 카트를 왼쪽 또는 오른쪽으로 밀었을 때의 기대 누적 reward를 추정합니다. Replay buffer에서 과거 경험을 뽑고 target network로 학습 목표를 계산합니다. 저장된 policy는 100개 에피소드 중 **99개**에서 누적 reward 475 이상을 기록했습니다. [DQN 구현](src/hw4_reinforcement_learning/exercises/ex2_dqn.py) · [시드별 reward](results/cartpole.json)
+CartPole에서는 관측을 `QNet`에 넣으면 카트를 왼쪽 또는 오른쪽으로 밀었을 때의 기대 누적 reward가 각각 나옵니다. L04의 DQN(Deep Q-Network)은 replay buffer에 저장한 경험 $(s,a,r,s',d)$로 Q값을 학습합니다. 목표값 $y$는 즉시 받은 reward $r$과 할인율 $\gamma$를 적용한 다음 상태의 최대 Q값을 더한 값입니다. 저장된 종료 표시 $d$가 1이면 $y=r$입니다. [경험 저장과 Q값 출력](src/hw4_reinforcement_learning/exercises/ex2_dqn.py#L7-L14)
+
+$$
+y=r+\gamma(1-d)\max_{a'}Q_{\mathrm{target}}(s',a')
+$$
+
+`DQN.update`에서 `target_q_net(next_states).amax(dim=1)`은 다음 상태에서의 최대 Q값입니다. 현재 네트워크의 출력에서는 `gather`로 **실제로 실행한 행동**의 Q값만 꺼내 목표값 $y$와의 평균 제곱 오차를 줄입니다. 현재 네트워크를 갱신해도 목표값을 계산하는 네트워크는 일정 기간 고정하고, 정해진 간격에만 가중치를 복사합니다. [TD 목표와 가중치 갱신](src/hw4_reinforcement_learning/exercises/ex2_dqn.py#L41-L60)
+
+저장된 policy는 100개 에피소드 중 **99개**에서 누적 reward 475 이상을 기록했습니다. [DQN 구현](src/hw4_reinforcement_learning/exercises/ex2_dqn.py) · [시드별 reward](results/cartpole.json)
 
 <a id="ex3"></a>
 ## Ex3 · PPO로 로봇팔 제어
 
-PPO는 현재 policy로 경험을 모아 각 행동의 결과가 해당 상태의 기대값보다 얼마나 좋았는지 추정합니다. 이 추정값(advantage)이 양수면 그 행동을 더 자주 고르도록 학습합니다. 같은 상태와 행동에서 새 policy와 이전 policy의 확률밀도 비율을 구하고, clipping으로 그 비율이 목적함수에 미치는 영향을 제한합니다. 시드 42로 1,024,000 환경 스텝 동안 학습했습니다. [PPO 구현](src/hw4_reinforcement_learning/exercises/ex3_ppo.py) · [순수 PPO의 조건과 장면별 오차](results/rl-ppo/)
+PPO는 현재 policy로 모은 행동이 그 상태에서 기대한 것보다 얼마나 나았는지 나타내는 *advantage*를 사용합니다. `select_action`은 뽑은 행동의 로그 확률밀도와 critic의 상태 가치를 함께 반환합니다. 학습 루프는 이 값을 rollout buffer에 저장하고, 수집이 끝나면 `compute_returns`로 reward와 상태 가치에서 advantage를 계산합니다. [행동 샘플링](src/hw4_reinforcement_learning/exercises/ex3_ppo.py#L11-L19) · [rollout 수집](src/hw4_reinforcement_learning/scripts/train_ppo.py#L54-L79) · [ETH 과제의 advantage 계산](https://github.com/mees-robot-learning-course/ethz-course-2026/blob/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw4_reinforcement_learning/rl/buffers.py#L128-L144)
+
+L05의 확률밀도 비율 $\rho=\pi_{\rm new}(a\mid s)/\pi_{\rm old}(a\mid s)$가 코드에서는 `exp(logp_batch - old_logp_batch)`입니다. `compute_surrogate_loss`는 $\rho A$와 $\mathrm{clip}(\rho,1-\epsilon,1+\epsilon)A$ 중 작은 값을 고릅니다. 그 평균에 음수를 붙이고 `surrogate_loss_coeff`를 곱하면 policy 손실입니다. 예를 들어 $A=2$, $\epsilon=0.2$, $\rho=1.4$라면 두 항은 2.8과 2.4입니다. 이 표본에서 좋은 행동의 확률을 더 높여도 목적함수에 반영되는 이득은 2.4에서 멈춥니다. [PPO clipping과 손실](src/hw4_reinforcement_learning/exercises/ex3_ppo.py#L31-L49)
+
+시드 42로 1,024,000 환경 스텝 동안 학습했습니다. [PPO 구현](src/hw4_reinforcement_learning/exercises/ex3_ppo.py) · [순수 PPO의 조건과 장면별 오차](results/rl-ppo/)
 
 <a id="ex4"></a>
 ## Ex4 · SAC로 같은 로봇팔 제어
 
-SAC(Soft Actor-Critic)는 과거 경험을 다시 사용합니다. 두 critic이 추정한 행동 가치 중 작은 값과 policy의 entropy를 이용해, 기대 reward가 큰 행동을 선택하면서도 탐색을 계속하도록 학습합니다. 같은 시드로 1,024,500 환경 스텝 동안 학습했습니다. PPO와 SAC의 총 환경 스텝 수는 과제 기본값과 같습니다. SAC는 128스텝마다 크기 256의 배치로 48회 업데이트했습니다. [SAC 구현](src/hw4_reinforcement_learning/exercises/ex4_sac.py) · [GPU 학습 실행기](src/experiments/hw4/train_gpu.py) · [순수 SAC의 조건과 장면별 오차](results/rl-sac/)
+SAC(Soft Actor-Critic)는 replay buffer에 저장한 전이를 재사용합니다. L05의 maximum-entropy 목표는 기대 누적 reward와 행동 분포의 entropy를 함께 높이는 것입니다. `compute_critic_loss`는 다음 상태 $s'$에서 현재 actor로 행동 $a'$를 새로 뽑고 두 target critic의 추정치 중 작은 값으로 다음 목표를 계산합니다.
+
+$$
+y=r+\gamma(1-d)\left[\min_{i=1,2}Q_{\mathrm{target},i}(s',a')-\alpha\log\pi(a'\mid s')\right]
+$$
+
+두 critic은 각각 저장된 행동의 Q값을 $y$에 맞춥니다. `train_sac.py`는 `done=terminal`을 buffer에 저장합니다. 시간 제한으로 장면을 초기화한 경우에는 $d=0$이므로 목표값에 다음 상태의 가치가 남습니다. [critic의 목표와 손실](src/hw4_reinforcement_learning/exercises/ex4_sac.py#L16-L26) · [종료 표시 저장과 replay 샘플링](src/hw4_reinforcement_learning/scripts/train_sac.py#L63-L77)
+
+`compute_actor_loss`는 현재 상태에서 actor가 새로 뽑은 행동에 대해 `alpha * logp_new - q_new`의 평균을 최소화합니다. $\alpha$는 탐색에 주는 가중치입니다. `compute_alpha_loss`로 목표 entropy에 맞춰 이 값을 조정하고, `soft_update_targets`로 현재 critic의 가중치를 target critic에 조금씩 반영합니다. [actor·온도·target 갱신](src/hw4_reinforcement_learning/exercises/ex4_sac.py#L28-L65)
+
+PPO와 같은 시드 42로 1,024,500 환경 스텝 동안 학습했습니다. PPO와 SAC의 총 환경 스텝 수는 과제 기본값과 같습니다. SAC는 128스텝마다 크기 256의 배치로 48회 업데이트했습니다. [SAC 구현](src/hw4_reinforcement_learning/exercises/ex4_sac.py) · [GPU 학습 실행기](src/experiments/hw4/train_gpu.py) · [순수 SAC의 조건과 장면별 오차](results/rl-sac/)
 
 ### 로봇팔의 성공 기준
 

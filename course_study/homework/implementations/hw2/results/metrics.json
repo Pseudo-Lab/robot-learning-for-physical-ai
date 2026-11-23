@@ -1,0 +1,17 @@
+{
+  "hw2-ex1": {
+    "outcome": "met",
+    "success": 100,
+    "total": 100
+  },
+  "hw2-ex2": {
+    "outcome": "met",
+    "success": 100,
+    "total": 100
+  },
+  "hw2-ex3": {
+    "outcome": "met",
+    "success": 99,
+    "total": 100
+  }
+}

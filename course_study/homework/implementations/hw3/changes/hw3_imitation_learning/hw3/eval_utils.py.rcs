@@ -1,0 +1,8 @@
+d21 1
+a21 1
+from hw3.dataset import Normalizer, target_offset
+a62 4
+    "state_target_offset": lambda obs: target_offset(
+        obs["cubes_xyz"].reshape(3, 3), obs["goal"], obs["ee_pos"]
+    ),
+    "state_bin_offset": lambda obs: obs["goal_pos"][:3] - obs["ee_pos"],

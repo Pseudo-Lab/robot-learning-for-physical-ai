@@ -1,0 +1,51 @@
+{
+  "hw4-ex1": {
+    "outcome": "ceiling",
+    "correct_solutions": 100,
+    "total": 100,
+    "by_slip": {
+      "0.0": {
+        "policy_iteration": 100,
+        "value_iteration": 100
+      },
+      "0.01": {
+        "policy_iteration": 99,
+        "value_iteration": 99
+      },
+      "0.2": {
+        "policy_iteration": 91,
+        "value_iteration": 91
+      }
+    },
+    "theory": [
+      {
+        "slip": 0.0,
+        "optimal_reach_probability": 1.0,
+        "course_policy_probability": 1.0,
+        "irreducible_first_move_risk": 0.0
+      },
+      {
+        "slip": 0.01,
+        "optimal_reach_probability": 0.996610096230114,
+        "course_policy_probability": 0.9963927786274142,
+        "irreducible_first_move_risk": 0.0033333333333333335
+      },
+      {
+        "slip": 0.2,
+        "optimal_reach_probability": 0.9000172574696668,
+        "course_policy_probability": 0.8990130429385156,
+        "irreducible_first_move_risk": 0.06666666666666667
+      }
+    ],
+    "reachability_realized": [
+      100,
+      99,
+      91
+    ]
+  },
+  "hw4-ex2": {
+    "outcome": "met",
+    "success": 99,
+    "total": 100
+  }
+}

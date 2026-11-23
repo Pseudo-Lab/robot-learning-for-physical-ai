@@ -1,0 +1,18 @@
+a14 2
+if str(ROOT_DIR.parent) not in sys.path:
+    sys.path.append(str(ROOT_DIR.parent))
+d17 2
+a18 2
+from hw4_reinforcement_learning.exercises.ex4_sac import SACAgent, SACUpdateStats
+from hw4_reinforcement_learning.exercises.ex4_sac_config import SAC_PARAMETERS
+a90 3
+    if config.get("resume_from"):
+        agent.load(config["resume_from"])
+
+d113 1
+a113 1
+            if step < learning_start_steps and not config.get("resume_from"):
+d127 1
+a127 2
+                # Truncation resets the simulation while the tracking task can continue.
+                done=terminated,

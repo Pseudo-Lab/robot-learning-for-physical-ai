@@ -1,0 +1,39 @@
+{
+  "hw1-ex1": {
+    "outcome": "met",
+    "success": 100,
+    "total": 100
+  },
+  "hw1-ex2": {
+    "outcome": "met",
+    "success": 100,
+    "total": 100
+  },
+  "hw1-ex3": {
+    "outcome": "met",
+    "correct": 9694,
+    "total": 10000,
+    "training": "existing"
+  },
+  "hw1-ex4": {
+    "outcome": "met",
+    "total": 10000,
+    "correct_per_seed": {
+      "ffn": [
+        9769,
+        9763,
+        9779
+      ],
+      "geglu": [
+        9816,
+        9795,
+        9785
+      ],
+      "swiglu": [
+        9832,
+        9814,
+        9775
+      ]
+    }
+  }
+}

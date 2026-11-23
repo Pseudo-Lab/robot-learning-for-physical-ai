@@ -1,0 +1,3 @@
+d95 2
+a96 1
+        mujoco.mj_step(self.model, self.data, nstep=self.ctrl_decimation)

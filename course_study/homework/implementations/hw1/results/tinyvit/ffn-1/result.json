@@ -1,0 +1,71 @@
+{
+  "variant": "ffn",
+  "seed": 1,
+  "curve": [
+    {
+      "epoch": 1,
+      "loss": 0.731625851114591,
+      "val_correct": 4571
+    },
+    {
+      "epoch": 2,
+      "loss": 0.25001859988768893,
+      "val_correct": 4697
+    },
+    {
+      "epoch": 3,
+      "loss": 0.17756238821148873,
+      "val_correct": 4786
+    },
+    {
+      "epoch": 4,
+      "loss": 0.1422220054070155,
+      "val_correct": 4822
+    },
+    {
+      "epoch": 5,
+      "loss": 0.11950248823066552,
+      "val_correct": 4834
+    },
+    {
+      "epoch": 6,
+      "loss": 0.10266777285685141,
+      "val_correct": 4839
+    },
+    {
+      "epoch": 7,
+      "loss": 0.0934828465556105,
+      "val_correct": 4875
+    },
+    {
+      "epoch": 8,
+      "loss": 0.08403326528022687,
+      "val_correct": 4849
+    },
+    {
+      "epoch": 9,
+      "loss": 0.07457631785174211,
+      "val_correct": 4861
+    },
+    {
+      "epoch": 10,
+      "loss": 0.06926330668851734,
+      "val_correct": 4873
+    },
+    {
+      "epoch": 11,
+      "loss": 0.06276232277353605,
+      "val_correct": 4861
+    },
+    {
+      "epoch": 12,
+      "loss": 0.059344482269758976,
+      "val_correct": 4888
+    }
+  ],
+  "train_n": 48000,
+  "val_n": 5000,
+  "test_n": 10000,
+  "correct": 9763,
+  "parameters": 104970
+}

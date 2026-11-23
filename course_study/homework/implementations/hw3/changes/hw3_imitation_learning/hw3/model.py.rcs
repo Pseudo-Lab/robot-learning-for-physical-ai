@@ -1,0 +1,60 @@
+a9 1
+from torch.nn import functional as F
+d32 1
+d40 1
+a40 18
+    def __init__(
+        self,
+        state_dim: int,
+        action_dim: int,
+        chunk_size: int,
+        d_model: int = 128,
+        depth: int = 2,
+    ) -> None:
+        super().__init__(state_dim, action_dim, chunk_size)
+        if depth < 1:
+            raise ValueError("depth must be at least 1")
+        layers: list[nn.Module] = [nn.Linear(state_dim, d_model), nn.ReLU()]
+        for _ in range(depth - 1):
+            layers.extend((nn.Linear(d_model, d_model), nn.ReLU()))
+        layers.append(nn.Linear(d_model, chunk_size * action_dim))
+        self.net = nn.Sequential(*layers)
+
+    def forward(self, state: torch.Tensor) -> torch.Tensor:
+d42 1
+a42 2
+        flat_actions = self.net(state)
+        return flat_actions.reshape(-1, self.chunk_size, self.action_dim)
+d44 2
+a45 4
+    def compute_loss(
+        self, state: torch.Tensor, action_chunk: torch.Tensor
+    ) -> torch.Tensor:
+        return F.mse_loss(self.forward(state), action_chunk)
+d48 1
+a48 1
+        return self.forward(state)
+d51 3
+a53 2
+class MultiTaskPolicy(ObstaclePolicy):
+    """Goal-conditioned policy for the multicube scene.
+d55 9
+a63 3
+    The task goal is part of ``state``; the same action-chunk MLP therefore
+    remains applicable while conditioning its output on the requested cube.
+    """
+d74 1
+a74 3
+    chunk_size: int,
+    d_model: int = 128,
+    depth: int = 2,
+d80 1
+a80 3
+            chunk_size=chunk_size,
+            d_model=d_model,
+            depth=depth,
+d86 1
+a86 3
+            chunk_size=chunk_size,
+            d_model=d_model,
+            depth=depth,

@@ -1,0 +1,23 @@
+{
+  "seed": 42,
+  "hidden_sizes": [
+    256,
+    128,
+    128
+  ],
+  "total_iterations": 7996,
+  "learning_start_steps": 1024,
+  "train_freq": 128,
+  "gradient_steps": 48,
+  "batch_size": 256,
+  "eval_freq": 2048,
+  "replay_size": 163840,
+  "gamma": 0.99,
+  "tau": 0.005,
+  "actor_lr": 0.0003,
+  "critic_lr": 0.0003,
+  "alpha_lr": 0.0003,
+  "init_alpha": 0.2,
+  "target_entropy": null,
+  "save_interval": 20
+}

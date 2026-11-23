@@ -1,0 +1,67 @@
+d7 1
+a7 1
+    Implementation:
+d21 1
+a21 5
+    denominator = 1.0 + np.sin(t) ** 2
+    y = a * np.cos(t) / denominator
+    z = a * np.cos(t) * np.sin(t) / denominator
+    return y, z
+
+d24 1
+a24 1
+    """Implementation:
+d41 1
+a41 3
+    t = np.linspace(0.0, 2.0 * np.pi, count, endpoint=False)
+    y, z = get_lemniscate_keypoint(t, a=width)
+    return np.column_stack((np.full(count, x_offset, dtype=float), y, z + z_offset))
+d43 3
+a45 12
+
+def ik_track(
+    model,
+    data,
+    site_name,
+    target_pos,
+    damping=1e-3,
+    pos_gain=2.0,
+    dt=0.1,
+    max_iters=2000,
+):
+    """Implementation:
+a77 1
+    original_qvel = data.qvel.copy()
+d84 2
+a85 2
+        # Compute the end-effector position error.
+        err_pos = np.asarray(target_pos) - data.site(site_name).xpos
+d87 3
+a89 4
+        # Stop once the Euclidean position error is below 1 mm.
+        if np.linalg.norm(err_pos) < 1e-3:
+            break
+
+d91 4
+a94 3
+        jacp = np.zeros((3, num_joints))  # position Jacobian
+        mujoco.mj_jacSite(model, data, jacp, None, model.site(site_name).id)
+        J = jacp  # Position-only task; orientation is free to change.
+d96 7
+a102 6
+        # Solve damped least squares in the 3D position task space.
+        # A rotation Jacobian with zero rotational error would constrain
+        # angular velocity even though this exercise has no orientation goal.
+        weighted_err = pos_gain * err_pos
+        system = J @ J.T + damping * np.eye(3)
+        qdot = J.T @ np.linalg.solve(system, weighted_err)
+a109 7
+        limited = model.jnt_limited.astype(bool)
+        addresses = model.jnt_qposadr[limited]
+        data.qpos[addresses] = np.clip(
+            data.qpos[addresses],
+            model.jnt_range[limited, 0],
+            model.jnt_range[limited, 1],
+        )
+a118 1
+    data.qvel[:] = original_qvel

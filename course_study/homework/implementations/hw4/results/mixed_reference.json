@@ -1,0 +1,86 @@
+{
+  "excluded": [
+    107405,
+    107410,
+    107423
+  ],
+  "added": [
+    107500,
+    107501,
+    107502
+  ],
+  "actors": {
+    "ppo": {
+      "sha256": "996088d5b6a3381d8eb25c490ccb9c9436c6edd697425f683c18f0bfb5276f45",
+      "original": {
+        "success": 95,
+        "total": 100,
+        "final_within_5cm": 97,
+        "mean_cm": 1.2967322641563497,
+        "failed": [
+          107405,
+          107410,
+          107423,
+          107437,
+          107492
+        ]
+      },
+      "original_eligible": {
+        "success": 95,
+        "total": 97,
+        "final_within_5cm": 97,
+        "mean_cm": 1.1164959769399714,
+        "failed": [
+          107437,
+          107492
+        ]
+      },
+      "reachable_100": {
+        "success": 98,
+        "total": 100,
+        "final_within_5cm": 100,
+        "mean_cm": 1.1042400207246206,
+        "failed": [
+          107437,
+          107492
+        ]
+      }
+    },
+    "sac": {
+      "sha256": "0040c9d1cd83e3040050bab0707ef9694351f1022acb1c1aa25aa1691356a6a7",
+      "original": {
+        "success": 95,
+        "total": 100,
+        "final_within_5cm": 97,
+        "mean_cm": 1.3868157352679502,
+        "failed": [
+          107405,
+          107410,
+          107423,
+          107437,
+          107492
+        ]
+      },
+      "original_eligible": {
+        "success": 95,
+        "total": 97,
+        "final_within_5cm": 97,
+        "mean_cm": 1.2073822714445608,
+        "failed": [
+          107437,
+          107492
+        ]
+      },
+      "reachable_100": {
+        "success": 98,
+        "total": 100,
+        "final_within_5cm": 100,
+        "mean_cm": 1.1901353110155803,
+        "failed": [
+          107437,
+          107492
+        ]
+      }
+    }
+  }
+}

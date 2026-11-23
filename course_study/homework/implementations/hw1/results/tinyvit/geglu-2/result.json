@@ -1,0 +1,71 @@
+{
+  "variant": "geglu",
+  "seed": 2,
+  "curve": [
+    {
+      "epoch": 1,
+      "loss": 0.6217679572900137,
+      "val_correct": 4627
+    },
+    {
+      "epoch": 2,
+      "loss": 0.18935418674349785,
+      "val_correct": 4759
+    },
+    {
+      "epoch": 3,
+      "loss": 0.13590097931524117,
+      "val_correct": 4819
+    },
+    {
+      "epoch": 4,
+      "loss": 0.10399584420522054,
+      "val_correct": 4835
+    },
+    {
+      "epoch": 5,
+      "loss": 0.08759004320204258,
+      "val_correct": 4870
+    },
+    {
+      "epoch": 6,
+      "loss": 0.07406658053894838,
+      "val_correct": 4888
+    },
+    {
+      "epoch": 7,
+      "loss": 0.06624805874998371,
+      "val_correct": 4870
+    },
+    {
+      "epoch": 8,
+      "loss": 0.057601916087791326,
+      "val_correct": 4890
+    },
+    {
+      "epoch": 9,
+      "loss": 0.05237463072749476,
+      "val_correct": 4892
+    },
+    {
+      "epoch": 10,
+      "loss": 0.04704326256054143,
+      "val_correct": 4869
+    },
+    {
+      "epoch": 11,
+      "loss": 0.044580340406546994,
+      "val_correct": 4899
+    },
+    {
+      "epoch": 12,
+      "loss": 0.041050995089734595,
+      "val_correct": 4880
+    }
+  ],
+  "train_n": 48000,
+  "val_n": 5000,
+  "test_n": 10000,
+  "correct": 9785,
+  "parameters": 104882
+}

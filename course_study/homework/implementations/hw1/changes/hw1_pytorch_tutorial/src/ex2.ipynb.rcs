@@ -1,0 +1,169 @@
+d8 10
+a17 2
+    leaf = x.detach().clone().requires_grad_(True)
+    return torch.autograd.grad((leaf**2).sum(), leaf)[0]
+d19 1
+d21 9
+a29 3
+    leaf = x.detach().clone().requires_grad_(True)
+    (leaf**2).sum().backward()
+    return leaf.grad.detach().clone()
+d32 1
+a32 1
+    a: torch.Tensor, b: torch.Tensor
+d34 12
+a45 3
+    a_leaf = a.detach().clone().requires_grad_(True)
+    b_leaf = b.detach().clone().requires_grad_(True)
+    return torch.autograd.grad((a_leaf**2 + a_leaf * b_leaf).sum(), (a_leaf, b_leaf))
+d50 9
+d60 2
+a61 3
+        if len(x) != len(y):
+            raise ValueError("x and y must contain the same number of samples")
+        self.x, self.y = x, y
+d64 2
+a65 1
+        return len(self.x)
+d68 2
+a69 1
+        return self.x[idx], self.y[idx]
+d72 15
+d88 2
+a89 3
+        if tokens.ndim != 2 or tokens.shape[1] < 2:
+            raise ValueError("tokens must have shape (N, T) with T >= 2")
+        self.tokens = tokens
+d92 2
+a93 1
+        return len(self.tokens)
+d96 2
+a97 1
+        return self.tokens[idx, :-1], self.tokens[idx, 1:]
+d99 1
+d101 15
+d117 2
+a118 7
+        if tokens.ndim != 2 or not 0 < crop_len <= tokens.shape[1]:
+            raise ValueError("crop_len must be in [1, T_total]")
+        self.tokens = tokens
+        self.crop_len = crop_len
+        self.generator = torch.Generator()
+        if seed is not None:
+            self.generator.manual_seed(seed)
+d121 2
+a122 1
+        return len(self.tokens)
+d125 2
+a126 3
+        max_start = self.tokens.shape[1] - self.crop_len
+        start = int(torch.randint(max_start + 1, (), generator=self.generator))
+        return self.tokens[idx, start : start + self.crop_len]
+d128 2
+d132 8
+d146 10
+a155 13
+    if not seqs:
+        raise ValueError("seqs must not be empty")
+    device = seqs[0].device
+    lengths = torch.tensor([len(seq) for seq in seqs], dtype=torch.long, device=device)
+    max_len = int(lengths.max())
+    tokens = torch.full(
+        (len(seqs), max_len), pad_value, dtype=torch.long, device=device
+    )
+    for row, seq in enumerate(seqs):
+        tokens[row, : len(seq)] = seq.to(device=device, dtype=torch.long)
+    positions = torch.arange(max_len, device=device).unsqueeze(0)
+    padding_mask = positions >= lengths.unsqueeze(1)
+    return PaddedBatch(tokens, lengths, padding_mask)
+d160 17
+a176 11
+    inputs, targets = zip(*batch)
+    input_batch = pad_1d_sequences(list(inputs), pad_value)
+    target_batch = pad_1d_sequences(list(targets), pad_value)
+    if not torch.equal(input_batch.lengths, target_batch.lengths):
+        raise ValueError("input and target lengths must match")
+    return {
+        "input_ids": input_batch.tokens,
+        "target_ids": target_batch.tokens,
+        "attention_mask": ~input_batch.padding_mask,
+        "padding_mask": input_batch.padding_mask,
+    }
+d186 5
+a190 8
+    return DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=shuffle,
+        drop_last=drop_last,
+        collate_fn=collate_fn,
+        num_workers=num_workers,
+    )
+d194 8
+d208 18
+a225 2
+    with torch.no_grad():
+        return AdamWState(torch.zeros_like(p), torch.zeros_like(p), 0)
+d236 18
+a253 9
+    beta1, beta2 = betas
+    with torch.no_grad():
+        state.t += 1
+        state.m.mul_(beta1).add_(grad, alpha=1 - beta1)
+        state.v.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
+        m_hat = state.m / (1 - beta1**state.t)
+        v_hat = state.v / (1 - beta2**state.t)
+        p.add_(m_hat / (v_hat.sqrt() + eps) + weight_decay * p, alpha=-lr)
+    return state
+d264 10
+a273 6
+    if not (len(params) == len(grads) == len(states)):
+        raise ValueError("params, grads, and states must have equal lengths")
+    return [
+        adamw_step_(p, g, s, lr, betas, eps, weight_decay)
+        for p, g, s in zip(params, grads, states, strict=True)
+    ]
+d280 5
+a284 7
+    model.train()
+    x, target = batch
+    optimizer.zero_grad()
+    loss = torch.nn.functional.mse_loss(model(x), target)
+    loss.backward()
+    optimizer.step()
+    return float(loss.detach())
+d287 3
+a289 4
+    if weight.ndim < 2:
+        raise ValueError("weight must have at least two dimensions")
+    receptive = int(torch.tensor(weight.shape[2:]).prod()) if weight.ndim > 2 else 1
+    return weight.shape[1] * receptive, weight.shape[0] * receptive
+d292 7
+a298 4
+    fan_in, fan_out = fan_in_fan_out(weight)
+    bound = gain * (6.0 / (fan_in + fan_out)) ** 0.5
+    with torch.no_grad():
+        return weight.uniform_(-bound, bound)
+d301 11
+a311 6
+    if nonlinearity != "relu":
+        raise ValueError("this exercise implements the ReLU gain only")
+    fan_in, _ = fan_in_fan_out(weight)
+    bound = (6.0 / fan_in) ** 0.5
+    with torch.no_grad():
+        return weight.uniform_(-bound, bound)
+d314 10
+a323 13
+    if scheme == "xavier":
+        xavier_uniform_(layer.weight)
+    elif scheme == "kaiming_relu":
+        kaiming_uniform_(layer.weight)
+    elif scheme == "zero":
+        with torch.no_grad():
+            layer.weight.zero_()
+    else:
+        raise ValueError(f"unknown initialization scheme: {scheme}")
+    if layer.bias is not None:
+        with torch.no_grad():
+            layer.bias.zero_()
+    return layer

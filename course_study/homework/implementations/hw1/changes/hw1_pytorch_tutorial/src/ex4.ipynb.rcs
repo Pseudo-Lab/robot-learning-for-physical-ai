@@ -1,0 +1,211 @@
+d5 1
+a5 2
+import os
+from dataclasses import dataclass, replace
+d10 1
+a10 1
+from torch.utils.data import DataLoader, Subset
+d14 3
+a16 8
+    if x.ndim != 4 or x.shape[-2] % patch_size or x.shape[-1] % patch_size:
+        raise ValueError(
+            "images must have shape (B,C,H,W) with H and W divisible by patch_size"
+        )
+    patches = x.unfold(2, patch_size, patch_size).unfold(3, patch_size, patch_size)
+    return patches.permute(0, 2, 3, 1, 4, 5).reshape(
+        x.shape[0], -1, x.shape[1] * patch_size**2
+    )
+d18 1
+d22 2
+a23 1
+        self.projection = nn.Linear(patch_dim, d_model)
+d26 2
+a27 1
+        return self.projection(x_patches)
+d33 2
+a34 2
+        self.embedding = nn.Parameter(torch.empty(1, num_tokens, d_model))
+        nn.init.trunc_normal_(self.embedding, std=0.02)
+d37 2
+a38 3
+        if x.shape[1] != self.embedding.shape[1]:
+            raise ValueError("token count does not match positional embedding")
+        return x + self.embedding
+d40 1
+d42 4
+d48 2
+a49 7
+        self.net = nn.Sequential(
+            nn.Linear(d_model, d_ff),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(d_ff, d_model),
+            nn.Dropout(dropout),
+        )
+d52 2
+a53 1
+        return self.net(x)
+d57 1
+d60 2
+a61 6
+        if variant not in {"geglu", "swiglu"}:
+            raise ValueError(f"unknown GLU variant: {variant}")
+        self.variant = variant
+        self.input_projection = nn.Linear(d_model, 2 * d_ff_gated)
+        self.output_projection = nn.Linear(d_ff_gated, d_model)
+        self.dropout = nn.Dropout(dropout)
+d64 2
+a65 3
+        gate, value = self.input_projection(x).chunk(2, dim=-1)
+        activated = F.gelu(gate) if self.variant == "geglu" else F.silu(gate)
+        return self.dropout(self.output_projection(self.dropout(activated * value)))
+d68 5
+d75 1
+a75 6
+        self.norm1, self.norm2 = nn.LayerNorm(d_model), nn.LayerNorm(d_model)
+        self.attention = nn.MultiheadAttention(
+            d_model, n_heads, dropout=dropout, batch_first=True
+        )
+        self.mlp = mlp
+        self.dropout = nn.Dropout(dropout)
+d78 2
+a79 6
+        normalized = self.norm1(x)
+        attended, _ = self.attention(
+            normalized, normalized, normalized, need_weights=False
+        )
+        x = x + self.dropout(attended)
+        return x + self.mlp(self.norm2(x))
+d82 4
+d97 3
+a99 3
+        if 28 % patch_size:
+            raise ValueError("patch_size must divide 28")
+        self.num_tokens = (28 // patch_size) ** 2
+d101 17
+a117 16
+        self.patch_embed = PatchEmbed(patch_size**2, d_model)
+        self.position = PositionalEmbedding(self.num_tokens, d_model)
+        blocks = []
+        for _ in range(n_layers):
+            if mlp_kind == "ffn":
+                mlp = FeedForward(d_model, d_ff, dropout)
+            elif mlp_kind in {"geglu", "swiglu"}:
+                mlp = GLUFeedForward(
+                    d_model, max(1, int(2 * d_ff / 3)), dropout, mlp_kind
+                )
+            else:
+                raise ValueError(f"unknown mlp_kind: {mlp_kind}")
+            blocks.append(TransformerEncoderBlock(d_model, n_heads, mlp, dropout))
+        self.blocks = nn.ModuleList(blocks)
+        self.norm = nn.LayerNorm(d_model)
+        self.head = nn.Linear(d_model, 10)
+d120 3
+a122 4
+        x = self.position(self.patch_embed(patchify(x, self.patch_size)))
+        for block in self.blocks:
+            x = block(x)
+        return self.head(self.norm(x).mean(dim=1))
+a139 1
+    torch.manual_seed(cfg.seed)
+d141 5
+a145 4
+    opt = torch.optim.AdamW(
+        model.parameters(), lr=cfg.lr, weight_decay=cfg.weight_decay
+    )
+    train_losses, test_accs = [], []
+d147 2
+d150 7
+a156 3
+        for xb, yb in train_loader:
+            xb, yb = xb.to(cfg.device), yb.to(cfg.device)
+            loss = F.cross_entropy(model(xb), yb)
+d160 1
+d162 2
+d165 2
+a166 1
+        correct = total = 0
+d169 4
+a172 2
+                logits = model(xb.to(cfg.device))
+                correct += (logits.argmax(dim=-1) == yb.to(cfg.device)).sum().item()
+d174 1
+d176 2
+a177 3
+        print(
+            f"[{mlp_kind}] seed {cfg.seed} epoch {epoch + 1}/{cfg.epochs} | test acc: {test_accs[-1]:.4f}"
+        )
+d179 1
+a179 7
+        "variant": mlp_kind,
+        "seed": cfg.seed,
+        "parameters": sum(p.numel() for p in model.parameters()),
+        "train_losses": train_losses,
+        "test_accuracies": test_accs,
+        "best_test_accuracy": max(test_accs),
+        "final_test_accuracy": test_accs[-1],
+d182 2
+a183 11
+smoke_mode = os.environ.get("HW_SMOKE") == "1"
+device = os.environ.get("HW_DEVICE", "cuda" if torch.cuda.is_available() else "cpu")
+if device == "cuda" and not torch.cuda.is_available():
+    raise RuntimeError("CUDA requested but unavailable")
+base_cfg = TrainConfig(
+    batch_size=128,
+    epochs=1 if smoke_mode else 5,
+    lr=3e-4,
+    weight_decay=0.01,
+    device=device,
+)
+d185 1
+a187 8
+if smoke_mode:
+    train_ds, test_ds = Subset(train_ds, range(512)), Subset(test_ds, range(256))
+train_loader = DataLoader(
+    train_ds, batch_size=base_cfg.batch_size, shuffle=True, num_workers=0
+)
+test_loader = DataLoader(
+    test_ds, batch_size=base_cfg.batch_size, shuffle=False, num_workers=0
+)
+d189 2
+a190 19
+patch_size, d_model, n_heads, n_layers, d_ff, dropout = (
+    (4, 32, 4, 1, 128, 0.1) if smoke_mode else (4, 64, 4, 2, 256, 0.1)
+)
+runs = ["ffn", "geglu", "swiglu"]
+seeds = [0, 1] if smoke_mode else [0, 1, 2]
+results = []
+for seed in seeds:
+    cfg = replace(base_cfg, seed=seed)
+    for kind in runs:
+        torch.manual_seed(seed)
+        model = TinyViT(patch_size, d_model, n_heads, n_layers, d_ff, dropout, kind)
+        print(
+            f"\nRun: {kind} | seed={seed} | parameters={sum(p.numel() for p in model.parameters()):,}"
+        )
+        results.append(train_one_run(kind, model, train_loader, test_loader, cfg))
+expected_runs = len(runs) * len(seeds)
+if len(results) != expected_runs:
+    raise RuntimeError(f"Expected {expected_runs} ablation runs, got {len(results)}")
+from statistics import mean, stdev
+d192 7
+a198 1
+import matplotlib.pyplot as plt
+d200 3
+a202 2
+fig, ax = plt.subplots()
+epochs = list(range(1, base_cfg.epochs + 1))
+d204 8
+a211 5
+    group = [r for r in results if r["variant"] == kind]
+    final = [r["final_test_accuracy"] for r in group]
+    print(
+        f"{kind}: {group[0]['parameters']:,} parameters | "
+        f"final {mean(final):.2%} +/- {stdev(final):.2%} (SD) across {len(final)} seeds"
+d213 4
+a216 5
+    ax.plot(epochs, [mean(values) for values in zip(*(r["test_accuracies"] for r in group))],
+            "o-", label=kind)
+ax.set(xlabel="Epoch", ylabel="Mean test accuracy", xticks=epochs)
+ax.legend()
+plt.show()

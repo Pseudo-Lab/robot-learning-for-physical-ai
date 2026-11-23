@@ -1,0 +1,506 @@
+{
+  "success": 99,
+  "total": 100,
+  "rows": [
+    {
+      "seed": 107200,
+      "final_error_m": 0.009836137044500417,
+      "success": true
+    },
+    {
+      "seed": 107201,
+      "final_error_m": 0.020854460093801087,
+      "success": true
+    },
+    {
+      "seed": 107202,
+      "final_error_m": 0.011211542719209005,
+      "success": true
+    },
+    {
+      "seed": 107203,
+      "final_error_m": 0.007392567475320614,
+      "success": true
+    },
+    {
+      "seed": 107204,
+      "final_error_m": 0.009650344423278555,
+      "success": true
+    },
+    {
+      "seed": 107205,
+      "final_error_m": 0.026109281466210926,
+      "success": true
+    },
+    {
+      "seed": 107206,
+      "final_error_m": 0.005079702432058384,
+      "success": true
+    },
+    {
+      "seed": 107207,
+      "final_error_m": 0.024403142851775573,
+      "success": true
+    },
+    {
+      "seed": 107208,
+      "final_error_m": 0.08730218839094081,
+      "success": false
+    },
+    {
+      "seed": 107209,
+      "final_error_m": 0.001864931641475622,
+      "success": true
+    },
+    {
+      "seed": 107210,
+      "final_error_m": 0.013291506604785503,
+      "success": true
+    },
+    {
+      "seed": 107211,
+      "final_error_m": 0.011339463117639418,
+      "success": true
+    },
+    {
+      "seed": 107212,
+      "final_error_m": 0.009961506589454864,
+      "success": true
+    },
+    {
+      "seed": 107213,
+      "final_error_m": 0.0022396560531493435,
+      "success": true
+    },
+    {
+      "seed": 107214,
+      "final_error_m": 0.010960755814593342,
+      "success": true
+    },
+    {
+      "seed": 107215,
+      "final_error_m": 0.00313798011509795,
+      "success": true
+    },
+    {
+      "seed": 107216,
+      "final_error_m": 0.008194768832264205,
+      "success": true
+    },
+    {
+      "seed": 107217,
+      "final_error_m": 0.01854743036787382,
+      "success": true
+    },
+    {
+      "seed": 107218,
+      "final_error_m": 0.008271029845480992,
+      "success": true
+    },
+    {
+      "seed": 107219,
+      "final_error_m": 0.005812344796346657,
+      "success": true
+    },
+    {
+      "seed": 107220,
+      "final_error_m": 0.006072125635682181,
+      "success": true
+    },
+    {
+      "seed": 107221,
+      "final_error_m": 0.010723101246891634,
+      "success": true
+    },
+    {
+      "seed": 107222,
+      "final_error_m": 0.012745335856213277,
+      "success": true
+    },
+    {
+      "seed": 107223,
+      "final_error_m": 0.017970713865430393,
+      "success": true
+    },
+    {
+      "seed": 107224,
+      "final_error_m": 0.010920955734845103,
+      "success": true
+    },
+    {
+      "seed": 107225,
+      "final_error_m": 0.04350995716224156,
+      "success": true
+    },
+    {
+      "seed": 107226,
+      "final_error_m": 0.035090133133444355,
+      "success": true
+    },
+    {
+      "seed": 107227,
+      "final_error_m": 0.011419847101342757,
+      "success": true
+    },
+    {
+      "seed": 107228,
+      "final_error_m": 0.006776232596891305,
+      "success": true
+    },
+    {
+      "seed": 107229,
+      "final_error_m": 0.012996235458430407,
+      "success": true
+    },
+    {
+      "seed": 107230,
+      "final_error_m": 0.006379039285000577,
+      "success": true
+    },
+    {
+      "seed": 107231,
+      "final_error_m": 0.002698928230126693,
+      "success": true
+    },
+    {
+      "seed": 107232,
+      "final_error_m": 0.03184618954212044,
+      "success": true
+    },
+    {
+      "seed": 107233,
+      "final_error_m": 0.0013017122022385347,
+      "success": true
+    },
+    {
+      "seed": 107234,
+      "final_error_m": 0.03215604923620947,
+      "success": true
+    },
+    {
+      "seed": 107235,
+      "final_error_m": 0.006923994768597994,
+      "success": true
+    },
+    {
+      "seed": 107236,
+      "final_error_m": 0.01304192306018793,
+      "success": true
+    },
+    {
+      "seed": 107237,
+      "final_error_m": 0.011102060292202396,
+      "success": true
+    },
+    {
+      "seed": 107238,
+      "final_error_m": 0.00764278112876929,
+      "success": true
+    },
+    {
+      "seed": 107239,
+      "final_error_m": 0.0049843908920976085,
+      "success": true
+    },
+    {
+      "seed": 107240,
+      "final_error_m": 0.007730507923969532,
+      "success": true
+    },
+    {
+      "seed": 107241,
+      "final_error_m": 0.006509373674020852,
+      "success": true
+    },
+    {
+      "seed": 107242,
+      "final_error_m": 0.00508129001472771,
+      "success": true
+    },
+    {
+      "seed": 107243,
+      "final_error_m": 0.00715038181663712,
+      "success": true
+    },
+    {
+      "seed": 107244,
+      "final_error_m": 0.005878858184042374,
+      "success": true
+    },
+    {
+      "seed": 107245,
+      "final_error_m": 0.0020781164260285463,
+      "success": true
+    },
+    {
+      "seed": 107246,
+      "final_error_m": 0.01330305800072793,
+      "success": true
+    },
+    {
+      "seed": 107247,
+      "final_error_m": 0.0024999365688836354,
+      "success": true
+    },
+    {
+      "seed": 107248,
+      "final_error_m": 0.01821482001666431,
+      "success": true
+    },
+    {
+      "seed": 107249,
+      "final_error_m": 0.010568285585444023,
+      "success": true
+    },
+    {
+      "seed": 107250,
+      "final_error_m": 0.002908069364366564,
+      "success": true
+    },
+    {
+      "seed": 107251,
+      "final_error_m": 0.007264436180737244,
+      "success": true
+    },
+    {
+      "seed": 107252,
+      "final_error_m": 0.010541126745987287,
+      "success": true
+    },
+    {
+      "seed": 107253,
+      "final_error_m": 0.025501673927432786,
+      "success": true
+    },
+    {
+      "seed": 107254,
+      "final_error_m": 0.009112902841603033,
+      "success": true
+    },
+    {
+      "seed": 107255,
+      "final_error_m": 0.005017125033253685,
+      "success": true
+    },
+    {
+      "seed": 107256,
+      "final_error_m": 0.007927229986847363,
+      "success": true
+    },
+    {
+      "seed": 107257,
+      "final_error_m": 0.0058054988523668725,
+      "success": true
+    },
+    {
+      "seed": 107258,
+      "final_error_m": 0.02023735606408917,
+      "success": true
+    },
+    {
+      "seed": 107259,
+      "final_error_m": 0.007026752379780047,
+      "success": true
+    },
+    {
+      "seed": 107260,
+      "final_error_m": 0.005975248315472759,
+      "success": true
+    },
+    {
+      "seed": 107261,
+      "final_error_m": 0.009229712440539984,
+      "success": true
+    },
+    {
+      "seed": 107262,
+      "final_error_m": 0.011336978524598714,
+      "success": true
+    },
+    {
+      "seed": 107263,
+      "final_error_m": 0.012283378694522618,
+      "success": true
+    },
+    {
+      "seed": 107264,
+      "final_error_m": 0.008905539913738443,
+      "success": true
+    },
+    {
+      "seed": 107265,
+      "final_error_m": 0.0073040302648762455,
+      "success": true
+    },
+    {
+      "seed": 107266,
+      "final_error_m": 0.004048644065124437,
+      "success": true
+    },
+    {
+      "seed": 107267,
+      "final_error_m": 0.006413511407367908,
+      "success": true
+    },
+    {
+      "seed": 107268,
+      "final_error_m": 0.027171788259413958,
+      "success": true
+    },
+    {
+      "seed": 107269,
+      "final_error_m": 0.03491111739917422,
+      "success": true
+    },
+    {
+      "seed": 107270,
+      "final_error_m": 0.006128556487940662,
+      "success": true
+    },
+    {
+      "seed": 107271,
+      "final_error_m": 0.006654348689886759,
+      "success": true
+    },
+    {
+      "seed": 107272,
+      "final_error_m": 0.010607983786644659,
+      "success": true
+    },
+    {
+      "seed": 107273,
+      "final_error_m": 0.0032828189597305037,
+      "success": true
+    },
+    {
+      "seed": 107274,
+      "final_error_m": 0.024385135695443365,
+      "success": true
+    },
+    {
+      "seed": 107275,
+      "final_error_m": 0.009070473009656705,
+      "success": true
+    },
+    {
+      "seed": 107276,
+      "final_error_m": 0.008945302000525169,
+      "success": true
+    },
+    {
+      "seed": 107277,
+      "final_error_m": 0.03005576806059506,
+      "success": true
+    },
+    {
+      "seed": 107278,
+      "final_error_m": 0.005256058048077845,
+      "success": true
+    },
+    {
+      "seed": 107279,
+      "final_error_m": 0.007651062462328349,
+      "success": true
+    },
+    {
+      "seed": 107280,
+      "final_error_m": 0.007937755569316066,
+      "success": true
+    },
+    {
+      "seed": 107281,
+      "final_error_m": 0.028134200826437673,
+      "success": true
+    },
+    {
+      "seed": 107282,
+      "final_error_m": 0.013092372436579802,
+      "success": true
+    },
+    {
+      "seed": 107283,
+      "final_error_m": 0.0018219607665533961,
+      "success": true
+    },
+    {
+      "seed": 107284,
+      "final_error_m": 0.009254553461603088,
+      "success": true
+    },
+    {
+      "seed": 107285,
+      "final_error_m": 0.005676117046735029,
+      "success": true
+    },
+    {
+      "seed": 107286,
+      "final_error_m": 0.020527236302499263,
+      "success": true
+    },
+    {
+      "seed": 107287,
+      "final_error_m": 0.016242429753034915,
+      "success": true
+    },
+    {
+      "seed": 107288,
+      "final_error_m": 0.01342361131776067,
+      "success": true
+    },
+    {
+      "seed": 107289,
+      "final_error_m": 0.006282283133960652,
+      "success": true
+    },
+    {
+      "seed": 107290,
+      "final_error_m": 0.0020004440650340555,
+      "success": true
+    },
+    {
+      "seed": 107291,
+      "final_error_m": 0.015266613825150785,
+      "success": true
+    },
+    {
+      "seed": 107292,
+      "final_error_m": 0.0020404354344982713,
+      "success": true
+    },
+    {
+      "seed": 107293,
+      "final_error_m": 0.013889622741703083,
+      "success": true
+    },
+    {
+      "seed": 107294,
+      "final_error_m": 0.027289764585374694,
+      "success": true
+    },
+    {
+      "seed": 107295,
+      "final_error_m": 0.00794853648086688,
+      "success": true
+    },
+    {
+      "seed": 107296,
+      "final_error_m": 0.009560603058205296,
+      "success": true
+    },
+    {
+      "seed": 107297,
+      "final_error_m": 0.007379444923973452,
+      "success": true
+    },
+    {
+      "seed": 107298,
+      "final_error_m": 0.0056026821240579,
+      "success": true
+    },
+    {
+      "seed": 107299,
+      "final_error_m": 0.02660329160222611,
+      "success": true
+    }
+  ]
+}

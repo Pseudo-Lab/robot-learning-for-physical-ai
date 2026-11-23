@@ -1,0 +1,238 @@
+{
+  "rl-ppo": {
+    "initial": {
+      "step": 0,
+      "original": {
+        "success": 1,
+        "total": 100,
+        "mean_cm": 15.93150063740768
+      },
+      "reachable": {
+        "success": 1,
+        "total": 100,
+        "mean_cm": 15.794808338688643
+      },
+      "focus_cm": 16.672624392950738
+    },
+    "short": {
+      "step": 163840,
+      "original": {
+        "success": 77,
+        "total": 100,
+        "mean_cm": 4.025298781111156
+      },
+      "reachable": {
+        "success": 80,
+        "total": 100,
+        "mean_cm": 3.787217167364174
+      },
+      "focus_cm": 10.203783026503256
+    },
+    "final": {
+      "step": 1024000,
+      "original": {
+        "success": 95,
+        "total": 100,
+        "mean_cm": 1.6317469443486252
+      },
+      "reachable": {
+        "success": 98,
+        "total": 100,
+        "mean_cm": 1.4473510983077886
+      },
+      "focus_cm": 5.765308154034346
+    },
+    "selected": {
+      "step": 1024000,
+      "original": {
+        "success": 95,
+        "total": 100,
+        "mean_cm": 1.6317469443486252
+      },
+      "reachable": {
+        "success": 98,
+        "total": 100,
+        "mean_cm": 1.4473510983077886
+      },
+      "focus_cm": 5.765308154034346
+    },
+    "training_seconds": 1259.7
+  },
+  "bc-ppo": {
+    "initial": {
+      "step": 0,
+      "original": {
+        "success": 95,
+        "total": 100,
+        "mean_cm": 1.5895856465518288
+      },
+      "reachable": {
+        "success": 98,
+        "total": 100,
+        "mean_cm": 1.3962297542867543
+      },
+      "focus_cm": 5.702490323374378
+    },
+    "short": {
+      "step": 163840,
+      "original": {
+        "success": 49,
+        "total": 100,
+        "mean_cm": 5.827612789812565
+      },
+      "reachable": {
+        "success": 51,
+        "total": 100,
+        "mean_cm": 5.52113167824438
+      },
+      "focus_cm": 13.039593262463885
+    },
+    "final": {
+      "step": 1024000,
+      "original": {
+        "success": 93,
+        "total": 100,
+        "mean_cm": 2.8297642571355537
+      },
+      "reachable": {
+        "success": 96,
+        "total": 100,
+        "mean_cm": 2.640227935753315
+      },
+      "focus_cm": 6.297572052018044
+    },
+    "selected": {
+      "step": 1024000,
+      "original": {
+        "success": 93,
+        "total": 100,
+        "mean_cm": 2.8297642571355537
+      },
+      "reachable": {
+        "success": 96,
+        "total": 100,
+        "mean_cm": 2.640227935753315
+      },
+      "focus_cm": 6.297572052018044
+    },
+    "training_seconds": 1278.95
+  },
+  "rl-sac": {
+    "initial": {
+      "step": 0,
+      "original": {
+        "success": 1,
+        "total": 100,
+        "mean_cm": 16.072887125701847
+      },
+      "reachable": {
+        "success": 1,
+        "total": 100,
+        "mean_cm": 15.936370985629484
+      },
+      "focus_cm": 16.626497837804013
+    },
+    "short": {
+      "step": 163840,
+      "original": {
+        "success": 73,
+        "total": 100,
+        "mean_cm": 5.521887914606874
+      },
+      "reachable": {
+        "success": 76,
+        "total": 100,
+        "mean_cm": 4.5266607072865295
+      },
+      "focus_cm": 11.529710194659975
+    },
+    "final": {
+      "step": 1024500,
+      "original": {
+        "success": 92,
+        "total": 100,
+        "mean_cm": 2.3112634998729966
+      },
+      "reachable": {
+        "success": 95,
+        "total": 100,
+        "mean_cm": 1.9493140575652874
+      },
+      "focus_cm": 9.036605807764069
+    },
+    "selected": {
+      "step": 1024500,
+      "original": {
+        "success": 92,
+        "total": 100,
+        "mean_cm": 2.3112634998729966
+      },
+      "reachable": {
+        "success": 95,
+        "total": 100,
+        "mean_cm": 1.9493140575652874
+      },
+      "focus_cm": 9.036605807764069
+    },
+    "training_seconds": 1424.76
+  },
+  "bc-sac": {
+    "initial": {
+      "step": 0,
+      "original": {
+        "success": 95,
+        "total": 100,
+        "mean_cm": 1.6317558431052819
+      },
+      "reachable": {
+        "success": 98,
+        "total": 100,
+        "mean_cm": 1.432813762760468
+      },
+      "focus_cm": 5.853586776429146
+    },
+    "short": {
+      "step": 163840,
+      "original": {
+        "success": 59,
+        "total": 100,
+        "mean_cm": 5.552103210873926
+      },
+      "reachable": {
+        "success": 62,
+        "total": 100,
+        "mean_cm": 5.20251302283941
+      },
+      "focus_cm": 13.908618242796997
+    },
+    "final": {
+      "step": 1024500,
+      "original": {
+        "success": 92,
+        "total": 100,
+        "mean_cm": 2.4350956232136145
+      },
+      "reachable": {
+        "success": 95,
+        "total": 100,
+        "mean_cm": 2.1456689564752174
+      },
+      "focus_cm": 9.659259726438709
+    },
+    "selected": {
+      "step": 1024500,
+      "original": {
+        "success": 92,
+        "total": 100,
+        "mean_cm": 2.4350956232136145
+      },
+      "reachable": {
+        "success": 95,
+        "total": 100,
+        "mean_cm": 2.1456689564752174
+      },
+      "focus_cm": 9.659259726438709
+    },
+    "training_seconds": 1436.49
+  }
+}

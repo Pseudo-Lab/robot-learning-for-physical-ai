@@ -1,0 +1,1006 @@
+{
+  "success": 100,
+  "total": 100,
+  "rows": [
+    {
+      "seed": 107200,
+      "width": 0.15364271739200458,
+      "targets": 80,
+      "max_ik_error_m": 0.0009998038107013338,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 287,
+      "success": true
+    },
+    {
+      "seed": 107201,
+      "width": 0.1672010137131933,
+      "targets": 80,
+      "max_ik_error_m": 0.000995550302286418,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 341,
+      "success": true
+    },
+    {
+      "seed": 107202,
+      "width": 0.14855630770310668,
+      "targets": 80,
+      "max_ik_error_m": 0.0009998924165715067,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 296,
+      "success": true
+    },
+    {
+      "seed": 107203,
+      "width": 0.19721582036430282,
+      "targets": 80,
+      "max_ik_error_m": 0.0009985265087818114,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 464,
+      "success": true
+    },
+    {
+      "seed": 107204,
+      "width": 0.16139938138258625,
+      "targets": 80,
+      "max_ik_error_m": 0.0009999415195476517,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 355,
+      "success": true
+    },
+    {
+      "seed": 107205,
+      "width": 0.1808377845819068,
+      "targets": 80,
+      "max_ik_error_m": 0.000991263194597249,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 297,
+      "success": true
+    },
+    {
+      "seed": 107206,
+      "width": 0.19814847495741392,
+      "targets": 80,
+      "max_ik_error_m": 0.000990111359461717,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 344,
+      "success": true
+    },
+    {
+      "seed": 107207,
+      "width": 0.23534426391518304,
+      "targets": 80,
+      "max_ik_error_m": 0.0009992583258653974,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 602,
+      "success": true
+    },
+    {
+      "seed": 107208,
+      "width": 0.16276059875660207,
+      "targets": 80,
+      "max_ik_error_m": 0.0009876809622578818,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 376,
+      "success": true
+    },
+    {
+      "seed": 107209,
+      "width": 0.16297535128794038,
+      "targets": 80,
+      "max_ik_error_m": 0.0009889850221581954,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 376,
+      "success": true
+    },
+    {
+      "seed": 107210,
+      "width": 0.1699383958497702,
+      "targets": 80,
+      "max_ik_error_m": 0.0009965425843269358,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 413,
+      "success": true
+    },
+    {
+      "seed": 107211,
+      "width": 0.20856524462767412,
+      "targets": 80,
+      "max_ik_error_m": 0.000997355526857278,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 742,
+      "success": true
+    },
+    {
+      "seed": 107212,
+      "width": 0.24284271378150843,
+      "targets": 80,
+      "max_ik_error_m": 0.000992720680510554,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 635,
+      "success": true
+    },
+    {
+      "seed": 107213,
+      "width": 0.148633339454686,
+      "targets": 80,
+      "max_ik_error_m": 0.0009948214097689968,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 296,
+      "success": true
+    },
+    {
+      "seed": 107214,
+      "width": 0.23598670263262883,
+      "targets": 80,
+      "max_ik_error_m": 0.0009988950870474021,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 680,
+      "success": true
+    },
+    {
+      "seed": 107215,
+      "width": 0.23504555670972963,
+      "targets": 80,
+      "max_ik_error_m": 0.0009995876006416696,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 602,
+      "success": true
+    },
+    {
+      "seed": 107216,
+      "width": 0.17772371969897952,
+      "targets": 80,
+      "max_ik_error_m": 0.000999617933419749,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 250,
+      "success": true
+    },
+    {
+      "seed": 107217,
+      "width": 0.16154733297103474,
+      "targets": 80,
+      "max_ik_error_m": 0.0009803136954008001,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 358,
+      "success": true
+    },
+    {
+      "seed": 107218,
+      "width": 0.19447711129039028,
+      "targets": 80,
+      "max_ik_error_m": 0.0009970151244597153,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 429,
+      "success": true
+    },
+    {
+      "seed": 107219,
+      "width": 0.1703755044889475,
+      "targets": 80,
+      "max_ik_error_m": 0.0009991077650396082,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 413,
+      "success": true
+    },
+    {
+      "seed": 107220,
+      "width": 0.15637308065006933,
+      "targets": 80,
+      "max_ik_error_m": 0.000994128428804092,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 362,
+      "success": true
+    },
+    {
+      "seed": 107221,
+      "width": 0.1766354316756237,
+      "targets": 80,
+      "max_ik_error_m": 0.0009949598568981125,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 498,
+      "success": true
+    },
+    {
+      "seed": 107222,
+      "width": 0.182079195692032,
+      "targets": 80,
+      "max_ik_error_m": 0.0009981145093957069,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 370,
+      "success": true
+    },
+    {
+      "seed": 107223,
+      "width": 0.14104394980894258,
+      "targets": 80,
+      "max_ik_error_m": 0.0009953140653243377,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 400,
+      "success": true
+    },
+    {
+      "seed": 107224,
+      "width": 0.24623015046986219,
+      "targets": 80,
+      "max_ik_error_m": 0.0009998800040720433,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 728,
+      "success": true
+    },
+    {
+      "seed": 107225,
+      "width": 0.236582636675572,
+      "targets": 80,
+      "max_ik_error_m": 0.0009988630218396206,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 747,
+      "success": true
+    },
+    {
+      "seed": 107226,
+      "width": 0.1805838759063183,
+      "targets": 80,
+      "max_ik_error_m": 0.0009898629580581408,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 297,
+      "success": true
+    },
+    {
+      "seed": 107227,
+      "width": 0.18934236033733862,
+      "targets": 80,
+      "max_ik_error_m": 0.0009979332444270195,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 321,
+      "success": true
+    },
+    {
+      "seed": 107228,
+      "width": 0.2440725647487903,
+      "targets": 80,
+      "max_ik_error_m": 0.0009991307927026988,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 719,
+      "success": true
+    },
+    {
+      "seed": 107229,
+      "width": 0.23241723545630705,
+      "targets": 80,
+      "max_ik_error_m": 0.0009981400459094319,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 732,
+      "success": true
+    },
+    {
+      "seed": 107230,
+      "width": 0.1745719093866112,
+      "targets": 80,
+      "max_ik_error_m": 0.000992582882303507,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 399,
+      "success": true
+    },
+    {
+      "seed": 107231,
+      "width": 0.20225061044132692,
+      "targets": 80,
+      "max_ik_error_m": 0.0009977834087404717,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 654,
+      "success": true
+    },
+    {
+      "seed": 107232,
+      "width": 0.2294550394768797,
+      "targets": 80,
+      "max_ik_error_m": 0.0009988120727937506,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 460,
+      "success": true
+    },
+    {
+      "seed": 107233,
+      "width": 0.17358039484906268,
+      "targets": 80,
+      "max_ik_error_m": 0.000992891222732911,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 392,
+      "success": true
+    },
+    {
+      "seed": 107234,
+      "width": 0.24458568646832585,
+      "targets": 80,
+      "max_ik_error_m": 0.0009995276382223901,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 708,
+      "success": true
+    },
+    {
+      "seed": 107235,
+      "width": 0.14180698992110635,
+      "targets": 80,
+      "max_ik_error_m": 0.0009888051838748016,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 416,
+      "success": true
+    },
+    {
+      "seed": 107236,
+      "width": 0.22184954762782375,
+      "targets": 80,
+      "max_ik_error_m": 0.0009972104452051526,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 563,
+      "success": true
+    },
+    {
+      "seed": 107237,
+      "width": 0.23800460415023927,
+      "targets": 80,
+      "max_ik_error_m": 0.0009991912575106766,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 497,
+      "success": true
+    },
+    {
+      "seed": 107238,
+      "width": 0.14756296760652812,
+      "targets": 80,
+      "max_ik_error_m": 0.0009978861882140612,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 296,
+      "success": true
+    },
+    {
+      "seed": 107239,
+      "width": 0.17649025578449087,
+      "targets": 80,
+      "max_ik_error_m": 0.0009940070632429826,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 454,
+      "success": true
+    },
+    {
+      "seed": 107240,
+      "width": 0.21491117762447792,
+      "targets": 80,
+      "max_ik_error_m": 0.0009969314781824816,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 719,
+      "success": true
+    },
+    {
+      "seed": 107241,
+      "width": 0.16929151006374496,
+      "targets": 80,
+      "max_ik_error_m": 0.000998080639430178,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 329,
+      "success": true
+    },
+    {
+      "seed": 107242,
+      "width": 0.16256850056698033,
+      "targets": 80,
+      "max_ik_error_m": 0.0009865144750307538,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 418,
+      "success": true
+    },
+    {
+      "seed": 107243,
+      "width": 0.16102800444252752,
+      "targets": 80,
+      "max_ik_error_m": 0.0009985156664986193,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 355,
+      "success": true
+    },
+    {
+      "seed": 107244,
+      "width": 0.18609134631187804,
+      "targets": 80,
+      "max_ik_error_m": 0.00099951209562389,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 470,
+      "success": true
+    },
+    {
+      "seed": 107245,
+      "width": 0.1708395665569864,
+      "targets": 80,
+      "max_ik_error_m": 0.000987330970638246,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 335,
+      "success": true
+    },
+    {
+      "seed": 107246,
+      "width": 0.2198140355408482,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996831258603067,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 636,
+      "success": true
+    },
+    {
+      "seed": 107247,
+      "width": 0.2091102553486171,
+      "targets": 80,
+      "max_ik_error_m": 0.0009960542936214626,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 455,
+      "success": true
+    },
+    {
+      "seed": 107248,
+      "width": 0.20874079505497567,
+      "targets": 80,
+      "max_ik_error_m": 0.0009983612720753418,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 455,
+      "success": true
+    },
+    {
+      "seed": 107249,
+      "width": 0.21291349035441537,
+      "targets": 80,
+      "max_ik_error_m": 0.0009997482312404762,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 403,
+      "success": true
+    },
+    {
+      "seed": 107250,
+      "width": 0.2413336284594093,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996362940491608,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 563,
+      "success": true
+    },
+    {
+      "seed": 107251,
+      "width": 0.16481920986179993,
+      "targets": 80,
+      "max_ik_error_m": 0.0009999828793014396,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 430,
+      "success": true
+    },
+    {
+      "seed": 107252,
+      "width": 0.21386801976881065,
+      "targets": 80,
+      "max_ik_error_m": 0.0009973569671948923,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 531,
+      "success": true
+    },
+    {
+      "seed": 107253,
+      "width": 0.19261225186270348,
+      "targets": 80,
+      "max_ik_error_m": 0.0009939503612156927,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 406,
+      "success": true
+    },
+    {
+      "seed": 107254,
+      "width": 0.1821155000120171,
+      "targets": 80,
+      "max_ik_error_m": 0.0009983150072007546,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 370,
+      "success": true
+    },
+    {
+      "seed": 107255,
+      "width": 0.2004774052542396,
+      "targets": 80,
+      "max_ik_error_m": 0.0009901473529161189,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 641,
+      "success": true
+    },
+    {
+      "seed": 107256,
+      "width": 0.17190576530879836,
+      "targets": 80,
+      "max_ik_error_m": 0.0009937338494990379,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 492,
+      "success": true
+    },
+    {
+      "seed": 107257,
+      "width": 0.19143719441462873,
+      "targets": 80,
+      "max_ik_error_m": 0.000987495766116538,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 314,
+      "success": true
+    },
+    {
+      "seed": 107258,
+      "width": 0.1801577926380969,
+      "targets": 80,
+      "max_ik_error_m": 0.0009875140228212138,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 297,
+      "success": true
+    },
+    {
+      "seed": 107259,
+      "width": 0.2016058711231524,
+      "targets": 80,
+      "max_ik_error_m": 0.0009964948563182274,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 384,
+      "success": true
+    },
+    {
+      "seed": 107260,
+      "width": 0.14604745325670013,
+      "targets": 80,
+      "max_ik_error_m": 0.0009952678729562264,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 295,
+      "success": true
+    },
+    {
+      "seed": 107261,
+      "width": 0.19497486366511163,
+      "targets": 80,
+      "max_ik_error_m": 0.0009969003467946642,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 365,
+      "success": true
+    },
+    {
+      "seed": 107262,
+      "width": 0.2089301219438074,
+      "targets": 80,
+      "max_ik_error_m": 0.0009994465920920485,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 455,
+      "success": true
+    },
+    {
+      "seed": 107263,
+      "width": 0.20735905614934125,
+      "targets": 80,
+      "max_ik_error_m": 0.0009937152459013007,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 534,
+      "success": true
+    },
+    {
+      "seed": 107264,
+      "width": 0.21226009092320358,
+      "targets": 80,
+      "max_ik_error_m": 0.0009989709892729447,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 658,
+      "success": true
+    },
+    {
+      "seed": 107265,
+      "width": 0.17281619023636716,
+      "targets": 80,
+      "max_ik_error_m": 0.0009992059273334038,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 386,
+      "success": true
+    },
+    {
+      "seed": 107266,
+      "width": 0.23790822591269972,
+      "targets": 80,
+      "max_ik_error_m": 0.0009985418483342925,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 497,
+      "success": true
+    },
+    {
+      "seed": 107267,
+      "width": 0.21706149276512063,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996460574049576,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 562,
+      "success": true
+    },
+    {
+      "seed": 107268,
+      "width": 0.1906279688708852,
+      "targets": 80,
+      "max_ik_error_m": 0.000999592394445701,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 314,
+      "success": true
+    },
+    {
+      "seed": 107269,
+      "width": 0.24305328963175837,
+      "targets": 80,
+      "max_ik_error_m": 0.0009938138129381119,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 635,
+      "success": true
+    },
+    {
+      "seed": 107270,
+      "width": 0.17235598101536995,
+      "targets": 80,
+      "max_ik_error_m": 0.0009964393118993358,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 373,
+      "success": true
+    },
+    {
+      "seed": 107271,
+      "width": 0.16154401202114244,
+      "targets": 80,
+      "max_ik_error_m": 0.0009802935300682325,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 358,
+      "success": true
+    },
+    {
+      "seed": 107272,
+      "width": 0.14868354492062788,
+      "targets": 80,
+      "max_ik_error_m": 0.0009951822339971587,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 296,
+      "success": true
+    },
+    {
+      "seed": 107273,
+      "width": 0.16580094600208864,
+      "targets": 80,
+      "max_ik_error_m": 0.0009995666441266428,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 341,
+      "success": true
+    },
+    {
+      "seed": 107274,
+      "width": 0.1433489730257843,
+      "targets": 80,
+      "max_ik_error_m": 0.0009986022040832038,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 244,
+      "success": true
+    },
+    {
+      "seed": 107275,
+      "width": 0.20550860083127503,
+      "targets": 80,
+      "max_ik_error_m": 0.0009917099276422164,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 509,
+      "success": true
+    },
+    {
+      "seed": 107276,
+      "width": 0.1453320758581257,
+      "targets": 80,
+      "max_ik_error_m": 0.0009959750727984984,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 295,
+      "success": true
+    },
+    {
+      "seed": 107277,
+      "width": 0.1843463938388396,
+      "targets": 80,
+      "max_ik_error_m": 0.0009999306509850374,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 496,
+      "success": true
+    },
+    {
+      "seed": 107278,
+      "width": 0.16838281188878093,
+      "targets": 80,
+      "max_ik_error_m": 0.0009959209168313326,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 329,
+      "success": true
+    },
+    {
+      "seed": 107279,
+      "width": 0.18388261759177907,
+      "targets": 80,
+      "max_ik_error_m": 0.0009998812900986393,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 496,
+      "success": true
+    },
+    {
+      "seed": 107280,
+      "width": 0.18436285830406063,
+      "targets": 80,
+      "max_ik_error_m": 0.0009935506072917,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 496,
+      "success": true
+    },
+    {
+      "seed": 107281,
+      "width": 0.1946614313524977,
+      "targets": 80,
+      "max_ik_error_m": 0.0009981678354398173,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 365,
+      "success": true
+    },
+    {
+      "seed": 107282,
+      "width": 0.20745204739719594,
+      "targets": 80,
+      "max_ik_error_m": 0.0009942556978527705,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 534,
+      "success": true
+    },
+    {
+      "seed": 107283,
+      "width": 0.2426357291413279,
+      "targets": 80,
+      "max_ik_error_m": 0.000999230443600911,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 635,
+      "success": true
+    },
+    {
+      "seed": 107284,
+      "width": 0.1460620439665346,
+      "targets": 80,
+      "max_ik_error_m": 0.0009953682144031879,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 295,
+      "success": true
+    },
+    {
+      "seed": 107285,
+      "width": 0.2437389082253915,
+      "targets": 80,
+      "max_ik_error_m": 0.0009973854803172954,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 719,
+      "success": true
+    },
+    {
+      "seed": 107286,
+      "width": 0.19850618324483388,
+      "targets": 80,
+      "max_ik_error_m": 0.0009934514006752744,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 344,
+      "success": true
+    },
+    {
+      "seed": 107287,
+      "width": 0.16901852149172228,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996759342389486,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 329,
+      "success": true
+    },
+    {
+      "seed": 107288,
+      "width": 0.21465707980571297,
+      "targets": 80,
+      "max_ik_error_m": 0.0009986363419075095,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 570,
+      "success": true
+    },
+    {
+      "seed": 107289,
+      "width": 0.19448216595607376,
+      "targets": 80,
+      "max_ik_error_m": 0.0009970467241103478,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 365,
+      "success": true
+    },
+    {
+      "seed": 107290,
+      "width": 0.1984663548624997,
+      "targets": 80,
+      "max_ik_error_m": 0.0009930784327788573,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 344,
+      "success": true
+    },
+    {
+      "seed": 107291,
+      "width": 0.2470708790578823,
+      "targets": 80,
+      "max_ik_error_m": 0.000996985349781355,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 714,
+      "success": true
+    },
+    {
+      "seed": 107292,
+      "width": 0.14440034089510995,
+      "targets": 80,
+      "max_ik_error_m": 0.0009997885245603534,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 295,
+      "success": true
+    },
+    {
+      "seed": 107293,
+      "width": 0.23879516578999105,
+      "targets": 80,
+      "max_ik_error_m": 0.0009870885620330814,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 363,
+      "success": true
+    },
+    {
+      "seed": 107294,
+      "width": 0.16574965053195426,
+      "targets": 80,
+      "max_ik_error_m": 0.0009992453497429598,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 341,
+      "success": true
+    },
+    {
+      "seed": 107295,
+      "width": 0.20897413385700597,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996989878484303,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 455,
+      "success": true
+    },
+    {
+      "seed": 107296,
+      "width": 0.21826165310504397,
+      "targets": 80,
+      "max_ik_error_m": 0.0009980246916478305,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 504,
+      "success": true
+    },
+    {
+      "seed": 107297,
+      "width": 0.2022185819526681,
+      "targets": 80,
+      "max_ik_error_m": 0.0009999490133107954,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 654,
+      "success": true
+    },
+    {
+      "seed": 107298,
+      "width": 0.24665866251713847,
+      "targets": 80,
+      "max_ik_error_m": 0.0009990072380874917,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 755,
+      "success": true
+    },
+    {
+      "seed": 107299,
+      "width": 0.20911144500330459,
+      "targets": 80,
+      "max_ik_error_m": 0.000996060383153605,
+      "joint_limits": true,
+      "reached": 80,
+      "physics_steps": 455,
+      "success": true
+    }
+  ]
+}

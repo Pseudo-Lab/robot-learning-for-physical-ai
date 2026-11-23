@@ -1,0 +1,38 @@
+{
+  "hw3-ex1": {
+    "outcome": "met",
+    "success": 100,
+    "total": 100,
+    "course_score": 100.0,
+    "independent_seed": 108330,
+    "independent_success": 99,
+    "frozen_holdout_seed": 111301,
+    "frozen_holdout_success": 98,
+    "checkpoint_sha256": "1639b25a2bc282754fb42585ad2cbf76a1b22b2335abfaeb28ab2dee77b57d13",
+    "model_sha256": "0e2202afc0e1685198380f9c97ee0c8f05070c098e64d090a0e4cfd409611f87"
+  },
+  "hw3-ex2": {
+    "outcome": "met",
+    "success": 100,
+    "total": 100,
+    "course_score": 100.0,
+    "independent_seed": 108370,
+    "independent_success": 98,
+    "frozen_holdout_seed": 110302,
+    "frozen_holdout_success": 100,
+    "checkpoint_sha256": "7096966c15642f474f90038408a2c83187aeef3c548fc5e7cfa41ee46e49bcd5",
+    "model_sha256": "0e2202afc0e1685198380f9c97ee0c8f05070c098e64d090a0e4cfd409611f87"
+  },
+  "hw3-ex3": {
+    "outcome": "met",
+    "success": 97,
+    "total": 100,
+    "course_score": 97.0,
+    "independent_seed": 108332,
+    "independent_success": 97,
+    "frozen_holdout_seed": 110303,
+    "frozen_holdout_success": 98,
+    "checkpoint_sha256": "25032652d993254a852216471e55a44af3a1401d7ab0ea384a588c05826e38a3",
+    "model_sha256": "c463620da611537e89b5a2da256bb2afe86cb6369050c35a6ea936a5b453ad82"
+  }
+}

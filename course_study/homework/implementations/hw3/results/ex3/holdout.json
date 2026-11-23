@@ -1,0 +1,707 @@
+{
+  "seed": 110303,
+  "rows": [
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.08702980528921293,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.11124089369078678,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11113715251635535,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.10580467216766834,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 85,
+      "peak_z_m": 0.10486748224583484,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11047148030811718,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.11184435721895211,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10656776719223458,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.10992943204651087,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.10908503589629961,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.106517824576117,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.1059555256851983,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.10537470231728202,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 54,
+      "peak_z_m": 0.10526842499061292,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10789059281900328,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.1108178927941642,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.10230761283828692,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 50,
+      "peak_z_m": 0.11060975058226612,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.106211783955243,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 60,
+      "peak_z_m": 0.11014388615430373,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10558885800778707,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11171675120196714,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 48,
+      "peak_z_m": 0.11239161447112882,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.11154273832594216,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.1051592161239123,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10526783512616134,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.1113170481864458,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.11198696707540384,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.11112248199561552,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 53,
+      "peak_z_m": 0.10658411923247588,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10230859531247863,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 54,
+      "peak_z_m": 0.10566467492990757,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 54,
+      "peak_z_m": 0.10618719181436923,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.1129055897185125,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": false,
+      "lifted_and_released": false,
+      "steps": 800,
+      "peak_z_m": 0.11237870925199486,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 46,
+      "peak_z_m": 0.11108271998576798,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.11291118558892423,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11331627647099243,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.112621006072828,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.11175521074445781,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": false,
+      "lifted_and_released": false,
+      "steps": 800,
+      "peak_z_m": 0.11217708235538298,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 51,
+      "peak_z_m": 0.1125821606834602,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11067246097818785,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 53,
+      "peak_z_m": 0.10538353760402053,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.11156556546905705,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10503686176943686,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 60,
+      "peak_z_m": 0.11211401074151836,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10628116683797063,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10552040809330321,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11264685126347203,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.11173462631097261,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10669523058131548,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11253277977098639,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 60,
+      "peak_z_m": 0.11303399932958065,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.11099942400032524,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 54,
+      "peak_z_m": 0.1054924180502271,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10535506894269162,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.11238631411887463,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11111473184318996,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.11113387047565661,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 61,
+      "peak_z_m": 0.10431640340831183,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.11016156858288166,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 43,
+      "peak_z_m": 0.10829917660967217,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11282611954423907,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.11270853772270256,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.10629443454153303,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.11210003255954933,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11193979848135734,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 54,
+      "peak_z_m": 0.10527478538378206,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.10180753284867503,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.10637661334621307,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10765777156259004,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.11104146667947964,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 60,
+      "peak_z_m": 0.1122689920286158,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.1094159872923829,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.11199456085406985,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10605820908837849,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.10950148207177753,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11104993783814665,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.10997813023586697,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.11238235893605178,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10556421678742141,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 54,
+      "peak_z_m": 0.10227170655098167,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10639937056878274,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.10601084710454056,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.10967330961758202,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 56,
+      "peak_z_m": 0.11153433619794297,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10193732358170494,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 59,
+      "peak_z_m": 0.11256182094140241,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.1111748787197808,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 60,
+      "peak_z_m": 0.11229035696726623,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.11228240810933832,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.10987015946124008,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 60,
+      "peak_z_m": 0.11279191262280475,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 54,
+      "peak_z_m": 0.10548526822965595,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.10579944235862682,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 57,
+      "peak_z_m": 0.10200303006651593,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 66,
+      "peak_z_m": 0.11245791993294868,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 58,
+      "peak_z_m": 0.11270392534974023,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 55,
+      "peak_z_m": 0.1064997429383579,
+      "wrong_cube": false
+    }
+  ],
+  "total": 100,
+  "success": 98
+}

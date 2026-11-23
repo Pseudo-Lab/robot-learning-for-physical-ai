@@ -1,0 +1,24 @@
+d40 2
+a41 1
+        self.buffer.append((state, action, reward, next_state, done))
+d109 3
+a111 1
+        return self.fc2(F.relu(self.fc1(x)))
+d166 7
+a172 7
+        if np.random.random() < self.epsilon:
+            return int(np.random.randint(self.action_dim))
+        with torch.no_grad():
+            state_tensor = torch.as_tensor(
+                state, dtype=torch.float32, device=self.device
+            ).unsqueeze(0)
+            return int(self.q_net(state_tensor).argmax(dim=1).item())
+d223 5
+a227 2
+            max_next_q = self.target_q_net(next_states).max(dim=1, keepdim=True).values
+            q_targets = rewards + self.gamma * max_next_q * (1.0 - dones)
+a241 1
+        return float(dqn_loss.detach())
+d261 1
+a261 1
+        self.target_q_net.load_state_dict(checkpoint["target_q_net"])

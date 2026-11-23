@@ -1,0 +1,707 @@
+{
+  "seed": 111301,
+  "rows": [
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.12665945443020435,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13936544955989744,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1323234224316184,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 289,
+      "peak_z_m": 0.1385684960937938,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.1318589204799682,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13170141808249783,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 282,
+      "peak_z_m": 0.13308865720473814,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 283,
+      "peak_z_m": 0.13228387400200592,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 287,
+      "peak_z_m": 0.1382712681909586,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 289,
+      "peak_z_m": 0.13918311275018555,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 292,
+      "peak_z_m": 0.1394562817661747,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13152552557165886,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.12395239697251896,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.13009760240398102,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.14181371761479863,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13416308693337456,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1312773738995625,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13137528487031186,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1271948677628294,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13180235814541033,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.1327636705283577,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 283,
+      "peak_z_m": 0.1333528685287985,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13074337890396884,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.1276861913601613,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13540976335559998,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13289646099374358,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13875604837026334,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": false,
+      "lifted_and_released": false,
+      "steps": 800,
+      "peak_z_m": 0.12592529345475081,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 290,
+      "peak_z_m": 0.13858577920148615,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.12775645292646706,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 289,
+      "peak_z_m": 0.1414325794921652,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 640,
+      "peak_z_m": 0.13820689715694343,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.1316820793568661,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 281,
+      "peak_z_m": 0.1294900790944567,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 637,
+      "peak_z_m": 0.13142927798489526,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.14148566513277755,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 283,
+      "peak_z_m": 0.13204600023597177,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13013440674566076,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13183996062087447,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.12465910311158548,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.13509979900756683,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13609118631299782,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.12828878648572076,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 279,
+      "peak_z_m": 0.13288028564201257,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13282898251166184,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1393436665569134,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 287,
+      "peak_z_m": 0.13432689824689012,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1301911213842614,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13133319478949762,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13071372729911054,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.12917146031939064,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13024859998299068,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.12933489859031133,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1306592952687585,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": false,
+      "lifted_and_released": false,
+      "steps": 800,
+      "peak_z_m": 0.12786892559031082,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13173611388171336,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.1300620623484053,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13030811326359718,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1299791277725139,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.1297022475989705,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 288,
+      "peak_z_m": 0.13989004988851167,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13099359226788673,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.1306789179940096,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13151575752415687,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13194736258182288,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13275179952719868,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 296,
+      "peak_z_m": 0.1387026158309817,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 287,
+      "peak_z_m": 0.1280977585078368,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1333223906785789,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.1368411895743084,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13308822055286165,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 288,
+      "peak_z_m": 0.1384385800468224,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13870449484404995,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13516094429560663,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13456637806261654,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13011031255016536,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.12952728266542174,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1286748807473317,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.1326894009049191,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 284,
+      "peak_z_m": 0.13065164209762195,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1356930441941111,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 287,
+      "peak_z_m": 0.13301144779848487,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13004327225455797,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 287,
+      "peak_z_m": 0.1332795417897915,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 283,
+      "peak_z_m": 0.13512483827428423,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.12993767188737673,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 283,
+      "peak_z_m": 0.13150079676229937,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 292,
+      "peak_z_m": 0.1424680067428462,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 287,
+      "peak_z_m": 0.1371385560781618,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 288,
+      "peak_z_m": 0.1382692633120378,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.13138398897336054,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1360287355925913,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.128820600263841,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 638,
+      "peak_z_m": 0.1384437316727831,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 290,
+      "peak_z_m": 0.1417481390510153,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 288,
+      "peak_z_m": 0.13758773462737553,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 283,
+      "peak_z_m": 0.13249455607430302,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 285,
+      "peak_z_m": 0.1383508220702096,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 286,
+      "peak_z_m": 0.13284203558192229,
+      "wrong_cube": false
+    },
+    {
+      "entered_bin": true,
+      "lifted_and_released": true,
+      "steps": 288,
+      "peak_z_m": 0.14137386940449453,
+      "wrong_cube": false
+    }
+  ],
+  "total": 100,
+  "success": 98
+}

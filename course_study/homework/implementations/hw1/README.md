@@ -1,0 +1,42 @@
+# HW1 · PyTorch로 이미지 분류기 만들기
+
+네 노트북은 텐서의 축을 다루는 연산에서 시작해 학습 루프와 두 종류의 이미지 분류기까지 이어집니다. [공식 원본](../../original/hw1/) · [실행용 사본 준비](../../)
+
+<a id="ex1"></a>
+## Ex1 · 텐서 연산
+
+배치·시퀀스·특징 축을 구분해야 같은 모양의 출력도 의도한 값을 냅니다. 예를 들어 attention에서는 query와 key의 특징 축을 따라 내적한 뒤, 각 query에서 볼 수 있는 key에만 확률을 배분합니다. `ex1.ipynb`에서 reshape, broadcasting, gather, 마스크와 softmax를 구현했습니다. 서로 다른 입력 100개에서 기준 연산과 일치했습니다. [구현 변경분](changes/hw1_pytorch_tutorial/src/ex1.ipynb.rcs) · [입력별 검사 결과](results/ex1.json)
+
+<a id="ex2"></a>
+## Ex2 · 미분에서 optimizer까지
+
+자동미분으로 얻은 gradient가 어떤 파라미터에 쌓이는지 확인하고, 길이가 다른 시퀀스를 한 배치로 묶을 때 padding 위치를 기록합니다. AdamW는 gradient의 이동평균으로 업데이트 크기를 조절하고 가중치 감쇠를 별도로 적용합니다. 데이터 로딩, 초기화와 업데이트를 포함한 입력 100개가 검사를 통과했습니다. [구현 변경분](changes/hw1_pytorch_tutorial/src/ex2.ipynb.rcs) · [입력별 검사 결과](results/ex2.json)
+
+<a id="ex3"></a>
+## Ex3 · MNIST 분류
+
+`Linear`, normalization, dropout과 cross-entropy를 구현한 뒤 숫자 이미지의 클래스 점수를 학습합니다. 가장 높은 점수를 받은 숫자를 예측값으로 택했을 때, 기존 모델이 전체 시험 이미지 **10,000장 중 9,694장(96.94%)**을 맞혔습니다. [구현 변경분](changes/hw1_pytorch_tutorial/src/ex3.ipynb.rcs) · [정답 수와 분모](results/metrics.json)
+
+<a id="ex4"></a>
+## Ex4 · TinyViT
+
+이미지를 패치로 나누고 위치 임베딩을 더하면, self-attention이 서로 다른 위치의 정보를 결합할 수 있습니다. 각 블록에서 특징을 변환하는 부분만 FFN, GEGLU, SwiGLU로 바꾸어 비교했습니다. 같은 48,000장으로 12 epoch씩 학습하고 검증용 5,000장으로 체크포인트를 골랐습니다. 학습 시드는 0·1·2, 시험 이미지는 매번 같은 10,000장입니다.
+
+| 블록 | 세 시드의 시험 정확도 |
+|---|---|
+| FFN | 97.69%, 97.63%, 97.79% |
+| GEGLU | 98.16%, 97.95%, 97.85% |
+| SwiGLU | 98.32%, 98.14%, 97.75% |
+
+[노트북 구현 변경분](changes/hw1_pytorch_tutorial/src/ex4.ipynb.rcs) · [세 구조의 학습 코드](files/experiments/hw1/train_variants.py) · [시드별 학습 곡선](results/tinyvit/)
+
+### 실행
+
+공통 준비를 마친 뒤 `R` 환경 변수를 유지한 채 실행합니다. 두 기능 검사는 새 폴더에 결과 JSON을 기록하며 각각 100개 입력이 통과해야 합니다. 분류 노트북은 실행용 사본의 `hw1_pytorch_tutorial/src/`에서 열 수 있습니다.
+
+```bash
+cd "$R"
+python -m pytest -q tests/test_hw1.py
+mkdir functional-check && cd functional-check
+python "$R/experiments/hw1/evaluate_functions.py"
+```

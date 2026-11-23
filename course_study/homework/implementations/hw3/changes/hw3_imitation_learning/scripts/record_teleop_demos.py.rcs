@@ -1,0 +1,15 @@
+a2 1
+import abc
+d46 1
+a46 1
+class BaseCv2TeleopRecorder(abc.ABC):
+a111 1
+    @abc.abstractmethod
+a119 1
+    @abc.abstractmethod
+a122 1
+    @abc.abstractmethod
+a125 1
+    @abc.abstractmethod
+a128 1
+    @abc.abstractmethod

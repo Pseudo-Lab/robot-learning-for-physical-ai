@@ -1,0 +1,24 @@
+a64 7
+def target_offset(
+    cubes_xyz: np.ndarray, goal: np.ndarray, ee_xyz: np.ndarray
+) -> np.ndarray:
+    """Select the requested colour before measuring its offset from the gripper."""
+    return (cubes_xyz * goal[..., :, None]).sum(axis=-2) - ee_xyz
+
+
+d96 1
+a96 14
+        if name == "state_target_offset":
+            cubes = np.stack(
+                [
+                    data[f"original_pos_cube_{c}"][:, :3]
+                    for c in ("red", "green", "blue")
+                ],
+                axis=1,
+            )
+            arr = target_offset(cubes, data["state_goal"][:], data["state_ee_xyz"][:])
+        elif name == "state_bin_offset":
+            arr = data["goal_pos"][:, :3] - data["state_ee_xyz"][:]
+        else:
+            arr = data[name][:]
+        arr = np.asarray(arr, dtype=np.float32)

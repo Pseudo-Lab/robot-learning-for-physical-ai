@@ -1,6 +1,6 @@
 # HW4 · GridWorld에서 SO100 로봇팔까지
 
-Ex1에서는 상태 전이 확률을 이용해 각 상태에서 어떤 행동을 고를지 정합니다. Ex2는 경험으로 이산 행동의 가치를 학습하고, Ex3·Ex4는 여섯 관절에 연속 명령을 보내 같은 로봇팔을 움직입니다. [공식 원본](../../original/hw4/) · [실행 환경 준비](../../)
+GridWorld에서는 상태 전이 확률로 행동을 고르고, CartPole에서는 경험으로 이산 행동의 가치를 학습합니다. 로봇팔 과제에서는 PPO와 SAC가 여섯 관절에 보낼 연속 제어 명령을 학습합니다. [공식 원본](../../original/hw4/) · [실행 환경 준비](../../)
 
 <a id="ex1"></a>
 ## Ex1 · GridWorld
@@ -15,12 +15,12 @@ DQN(Deep Q-Network)은 카트를 왼쪽 또는 오른쪽으로 밀었을 때의 
 <a id="ex3"></a>
 ## Ex3 · PPO로 로봇팔 제어
 
-PPO는 현재 policy로 경험을 모으고, 각 행동의 결과가 그 상태에서의 기대보다 얼마나 좋았는지 추정합니다. 기대보다 좋았던 행동은 더 자주 선택하도록 학습합니다. 이때 같은 행동에 새 policy와 이전 policy가 부여한 확률의 비율을 구하고, clipping으로 그 비율이 목적함수에 미치는 영향을 제한합니다. 학습 시드 42에서 1,024,000 환경 스텝을 실행했습니다. [PPO 구현](src/hw4_reinforcement_learning/exercises/ex3_ppo.py) · [순수 PPO의 조건과 장면별 오차](results/rl-ppo/)
+PPO는 현재 policy로 경험을 모아 각 행동의 결과가 해당 상태의 기대값보다 얼마나 좋았는지 추정합니다. 이 추정값(advantage)이 양수면 그 행동을 더 자주 고르도록 학습합니다. 같은 상태와 행동에서 새 policy와 이전 policy의 확률밀도 비율을 구하고, clipping으로 그 비율이 목적함수에 미치는 영향을 제한합니다. 시드 42로 1,024,000 환경 스텝 동안 학습했습니다. [PPO 구현](src/hw4_reinforcement_learning/exercises/ex3_ppo.py) · [순수 PPO의 조건과 장면별 오차](results/rl-ppo/)
 
 <a id="ex4"></a>
 ## Ex4 · SAC로 같은 로봇팔 제어
 
-SAC(Soft Actor-Critic)는 과거 경험을 다시 사용합니다. 두 critic이 추정한 행동 가치 중 작은 값과 policy의 entropy를 이용해, 기대 reward가 큰 행동을 선택하면서도 탐색을 계속하도록 학습합니다. 같은 시드에서 1,024,500 환경 스텝을 실행했습니다. PPO와 SAC의 총 환경 스텝 수는 과제 기본값과 같습니다. SAC는 128스텝마다 크기 256의 배치로 48회 업데이트했습니다. [SAC 구현](src/hw4_reinforcement_learning/exercises/ex4_sac.py) · [GPU 학습 실행기](src/experiments/hw4/train_gpu.py) · [순수 SAC의 조건과 장면별 오차](results/rl-sac/)
+SAC(Soft Actor-Critic)는 과거 경험을 다시 사용합니다. 두 critic이 추정한 행동 가치 중 작은 값과 policy의 entropy를 이용해, 기대 reward가 큰 행동을 선택하면서도 탐색을 계속하도록 학습합니다. 같은 시드로 1,024,500 환경 스텝 동안 학습했습니다. PPO와 SAC의 총 환경 스텝 수는 과제 기본값과 같습니다. SAC는 128스텝마다 크기 256의 배치로 48회 업데이트했습니다. [SAC 구현](src/hw4_reinforcement_learning/exercises/ex4_sac.py) · [GPU 학습 실행기](src/experiments/hw4/train_gpu.py) · [순수 SAC의 조건과 장면별 오차](results/rl-sac/)
 
 ### 로봇팔의 성공 기준
 
@@ -48,7 +48,7 @@ python experiments/hw4/cartpole.py
 python experiments/hw4/evaluate.py "$PUB/implementations/hw4/results"
 ```
 
-CartPole은 `99/100`을 출력합니다. 로봇팔 검사는 policy마다 103개 장면의 초기 관측과 목표를 대조하고, 평균·마지막 오차가 저장값과 0.000001m 이내로 일치해야 통과합니다.
+CartPole은 `99/100`을 출력합니다. 로봇팔 평가는 policy마다 103개 장면을 재현합니다. 각 장면의 초기 관측과 목표가 저장값과 같고, 평균 오차와 마지막 시점의 오차가 각각 저장값과 0.000001m 이내로 일치하면 통과합니다.
 
 ### GPU 학습 조건 재사용
 

@@ -11,9 +11,9 @@
 
 ## 풀이 실행하기
 
-각 과제의 ‘과제 원문’ 링크는 ETH 공식 저장소로, 각 문제 링크는 풀이 설명과 소스 파일로 연결됩니다. `implementations/hwN/src/`에는 풀이·실험 코드와 테스트가 있고, `results/`에는 평가 결과가 있습니다. 시뮬레이터, 로봇 모델, 기본 학습 클래스와 HW3 채점기는 [ETH Robot Learning 과제 저장소](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe)를 사용합니다.
+`implementations/hwN/src/`에는 풀이·실험 코드와 테스트가 있고, `results/`에는 평가 결과가 있습니다. 시뮬레이터, 로봇 모델, 기본 학습 클래스와 HW3 채점기는 ETH 과제에서 가져옵니다. [ETH Robot Learning 공식 저장소](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe)
 
-Linux에서 이 저장소의 최상위 폴더를 열고 다음 명령을 실행하세요. `R`에는 새 디렉터리를 지정합니다. 공식 코드는 `ethz_starter/`에 두고, 실행할 사본에 과제별 풀이 파일을 복사합니다.
+Linux에서 저장소 최상위 폴더를 기준으로 실행하세요. `R`은 새로 만들 실행 폴더입니다. 아래 명령은 ETH 원본을 `$R/ethz_starter/`에 내려받고, `$R`에 복사한 과제에 풀이 파일을 덮어씁니다.
 
 ```bash
 export PUB="$PWD/course_study/homework"

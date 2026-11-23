@@ -1,7 +1,0 @@
-d107 3
-a109 2
-        raise RuntimeError("Use act(), act_inference(), or update_distribution()")
-
-d181 2
-a182 1
-        raise RuntimeError("Use act(), act_inference(), or update_distribution()")

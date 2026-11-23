@@ -1,4 +1,0 @@
-a9 3
-if str(ROOT_DIR.parent) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR.parent))
-

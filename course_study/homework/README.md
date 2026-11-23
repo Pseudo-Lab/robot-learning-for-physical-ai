@@ -4,23 +4,32 @@
 
 | 과제 | 원본 | 구현과 평가 |
 |---|---|---|
-| HW1 · PyTorch | [과제 원문](original/hw1/) | [텐서 연산](implementations/hw1/#ex1) · [학습 도구](implementations/hw1/#ex2) · [MNIST 분류](implementations/hw1/#ex3) · [TinyViT](implementations/hw1/#ex4) |
-| HW2 · 로봇 제어 | [과제 원문](original/hw2/) | [역기구학](implementations/hw2/#ex1) · [PID](implementations/hw2/#ex2) · [PPO 위치 제어](implementations/hw2/#ex3) |
-| HW3 · Imitation learning | [과제 원문](original/hw3/) | [단일 큐브](implementations/hw3/#ex1) · [DAgger와 장애물](implementations/hw3/#ex2) · [다중 큐브](implementations/hw3/#ex3) |
-| HW4 · 강화학습 | [과제 원문](original/hw4/) | [GridWorld](implementations/hw4/#ex1) · [DQN](implementations/hw4/#ex2) · [PPO](implementations/hw4/#ex3) · [SAC](implementations/hw4/#ex4) |
+| HW1 · PyTorch | [과제 원문](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw1_pytorch_tutorial) | [텐서 연산](implementations/hw1/#ex1) · [학습 도구](implementations/hw1/#ex2) · [MNIST 분류](implementations/hw1/#ex3) · [TinyViT](implementations/hw1/#ex4) |
+| HW2 · 로봇 제어 | [과제 원문](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw2_robot_control_mdps) | [역기구학](implementations/hw2/#ex1) · [PID](implementations/hw2/#ex2) · [PPO 위치 제어](implementations/hw2/#ex3) |
+| HW3 · Imitation learning | [과제 원문](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw3_imitation_learning) | [단일 큐브](implementations/hw3/#ex1) · [DAgger와 장애물](implementations/hw3/#ex2) · [다중 큐브](implementations/hw3/#ex3) |
+| HW4 · 강화학습 | [과제 원문](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw4_reinforcement_learning) | [GridWorld](implementations/hw4/#ex1) · [DQN](implementations/hw4/#ex2) · [PPO](implementations/hw4/#ex3) · [SAC](implementations/hw4/#ex4) |
 
-## 실행용 사본 만들기
+## 풀이 실행하기
 
-Linux에서 Python 3.12와 Bash를 사용합니다. 저장소 최상위 폴더에서 실행하세요. `PUB`는 이 저장소의 과제 폴더입니다. `R`에는 실행용 사본을 만들 새 경로를 지정하세요. 공식 저장소를 이미 내려받았다면 기준 커밋이 있는 해당 경로를 `prepare.py`의 첫 번째 인수로 지정하세요.
+각 과제의 ‘과제 원문’ 링크는 ETH 공식 저장소로, 각 문제 링크는 풀이 설명과 소스 파일로 연결됩니다. `implementations/hwN/src/`에는 풀이·실험 코드와 테스트가 있고, `results/`에는 평가 결과가 있습니다. 시뮬레이터, 로봇 모델, 기본 학습 클래스와 HW3 채점기는 [ETH Robot Learning 과제 저장소](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe)를 사용합니다.
+
+Linux에서 이 저장소의 최상위 폴더를 열고 다음 명령을 실행하세요. `R`에는 새 디렉터리를 지정합니다. 공식 코드는 `ethz_starter/`에 두고, 실행할 사본에 과제별 풀이 파일을 복사합니다.
 
 ```bash
 export PUB="$PWD/course_study/homework"
 export R="$PWD/homework-run"
-git clone https://github.com/mees-robot-learning-course/ethz-course-2026.git ethz-course-2026
-python3.12 "$PUB/prepare.py" ethz-course-2026 "$R"
+mkdir "$R" && (
+    set -e
+    git clone https://github.com/mees-robot-learning-course/ethz-course-2026.git "$R/ethz_starter"
+    git -C "$R/ethz_starter" checkout --detach 2e089e97d84968182c1ffa2e1bc8177530feb6fe
+    cp -R "$R/ethz_starter"/hw*/ "$R/"
+    for hw in "$PUB"/implementations/hw*; do cp -R "$hw/src/." "$R/"; done
+    cp "$PUB/conftest.py" "$R/tests/"
+)
+export PYTHONPATH="$R${PYTHONPATH:+:$PYTHONPATH}"
 ```
 
-`prepare.py`는 공식 과제 코드에 `changes/`의 변경분(`.rcs`)을 적용하고, `files/`의 Python 모듈·테스트·평가용 policy(관측에서 행동을 고르는 모델)를 복사합니다. 실행용 사본은 원래 패키지 이름과 경로를 유지하며, HW1 노트북 네 개는 Jupyter에서 열 수 있습니다. [실행용 사본 생성 스크립트](prepare.py) · [공식 기준 커밋](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe)
+HW1 노트북 네 개는 Jupyter에서 바로 열 수 있습니다. HW2~HW4는 내려받은 공식 과제의 환경과 자산을 사용합니다.
 
 ## 환경과 검사
 

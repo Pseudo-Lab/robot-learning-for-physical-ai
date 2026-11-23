@@ -1,5 +1,0 @@
-a91 4
-
-    if config.get("resume_from"):
-        agent.load(config["resume_from"])
-        agent.learning_rate = agent.optimizer.param_groups[0]["lr"]

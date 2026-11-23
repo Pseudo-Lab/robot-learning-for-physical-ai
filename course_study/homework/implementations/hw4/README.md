@@ -1,26 +1,26 @@
 # HW4 · GridWorld에서 SO100 로봇팔까지
 
-Ex1에서는 상태 전이 확률을 이용해 각 상태에서 어떤 행동을 고를지 정합니다. Ex2는 경험으로 이산 행동의 가치를 학습하고, Ex3·Ex4는 여섯 관절에 연속 명령을 보내 같은 로봇팔을 움직입니다. [공식 원본](../../original/hw4/) · [실행용 사본 준비](../../)
+Ex1에서는 상태 전이 확률을 이용해 각 상태에서 어떤 행동을 고를지 정합니다. Ex2는 경험으로 이산 행동의 가치를 학습하고, Ex3·Ex4는 여섯 관절에 연속 명령을 보내 같은 로봇팔을 움직입니다. [공식 원본](../../original/hw4/) · [실행 환경 준비](../../)
 
 <a id="ex1"></a>
 ## Ex1 · GridWorld
 
-Policy iteration은 현재 policy로 얻을 누적 reward를 추정한 뒤 각 상태에서 더 유리한 행동을 고릅니다. Value iteration은 각 상태에서 가장 유리한 행동의 가치를 반복해서 갱신합니다. 두 구현 모두 입력 100개에서 정확성 검사를 통과했습니다. 별도 실험에서는 100스텝 안에 목표에 닿을 확률을 최대화하는 policy를 구했습니다. 미끄러짐 확률이 0.2일 때 그 이론적 상한은 **90.0017%**이며, 고정 시드 100회에서 91회 도달했습니다. [구현](changes/hw4_reinforcement_learning/exercises/ex1_mdp.py.rcs) · [유한 시간 도달 확률 계산](files/experiments/hw4/gridworld.py) · [평가 결과](results/grid_optimal.json)
+Policy iteration은 현재 policy로 얻을 누적 reward를 추정한 뒤 각 상태에서 더 유리한 행동을 고릅니다. Value iteration은 각 상태에서 가장 유리한 행동의 가치를 반복해서 갱신합니다. 두 구현 모두 입력 100개에서 정확성 검사를 통과했습니다. 별도 실험에서는 100스텝 안에 목표에 닿을 확률을 최대화하는 policy를 구했습니다. 미끄러짐 확률이 0.2일 때 그 이론적 상한은 **90.0017%**이며, 고정 시드 100회에서 91회 도달했습니다. [구현](src/hw4_reinforcement_learning/exercises/ex1_mdp.py) · [유한 시간 도달 확률 계산](src/experiments/hw4/gridworld.py) · [평가 결과](results/grid_optimal.json)
 
 <a id="ex2"></a>
 ## Ex2 · CartPole에서 DQN
 
-DQN(Deep Q-Network)은 카트를 왼쪽 또는 오른쪽으로 밀었을 때의 기대 누적 reward를 추정합니다. Replay buffer에서 과거 경험을 뽑고 target network로 학습 목표를 계산합니다. 저장된 policy는 100개 에피소드 중 **99개**에서 누적 reward 475 이상을 기록했습니다. [DQN 구현](changes/hw4_reinforcement_learning/exercises/ex2_dqn.py.rcs) · [시드별 reward](results/cartpole.json)
+DQN(Deep Q-Network)은 카트를 왼쪽 또는 오른쪽으로 밀었을 때의 기대 누적 reward를 추정합니다. Replay buffer에서 과거 경험을 뽑고 target network로 학습 목표를 계산합니다. 저장된 policy는 100개 에피소드 중 **99개**에서 누적 reward 475 이상을 기록했습니다. [DQN 구현](src/hw4_reinforcement_learning/exercises/ex2_dqn.py) · [시드별 reward](results/cartpole.json)
 
 <a id="ex3"></a>
 ## Ex3 · PPO로 로봇팔 제어
 
-PPO는 현재 policy로 경험을 모으고, 각 행동의 결과가 그 상태에서의 기대보다 얼마나 좋았는지 추정합니다. 기대보다 좋았던 행동은 더 자주 선택하도록 학습합니다. 이때 같은 행동에 새 policy와 이전 policy가 부여한 확률의 비율을 구하고, clipping으로 그 비율이 목적함수에 미치는 영향을 제한합니다. 학습 시드 42에서 1,024,000 환경 스텝을 실행했습니다. [PPO 구현](changes/hw4_reinforcement_learning/exercises/ex3_ppo.py.rcs) · [순수 PPO의 조건과 장면별 오차](results/rl-ppo/)
+PPO는 현재 policy로 경험을 모으고, 각 행동의 결과가 그 상태에서의 기대보다 얼마나 좋았는지 추정합니다. 기대보다 좋았던 행동은 더 자주 선택하도록 학습합니다. 이때 같은 행동에 새 policy와 이전 policy가 부여한 확률의 비율을 구하고, clipping으로 그 비율이 목적함수에 미치는 영향을 제한합니다. 학습 시드 42에서 1,024,000 환경 스텝을 실행했습니다. [PPO 구현](src/hw4_reinforcement_learning/exercises/ex3_ppo.py) · [순수 PPO의 조건과 장면별 오차](results/rl-ppo/)
 
 <a id="ex4"></a>
 ## Ex4 · SAC로 같은 로봇팔 제어
 
-SAC(Soft Actor-Critic)는 과거 경험을 다시 사용합니다. 두 critic이 추정한 행동 가치 중 작은 값과 policy의 entropy를 이용해, 기대 reward가 큰 행동을 선택하면서도 탐색을 계속하도록 학습합니다. 같은 시드에서 1,024,500 환경 스텝을 실행했습니다. PPO와 SAC의 총 환경 스텝 수는 과제 기본값과 같습니다. SAC는 128스텝마다 크기 256의 배치로 48회 업데이트했습니다. [SAC 구현](changes/hw4_reinforcement_learning/exercises/ex4_sac.py.rcs) · [GPU 학습 실행기](files/experiments/hw4/train_gpu.py) · [순수 SAC의 조건과 장면별 오차](results/rl-sac/)
+SAC(Soft Actor-Critic)는 과거 경험을 다시 사용합니다. 두 critic이 추정한 행동 가치 중 작은 값과 policy의 entropy를 이용해, 기대 reward가 큰 행동을 선택하면서도 탐색을 계속하도록 학습합니다. 같은 시드에서 1,024,500 환경 스텝을 실행했습니다. PPO와 SAC의 총 환경 스텝 수는 과제 기본값과 같습니다. SAC는 128스텝마다 크기 256의 배치로 48회 업데이트했습니다. [SAC 구현](src/hw4_reinforcement_learning/exercises/ex4_sac.py) · [GPU 학습 실행기](src/experiments/hw4/train_gpu.py) · [순수 SAC의 조건과 장면별 오차](results/rl-sac/)
 
 ### 로봇팔의 성공 기준
 

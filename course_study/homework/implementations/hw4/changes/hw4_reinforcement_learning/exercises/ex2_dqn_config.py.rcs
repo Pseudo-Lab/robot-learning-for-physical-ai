@@ -1,9 +1,0 @@
-d14 7
-a20 4
-    "lr": 1e-3,
-    "epsilon": 0.05,
-    "target_update": 20,
-    "hidden_dim": 128,
-d28 1
-a28 1
-}

@@ -5,7 +5,7 @@
 <a id="ex1"></a>
 ## Ex1 · 텐서 연산
 
-배치·시퀀스·특징 축을 구분해야 같은 모양의 출력도 의도한 값을 냅니다. 예를 들어 attention에서는 query와 key의 특징 축을 따라 내적한 뒤, 각 query에서 볼 수 있는 key에만 확률을 배분합니다. `ex1.ipynb`에서 reshape, broadcasting, gather, 마스크와 softmax를 구현했습니다. 서로 다른 입력 100개에서 기준 연산과 일치했습니다. [구현 변경분](changes/hw1_pytorch_tutorial/src/ex1.ipynb.rcs) · [입력별 검사 결과](results/ex1.json)
+Attention에서는 query와 key를 특징 축을 따라 내적해 각 위치 쌍의 점수를 구합니다. Causal mask를 적용하면 현재 위치와 이전 위치의 key에만 가중치가 배분됩니다. `ex1.ipynb`에서 reshape, broadcasting, gather, 마스크와 softmax를 구현했습니다. 서로 다른 입력 100개에서 기준 연산과 일치했습니다. [구현 변경분](changes/hw1_pytorch_tutorial/src/ex1.ipynb.rcs) · [입력별 검사 결과](results/ex1.json)
 
 <a id="ex2"></a>
 ## Ex2 · 미분에서 optimizer까지
@@ -15,12 +15,12 @@
 <a id="ex3"></a>
 ## Ex3 · MNIST 분류
 
-`Linear`, normalization, dropout과 cross-entropy를 구현한 뒤 숫자 이미지의 클래스 점수를 학습합니다. 점수가 가장 높은 클래스를 예측값으로 사용했습니다. MNIST 시험 이미지 **10,000장 중 9,694장(96.94%)**을 맞혔습니다. [구현 변경분](changes/hw1_pytorch_tutorial/src/ex3.ipynb.rcs) · [MNIST 평가 결과](results/metrics.json)
+`Linear`, normalization, dropout과 cross-entropy를 구현해 MLP를 학습했습니다. 분류기는 이미지마다 점수가 가장 높은 숫자를 예측합니다. MNIST 시험 이미지 **10,000장 중 9,694장(96.94%)**을 맞혔습니다. [구현 변경분](changes/hw1_pytorch_tutorial/src/ex3.ipynb.rcs) · [MNIST 평가 결과](results/metrics.json)
 
 <a id="ex4"></a>
 ## Ex4 · TinyViT
 
-이미지를 패치로 나누고 위치 임베딩을 더하면, self-attention이 서로 다른 위치의 정보를 결합할 수 있습니다. 각 블록에서 특징을 변환하는 부분만 FFN, GEGLU, SwiGLU로 바꾸어 비교했습니다. 같은 48,000장으로 12 epoch씩 학습하고 검증용 5,000장으로 체크포인트를 골랐습니다. 학습 시드는 0·1·2, 시험 이미지는 매번 같은 10,000장입니다.
+이미지를 패치로 나누고 위치 임베딩을 더하면, self-attention이 서로 다른 위치의 정보를 결합할 수 있습니다. 각 블록에서 특징을 변환하는 부분만 FFN, GEGLU, SwiGLU로 바꾸어 비교했습니다. 같은 48,000장으로 12 epoch씩 학습하고 검증용 5,000장의 정확도로 checkpoint를 골랐습니다. 학습 시드는 0·1·2, 시험 이미지는 매번 같은 10,000장입니다.
 
 | 블록 | 세 시드의 시험 정확도 |
 |---|---|

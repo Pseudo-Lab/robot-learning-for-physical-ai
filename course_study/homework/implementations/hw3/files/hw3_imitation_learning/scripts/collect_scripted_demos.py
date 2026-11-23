@@ -1,8 +1,8 @@
-"""Collect successful MuJoCo pick-and-place demonstrations for local HW3 experiments.
+"""Collect successful pick-and-place demonstrations in MuJoCo.
 
-The teacher moves only the mocap target and the jaw actuator. With a checkpoint,
-an adversarial episode starts with learner actions before teacher takeover.
-Writes processed Zarr with the commands actually applied to the simulator.
+The scripted teacher controls the mocap target and jaw actuator. With a checkpoint,
+the learner acts first and the single-cube environment uses adversarial obstacle
+placement. The Zarr dataset pairs each teacher command with the preceding observation.
 """
 
 import argparse
@@ -39,7 +39,7 @@ def waypoints(env):
         yield (x, y, 0.062), OPEN, 2
         yield (x, y, 0.062), CLOSED, 7
         yield (x, y, 0.150), CLOSED, 2
-        # Account for where inside the jaws the cube was actually grasped.
+        # Shift the drop point by the measured gripper-to-cube offset.
         offset = env.get_ee_pos()[:2] - env.get_cube_state()[:2]
         drop = env.get_goal_pos()[:2] + np.clip(offset, -0.045, 0.045)
         yield (*drop, 0.135), CLOSED, 2
@@ -157,7 +157,7 @@ def main():
                 env.get_gripper_angle() < 0.85
                 or env.get_ee_pos()[2] - env.get_cube_state()[2] < 0.075
             ):
-                continue  # Verify release after the teacher retracts the gripper.
+                continue  # Keep an episode only after the gripper opens and clears the cube.
             for obs, action in records:
                 for k in keys:
                     arrays[k].append(ZARR_KEY_TO_OBS[k](obs))

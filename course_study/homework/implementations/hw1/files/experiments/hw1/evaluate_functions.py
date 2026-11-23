@@ -1,4 +1,4 @@
-"""Check each exercise on 100 independently generated fixtures against PyTorch and analytic answers."""
+"""Check HW1 exercises 1 and 2 against PyTorch and analytic results, using 100 seeded inputs per exercise."""
 import copy
 import json
 import os

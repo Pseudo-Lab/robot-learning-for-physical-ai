@@ -20,7 +20,7 @@ def add_homework_to_path(homework: str) -> Path:
 
 
 def requested_device():
-    """Return the explicitly requested test device without silent fallback."""
+    """Use HW_DEVICE (cpu by default). Raise an error if CUDA is requested but unavailable."""
     import torch
 
     name = os.environ.get("HW_DEVICE", "cpu")

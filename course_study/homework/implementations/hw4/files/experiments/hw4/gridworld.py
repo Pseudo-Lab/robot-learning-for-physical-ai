@@ -1,4 +1,4 @@
-"""Deploy the finite-horizon maximum-reach controller on the same stochastic draws."""
+"""Compute the maximum probability of reaching the goal in 100 steps and test the policy on fixed seeds."""
 import json
 import os
 import sys

@@ -1,12 +1,8 @@
-d131 1
-a131 1
-            # Sample an action from the actor for environment interaction.
+d131 2
 d136 1
 a136 1
             action, _ = self.actor.act(obs)
-d165 1
-a165 1
-            # Compute the entropy-regularized target Q value.
+d165 2
 d175 4
 a178 4
             next_action, next_logp = self.actor.act(next_obs)
@@ -18,33 +14,25 @@ a181 3
         critic_loss = 0.5 * (
             F.mse_loss(q1_pred, target_q) + F.mse_loss(q2_pred, target_q)
         )
-d200 1
-a200 1
-        # Compute the SAC actor loss.
+d200 2
 d207 3
 a209 3
         q1_new, q2_new = self.critic(obs, act_new)
         q_new = torch.minimum(q1_new, q2_new)
         actor_loss = (self.alpha.detach() * logp_new - q_new).mean()
-d226 1
-a226 1
-        # Compute the SAC temperature loss.
+d226 2
 d233 1
 a233 3
         alpha_loss = -(
             self.log_alpha * (logp_new + self.target_entropy).detach()
         ).mean()
-d242 1
-a242 1
-        # Soft-update the target critic parameters.
+d242 2
 d251 1
 a251 3
                 target_param.data.copy_(
                     (1.0 - self.tau) * target_param.data + self.tau * param.data
                 )
-d273 1
-a273 1
-        # Complete one SAC update step.
+d273 2
 d281 1
 a281 1
         critic_loss = self.compute_critic_loss(obs, act, rew, next_obs, done)

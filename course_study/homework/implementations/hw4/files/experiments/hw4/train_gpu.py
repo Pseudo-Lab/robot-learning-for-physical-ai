@@ -1,4 +1,4 @@
-"""Course-budget PPO/SAC. The training environment and RL losses come from HW4."""
+"""Train PPO or SAC with the HW4 environment, losses, and environment-step budget."""
 from accelerator import SACUpdates, host_policy, prepare, refresh, transfer
 import hashlib
 import inspect
@@ -95,7 +95,7 @@ def clone(method):
         layer.weight.div_(scale)
         layer.bias.sub_(layer.weight @ mean)
         torch.testing.assert_close(prediction,actor.act_inference(obs[:2]*scale+mean),atol=3e-5,rtol=3e-5)
-    # Only weights used by the deterministic action are transferred.
+    # Keep the RL actor's initial log standard deviation when loading the BC weights.
     mean_state = {k:v for k,v in actor.state_dict().items() if not k.startswith("log_std")}
     torch.save(mean_state,tr.ROOT_DIR/"bc-mean.pt")
     write_json(tr.ROOT_DIR/"bc.json",dict(seed=3517,episodes=n,steps_per_demo=steps,epochs=80,batches_per_epoch=112,
@@ -141,7 +141,7 @@ def train(method, condition):
     scope[method.upper()+"_PARAMETERS"] = cfg
     source = inspect.getsource(tr.main)
     if method == "sac":
-        # Match the exact course horizon, including 116 final collection steps after the last scheduled update.
+        # The course budget includes 116 environment steps after the last SAC update.
         old = "while it < total_iterations:"
         assert source.count(old)==1
         source=source.replace(old, f"while step < {BUDGET[method]}:")

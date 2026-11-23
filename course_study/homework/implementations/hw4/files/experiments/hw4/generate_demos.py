@@ -1,4 +1,4 @@
-"""Generate isolated, seeded SO100 demonstrations with the original HW2 IK solver."""
+"""Generate seeded SO100 demonstrations for behavioral cloning with the HW2 inverse kinematics solver."""
 from pathlib import Path
 import sys
 
@@ -13,7 +13,7 @@ sys.path.insert(0, str(HW))
 from envs.so100_rl_env import SO100RLEnv
 
 class PositionIK:
-    """Kinematic reference: solve once per goal; the simulated actuators execute the command."""
+    """Solve once per goal and hold the same joint command throughout the episode."""
     device = torch.device("cpu")
 
     def __init__(self, env):

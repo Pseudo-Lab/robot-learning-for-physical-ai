@@ -1,4 +1,4 @@
-"""CPU single-observation collection and CUDA minibatch training for the HW4 runner."""
+"""Collect rollouts with a CPU copy of the policy and train on CUDA minibatches."""
 from copy import copy, deepcopy
 from dataclasses import fields
 from inspect import getsource
@@ -27,7 +27,7 @@ def transfer(batch):
 
 
 class SACUpdates:
-    """Replay the native SAC update; keep the four log scalars on device until the burst ends."""
+    """Run SAC updates on CUDA and copy the four averaged statistics to the host once per burst."""
 
     def __init__(self, agent, stats_cls):
         self.agent = agent

@@ -1,6 +1,4 @@
-d84 2
-a85 1
-            # Sample an action and retain every statistic required by PPO.
+d84 3
 d93 6
 a98 6
             action = self.actor.act(obs)
@@ -9,9 +7,7 @@ a98 6
             action_mu = self.actor.action_mean
             action_std = self.actor.action_std
             value = self.critic(obs).item()
-d122 1
-a122 1
-        # KL divergence between diagonal Gaussian action distributions.
+d122 2
 d133 3
 a135 8
         kl_per_dim = (
@@ -22,9 +18,7 @@ a135 8
         )
         kl_per_sample = kl_per_dim.sum(dim=-1)
 
-d162 1
-a162 1
-        # PPO clipped surrogate objective.
+d162 2
 d169 4
 a172 6
         ratio = torch.exp(logp_batch - old_logp_batch)
@@ -33,9 +27,7 @@ a172 6
             ratio * adv_batch, clipped_ratio * adv_batch
         ).mean()
 
-d179 1
-a179 1
-        # PPO value loss with clipping.
+d179 2
 d188 5
 a192 7
         value_loss_unclipped = (val_batch - ret_batch).pow(2)
@@ -48,9 +40,7 @@ a192 7
 d199 3
 a201 1
         return -self.entropy_coeff * entropy_batch.mean()
-d258 1
-a258 1
-            # Complete one PPO update step.
+d258 2
 d268 2
 a269 3
             kl = self.compute_kl_mean(old_mu_batch, old_std_batch, mu_batch, std_batch)

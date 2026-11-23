@@ -1,7 +1,5 @@
 d14 7
-a20 6
-    # Conservative settings that solve CartPole reliably while keeping the
-    # target network sufficiently stable.
+a20 4
     "lr": 1e-3,
     "epsilon": 0.05,
     "target_update": 20,

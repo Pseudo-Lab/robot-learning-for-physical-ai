@@ -2,8 +2,6 @@
 
 로봇은 팔 끝, 그리퍼, 큐브와 목표의 상태를 보고 팔을 어디로 움직일지, 그리퍼를 여닫을지 정합니다. 기본 모델은 시연에서 행동 묶음을 학습합니다. 공식 채점에는 접근·집기·놓기 등 시연 단계별로 다음 행동을 학습한 policy를 사용했습니다.
 
-[L03 · Imitation Learning](https://www.youtube.com/watch?v=Ef4R5s1LqoQ) · [L07 · Action chunking](https://www.youtube.com/watch?v=imSTfMJjp7M) · [공식 원본](../../original/hw3/) · [기본 모델 구현](src/hw3_imitation_learning/hw3/model.py) · [실행 환경 준비](../../)
-
 <a id="demo"></a>
 
 ## 학습 단계별 큐브 조작
@@ -36,15 +34,13 @@
 
 L03의 Behavioral Cloning(BC)은 관측 $o_t$에서 시연자가 선택한 행동을 예측하는 지도학습입니다. 기본 모델은 L07에서 다룬 *action chunking*을 적용해 한 관측에서 연속된 $H$개의 행동을 예측합니다.
 
-학습 데이터 한 건은 같은 에피소드의 `states[t]`와 `actions[t:t+H]`입니다. `ObstaclePolicy.forward`는 MLP 출력을 `(배치 크기, H, 행동 차원)`으로 바꾸고, `compute_loss`는 예측과 시연 행동의 성분별 제곱 오차를 평균합니다.
+입력은 `states[t]`, 정답은 같은 에피소드의 `actions[t:t+H]`입니다. `ObstaclePolicy.forward`는 입력 하나에서 $H$개 행동의 모든 성분을 예측하고, `flat_actions.reshape(-1, self.chunk_size, self.action_dim)`으로 배치·시간·행동 성분의 세 축을 복원합니다.
 
-[ETH 과제의 데이터 샘플](https://github.com/mees-robot-learning-course/ethz-course-2026/blob/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw3_imitation_learning/hw3/dataset.py#L198-L210) · [기본 모델의 예측과 손실](src/hw3_imitation_learning/hw3/model.py#L19-L35)
+예측을 $\hat a$, 시연 행동을 $a$라 두면 손실은 각 성분의 $(\hat a-a)^2$를 배치와 시간, 행동 성분에 걸쳐 평균한 값입니다. `compute_loss`의 `F.mse_loss(self.forward(state), action_chunk)`가 이 평균을 계산합니다.
 
 공식 채점에서 실행하는 `single_cube.py`는 한 번에 행동 하나를 반환합니다. `_action`은 장애물 위치와 조작 단계에 해당하는 가중치로 손끝의 목표 위치를 구합니다. 현재 손끝과 목표의 차이를 세 축의 이동 명령으로 바꾸고, 여기에 그리퍼 명령 하나를 붙입니다.
 
 다음 호출에서 관측을 다시 읽기 때문에 큐브가 들리지 않았을 때 집기 단계로 돌아갈 수 있습니다.
-
-[목표 위치와 행동 계산](src/experiments/hw3/single_cube.py#L26-L59) · [채점기가 읽는 모델과 가중치](src/experiments/hw3/evaluate.py#L18-L22) · [독립 평가](results/ex1/)
 
 <a id="ex2"></a>
 
@@ -54,15 +50,20 @@ BC로 배운 policy가 큐브를 비껴 잡으면 이어지는 관측도 시연�
 
 여기서 전문가 역할은 스크립트가 맡습니다. `--dagger-checkpoint`를 주면 `learner_prefix`가 먼저 기존 policy로 3~51스텝 움직입니다. 이어서 `demonstrate`가 그 상태에서 복구 동작을 실행합니다.
 
-학습용으로 기록하는 쌍은 **교정 명령을 보내기 직전의 관측과 그 명령**입니다. 수집기는 성공하고 그리퍼가 큐브에서 떨어진 에피소드를 저장합니다. 기본 모델 학습 시 `--extra-zarr`로 이 데이터를 넘기면 `load_and_merge_zarrs`가 기존 시연과 합칩니다.
+`demonstrate`는 손끝의 이동량 `delta`와 그리퍼 명령을 한 행동으로 묶고, 그 행동을 실행하기 **직전**의 관측과 짝지어 저장합니다.
 
-[policy 실행과 교정 시연 수집](src/hw3_imitation_learning/scripts/collect_scripted_demos.py#L140-L167) · [관측과 교정 행동을 짝짓는 순서](src/hw3_imitation_learning/scripts/collect_scripted_demos.py#L69-L91) · [데이터를 합치는 학습 코드](src/hw3_imitation_learning/scripts/train.py#L81-L85)
+```python
+action = np.append(delta, gripper)
+records.append((env.get_obs(), action))
+apply_action(env, action, ACTIONS)
+env.step()
+```
+
+수집기는 큐브를 놓고 그리퍼를 뗀 에피소드를 저장합니다. `train.py`에 `--extra-zarr`로 이 데이터를 넘기면 `load_and_merge_zarrs`가 기존 시연에 교정 시연을 더합니다. 기본 모델은 두 종류의 상태에서 모두 전문가 행동을 예측하도록 학습합니다.
 
 채점용 policy는 시작할 때 장애물의 가로 위치로 구역을 고르고, 해당 구역과 현재 조작 단계에 맞는 행동을 냅니다.
 
 별도 놓기 평가에서 장애물이 왼쪽에 있을 때는 40/40회, 중앙은 12/14회, 오른쪽은 46/46회 성공했습니다.
-
-[장애물 대응 policy](src/experiments/hw3/single_cube.py) · [시연 수집 코드](src/hw3_imitation_learning/scripts/collect_scripted_demos.py) · [장애물 위치별 결과](results/ex2/independent-zones.json)
 
 <a id="ex3"></a>
 
@@ -70,11 +71,14 @@ BC로 배운 policy가 큐브를 비껴 잡으면 이어지는 관측도 시연�
 
 장면에 큐브가 세 개 있으면 로봇과 큐브의 위치가 같아도 지시한 색에 따라 손을 뻗을 위치가 달라집니다. L03의 목표 조건부 policy $\pi(a\mid o,g)$에서 이 과제의 $g$는 **집어야 할 큐브의 색**입니다. 큐브를 내려놓을 상자의 위치는 별도 입력입니다.
 
-`MultiTaskPolicy.sample_actions`는 19차원 관측을 손끝(3), 그리퍼(1), 세 큐브의 좌표(9), 색을 지정하는 one-hot 벡터(3), 상자 위치(3)로 나눕니다.
+채점용 `MultiTaskPolicy.sample_actions`는 19차원 관측에서 세 큐브의 좌표 아홉 개와 목표 색을 나타내는 one-hot 벡터를 꺼냅니다.
 
-큐브 좌표를 $3\times3$으로 배열하고 색 벡터를 곱해 합하면 지정한 큐브의 좌표만 남습니다. 예를 들어 `goal=[0, 1, 0]`이면 두 번째 큐브의 좌표가 공통 집기·놓기 제어기로 들어갑니다.
+```python
+ee, jaw, cubes, goal, bin_position = state.split((3,1,9,3,3), dim=-1)
+target = (cubes.reshape(-1,3,3) * goal.unsqueeze(-1)).sum(dim=1)
+```
 
-[목표 큐브 선택과 행동 출력](src/experiments/hw3/multi_cube.py#L74-L81) · [독립 평가](results/ex3/)
+두 번째 줄은 큐브 $i$의 좌표 $p_i$와 색 벡터의 성분 $g_i$로 목표 좌표 $\sum_i g_i p_i$를 구합니다. `goal=[0, 1, 0]`이면 두 번째 큐브의 세 좌표만 남습니다. 공통 제어기는 이 좌표로 손을 뻗고, 별도로 받은 `bin_position`에 큐브를 놓습니다.
 
 ## 평가 결과
 
@@ -107,4 +111,4 @@ for n in 1 2 3; do
 done
 ```
 
-[문제별 채점 점수와 놓기 평가 시드](results/metrics.json)
+[공식 과제](../../original/hw3/) · [실행 환경](../../#풀이-실행하기) · [실험 결과](results/)

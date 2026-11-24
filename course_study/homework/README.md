@@ -2,12 +2,12 @@
 
 가짜연구소 스터디에서 ETH Zurich의 2026년 봄 Robot Learning 과제 14문제를 구현하고 평가했습니다.
 
-| 과제 | 원본 | 구현과 평가 | 시연 |
-|---|---|---|---|
-| HW1 · PyTorch | [과제 원문](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw1_pytorch_tutorial) | [텐서 연산](implementations/hw1/#ex1) · [학습 도구](implementations/hw1/#ex2) · [MNIST 분류](implementations/hw1/#ex3) · [TinyViT](implementations/hw1/#ex4) | [손글씨 예측](implementations/hw1/#demo) |
-| HW2 · 로봇 제어 | [과제 원문](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw2_robot_control_mdps) | [역기구학](implementations/hw2/#ex1) · [PID](implementations/hw2/#ex2) · [PPO 위치 제어](implementations/hw2/#ex3) | [목표 추종](implementations/hw2/#demo) |
-| HW3 · Imitation learning | [과제 원문](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw3_imitation_learning) | [단일 큐브](implementations/hw3/#ex1) · [DAgger와 장애물](implementations/hw3/#ex2) · [다중 큐브](implementations/hw3/#ex3) | [큐브 조작](implementations/hw3/#demo) |
-| HW4 · 강화학습 | [과제 원문](https://github.com/mees-robot-learning-course/ethz-course-2026/tree/2e089e97d84968182c1ffa2e1bc8177530feb6fe/hw4_reinforcement_learning) | [GridWorld](implementations/hw4/#ex1) · [DQN](implementations/hw4/#ex2) · [PPO](implementations/hw4/#ex3) · [SAC](implementations/hw4/#ex4) | [로봇팔 제어](implementations/hw4/#demo) |
+| 풀이와 시연 | 다루는 내용 |
+|---|---|
+| [HW1 · PyTorch](implementations/hw1/) | 텐서 연산과 자동미분, MNIST 분류, TinyViT |
+| [HW2 · 로봇 제어](implementations/hw2/) | 역기구학, PID 경로 추종, PPO를 이용한 목표 위치 제어 |
+| [HW3 · Imitation learning](implementations/hw3/) | 단일 큐브 놓기, 장애물 앞에서의 DAgger, 색으로 지정한 큐브 놓기 |
+| [HW4 · 강화학습](implementations/hw4/) | GridWorld, CartPole의 DQN, 로봇팔의 PPO와 SAC |
 
 ## 풀이 실행하기
 
@@ -48,4 +48,11 @@ MUJOCO_GL=egl HW_DEVICE=cpu python -m pytest -q tests
 
 CPU에서 테스트 30개가 통과했습니다.
 
-[HW3 채점](implementations/hw3/) · [HW4 로봇팔 평가](implementations/hw4/)
+<details>
+<summary>ETH 강의 영상</summary>
+
+- HW2 · [L02 · Robot Control & MDPs](https://www.youtube.com/watch?v=5-Bb84eTTqQ)
+- HW3 · [L03 · Imitation Learning](https://www.youtube.com/watch?v=Ef4R5s1LqoQ) · [L07 · Action chunking](https://www.youtube.com/watch?v=imSTfMJjp7M)
+- HW4 · [L04 · Reinforcement Learning I](https://www.youtube.com/watch?v=90raNpc11tQ) · [L05 · Reinforcement Learning II](https://www.youtube.com/watch?v=AdTGz8YnnlE)
+
+</details>

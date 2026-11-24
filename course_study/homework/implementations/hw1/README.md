@@ -6,6 +6,10 @@
 
 ## Ex1 · 텐서 연산
 
+네 토큰에서 query 하나를 고르면 해당 행에서 계산이 진행됩니다. 왼쪽은 query와 key의 점수, 가운데는 미래 위치를 가린 뒤의 가중치입니다. 오른쪽에서는 가중치에 각 value를 곱해 선택한 query의 출력을 구합니다.
+
+![네 query를 차례로 골라 내적 점수, causal mask를 적용한 가중치, value의 가중합을 계산하는 과정](media/attention.gif)
+
 토큰 위치 $i,j$ 사이의 attention 점수는 query와 key의 내적 $q_i^\top k_j$입니다. `einsum_qk_scores`의 `torch.einsum("bhid,bhjd->bhij", q, k)`에서 두 입력에 공통인 특징 축 `d`가 사라지고, 결과에는 어느 query가 어느 key를 보는지 나타내는 `i, j`가 남습니다.
 
 `make_causal_mask`는 `torch.triu(..., diagonal=1)`로 $j>i$인 칸을 표시합니다. `masked_softmax`는 이 칸의 가중치를 0으로 만들고, `einsum_apply_attention`은 나머지 가중치로 value 벡터의 가중합을 구합니다. reshape, broadcasting, gather를 포함한 텐서 연산을 서로 다른 입력 100개로 검사했고 모두 기준 연산과 일치했습니다.
@@ -13,6 +17,10 @@
 <a id="ex2"></a>
 
 ## Ex2 · 미분에서 optimizer까지
+
+손실을 $(w-1)^2$로 두고 $w=0$에서 AdamW로 20번 갱신했습니다. 왼쪽 점은 현재 $w$가 손실 곡선의 어디에 있는지, 오른쪽 선은 갱신할 때마다 손실이 얼마나 변했는지 보여 줍니다. 이 예제의 학습률은 0.075이고 weight decay는 0입니다.
+
+![AdamW 업데이트에 따른 파라미터, gradient, 손실의 변화](media/adamw.gif)
 
 길이가 다른 시퀀스를 한 배치에 넣을 때는 padding 위치를 기록합니다. 학습에서는 자동미분으로 파라미터별 gradient를 구하고, `adamw_step_`에서 gradient와 그 제곱의 이동평균을 갱신합니다.
 
@@ -24,18 +32,17 @@ p.add_(m_hat / (v_hat.sqrt() + eps) + weight_decay * p, alpha=-lr)
 
 입력 100개로 데이터 로딩, 파라미터 초기화, 업데이트를 검사했고 모두 통과했습니다.
 
-<details>
-<summary>Ex1·Ex2 연산 예제 보기</summary>
-
-왼쪽은 네 위치의 causal attention 가중치를 한 행씩 보여 줍니다. 미래 위치의 가중치는 0입니다. 오른쪽은 손실 $(w-1)^2$를 줄이도록 AdamW로 $w$를 20번 갱신한 결과입니다.
-
-![미래 위치를 가리는 attention 행렬과 AdamW의 파라미터 갱신](media/operations.gif)
-
-</details>
-
 <a id="ex3"></a>
 
 ## Ex3 · MNIST 분류
+
+<a id="demo"></a>
+
+### 학습하면서 숫자 예측이 어떻게 달라질까
+
+시연을 위해 노트북의 MLP를 시드 0으로 다시 학습했습니다. MNIST 시험 세트에서 숫자별로 처음 등장하는 한 장씩을 골라, 매 epoch 같은 열에 놓았습니다. 이미지 아래에는 정답, 모델의 예측, 해당 예측의 확률이 차례로 나옵니다. 상단의 정확도는 시험 이미지 10,000장 전체에서 측정한 값입니다.
+
+![MLP가 0~5 epoch 동안 같은 손글씨 열 장에 내린 예측](media/mlp.gif)
 
 `Linear`, normalization, dropout과 cross-entropy를 구현해 MLP를 학습했습니다. MLP가 이미지 한 장에서 내는 출력은 숫자 0~9의 점수 열 개입니다. 예측할 때는 가장 높은 점수의 숫자를 고릅니다.
 
@@ -50,19 +57,17 @@ return -log_probs.gather(1, targets.unsqueeze(1)).mean()
 
 MNIST 시험 이미지 **10,000장 중 9,694장(96.94%)**을 맞혔습니다.
 
-<a id="demo"></a>
-
-### 학습하면서 숫자 예측이 어떻게 달라질까
-
-시연을 위해 노트북의 MLP를 시드 0으로 다시 학습했습니다. MNIST 시험 세트에서 숫자별로 처음 등장하는 한 장씩을 골라, 매 epoch 같은 열에 놓았습니다. 이미지 아래에는 정답, 모델의 예측, 해당 예측의 확률이 차례로 나옵니다. 상단의 정확도는 시험 이미지 10,000장 전체에서 측정한 값입니다.
-
-![MLP가 0~5 epoch 동안 같은 손글씨 열 장에 내린 예측](media/mlp.gif)
-
 두 분류 GIF에는 Yann LeCun과 Corinna Cortes의 MNIST 손글씨를 확대해 모델의 예측값을 덧붙였습니다. 두 GIF의 이용 조건은 [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)입니다. [MNIST 데이터와 저작권 표기](https://keras.io/api/datasets/mnist/)
 
 <a id="ex4"></a>
 
 ## Ex4 · TinyViT
+
+### TinyViT의 epoch별 예측
+
+FFN을 쓰는 TinyViT를 시드 0으로 12 epoch 다시 학습했습니다. MLP와 같은 손글씨를 보여 줍니다. 아래 표는 기존 실험에서 검증 정확도로 고른 모델의 시험 결과입니다.
+
+![TinyViT의 학습 전부터 12 epoch까지 같은 숫자에 대한 예측](media/tinyvit.gif)
 
 `TinyViT.forward`는 이미지를 패치로 나누고 위치 임베딩을 더합니다. 각 블록의 self-attention은 패치 사이의 정보를 섞습니다. 세 모델은 그다음에 각 패치의 특징을 변환하는 층을 각각 FFN, GEGLU, SwiGLU로 구성했습니다.
 
@@ -75,15 +80,6 @@ FFN은 첫 선형층의 출력에 GELU를 적용합니다. 두 게이트 방식�
 | FFN | 97.69%, 97.63%, 97.79% |
 | GEGLU | 98.16%, 97.95%, 97.85% |
 | SwiGLU | 98.32%, 98.14%, 97.75% |
-
-<details>
-<summary>TinyViT의 epoch별 예측 보기</summary>
-
-FFN을 쓰는 TinyViT를 시드 0으로 12 epoch 다시 학습했습니다. MLP와 같은 손글씨를 보여 줍니다. 위 표는 기존 실험에서 검증 정확도로 고른 모델의 시험 결과입니다.
-
-![TinyViT의 학습 전부터 12 epoch까지 같은 숫자에 대한 예측](media/tinyvit.gif)
-
-</details>
 
 ## 실행
 

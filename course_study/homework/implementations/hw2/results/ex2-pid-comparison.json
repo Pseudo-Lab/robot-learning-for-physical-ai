@@ -1,0 +1,2184 @@
+{
+  "exercise": "HW2 Ex2",
+  "course_commit": "2e089e97d84968182c1ffa2e1bc8177530feb6fe",
+  "baseline_record_sha256": "9f904a4f7237696eda1e3ea4bcae4784bef0e3091f0b9dc078ff44805370b5b9",
+  "mujoco_version": "3.5.0",
+  "physics_timestep_s": 0.002,
+  "seed_range_inclusive": [
+    107200,
+    107299
+  ],
+  "width_sampling_m": "numpy.default_rng(seed).uniform(0.14, 0.25)",
+  "calibration": {
+    "widths_m": [
+      0.14,
+      0.15375,
+      0.1675,
+      0.18125000000000002,
+      0.195,
+      0.20875,
+      0.2225,
+      0.23625000000000002,
+      0.25
+    ],
+    "Kp": [
+      10,
+      20,
+      40,
+      75,
+      150
+    ],
+    "Ki": [
+      0
+    ],
+    "Kd": [
+      0.25,
+      0.5,
+      1,
+      1.5,
+      2,
+      3
+    ],
+    "selection": "Among settings passing all nine widths, minimize mean(abs(tip_travel_m / reference_length_m - 1) + max_path_deviation_m / 0.03)."
+  },
+  "gains": {
+    "baseline": [
+      150,
+      0,
+      0.01
+    ],
+    "tuned": [
+      10,
+      0,
+      0.25
+    ]
+  },
+  "gain_order": [
+    "Kp",
+    "Ki",
+    "Kd"
+  ],
+  "metrics": {
+    "success": "Each of 80 waypoints reached in order at a distance strictly below 0.03 m within 3000 steps per waypoint, IK within joint limits and no simulation warnings.",
+    "tip_travel_m": "Sum of Euclidean distances between consecutive 3-D tip samples used by the waypoint check at 2 ms intervals.",
+    "max_path_deviation_m": "Largest over those samples of the distance to the nearest of the 16 closed reference line segments, measured in 3-D."
+  },
+  "summary": {
+    "baseline": {
+      "total": 100,
+      "passed": 100,
+      "mean_tip_travel_m": 10.296147872229508,
+      "mean_max_path_deviation_m": 0.0698425843534917,
+      "worst_path_deviation_m": 0.10504045832828385
+    },
+    "tuned": {
+      "total": 100,
+      "passed": 100,
+      "mean_tip_travel_m": 0.9590311052572909,
+      "mean_max_path_deviation_m": 0.0054222107302307416,
+      "worst_path_deviation_m": 0.00949639754222932
+    }
+  },
+  "rows": [
+    {
+      "seed": 107200,
+      "width": 0.15364271739200458,
+      "targets": 80,
+      "max_ik_error_m": 0.0009998038107013338,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 287,
+        "success": true,
+        "tip_travel_m": 5.72471047429348,
+        "max_path_deviation_m": 0.06468815585162359
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 208,
+        "success": true,
+        "tip_travel_m": 0.7693304812177251,
+        "max_path_deviation_m": 0.006397615409168197
+      }
+    },
+    {
+      "seed": 107201,
+      "width": 0.1672010137131933,
+      "targets": 80,
+      "max_ik_error_m": 0.000995550302286418,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 341,
+        "success": true,
+        "tip_travel_m": 7.460989185334507,
+        "max_path_deviation_m": 0.05993229004555682
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 230,
+        "success": true,
+        "tip_travel_m": 0.8305206191516123,
+        "max_path_deviation_m": 0.005573064460044747
+      }
+    },
+    {
+      "seed": 107202,
+      "width": 0.14855630770310668,
+      "targets": 80,
+      "max_ik_error_m": 0.0009998924165715067,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 296,
+        "success": true,
+        "tip_travel_m": 5.928065460848721,
+        "max_path_deviation_m": 0.05972086787007866
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 204,
+        "success": true,
+        "tip_travel_m": 0.7462455892553038,
+        "max_path_deviation_m": 0.006954529057418124
+      }
+    },
+    {
+      "seed": 107203,
+      "width": 0.19721582036430282,
+      "targets": 80,
+      "max_ik_error_m": 0.0009985265087818114,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 464,
+        "success": true,
+        "tip_travel_m": 9.90930067131112,
+        "max_path_deviation_m": 0.06046288424341638
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 270,
+        "success": true,
+        "tip_travel_m": 0.9784775263957789,
+        "max_path_deviation_m": 0.0051771508302186795
+      }
+    },
+    {
+      "seed": 107204,
+      "width": 0.16139938138258625,
+      "targets": 80,
+      "max_ik_error_m": 0.0009999415195476517,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 355,
+        "success": true,
+        "tip_travel_m": 7.805506462982304,
+        "max_path_deviation_m": 0.07307459541322142
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 219,
+        "success": true,
+        "tip_travel_m": 0.8059595100899171,
+        "max_path_deviation_m": 0.006074149956569272
+      }
+    },
+    {
+      "seed": 107205,
+      "width": 0.1808377845819068,
+      "targets": 80,
+      "max_ik_error_m": 0.000991263194597249,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 297,
+        "success": true,
+        "tip_travel_m": 6.487681278199727,
+        "max_path_deviation_m": 0.06240091614874272
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 248,
+        "success": true,
+        "tip_travel_m": 0.8970058457488311,
+        "max_path_deviation_m": 0.005306702930006851
+      }
+    },
+    {
+      "seed": 107206,
+      "width": 0.19814847495741392,
+      "targets": 80,
+      "max_ik_error_m": 0.000990111359461717,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 344,
+        "success": true,
+        "tip_travel_m": 7.0844361758756085,
+        "max_path_deviation_m": 0.06489573091239086
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 270,
+        "success": true,
+        "tip_travel_m": 0.9830964496372703,
+        "max_path_deviation_m": 0.00520415830379627
+      }
+    },
+    {
+      "seed": 107207,
+      "width": 0.23534426391518304,
+      "targets": 80,
+      "max_ik_error_m": 0.0009992583258653974,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 602,
+        "success": true,
+        "tip_travel_m": 14.877456838979672,
+        "max_path_deviation_m": 0.07955127538824142
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 322,
+        "success": true,
+        "tip_travel_m": 1.1676847070284455,
+        "max_path_deviation_m": 0.004756444195394636
+      }
+    },
+    {
+      "seed": 107208,
+      "width": 0.16276059875660207,
+      "targets": 80,
+      "max_ik_error_m": 0.0009876809622578818,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 376,
+        "success": true,
+        "tip_travel_m": 8.64107441634183,
+        "max_path_deviation_m": 0.07399909209619107
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 223,
+        "success": true,
+        "tip_travel_m": 0.8111069234456403,
+        "max_path_deviation_m": 0.0058409001062370795
+      }
+    },
+    {
+      "seed": 107209,
+      "width": 0.16297535128794038,
+      "targets": 80,
+      "max_ik_error_m": 0.0009889850221581954,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 376,
+        "success": true,
+        "tip_travel_m": 8.657576750540063,
+        "max_path_deviation_m": 0.07414722298841767
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 223,
+        "success": true,
+        "tip_travel_m": 0.8121782583541926,
+        "max_path_deviation_m": 0.005847987251285033
+      }
+    },
+    {
+      "seed": 107210,
+      "width": 0.1699383958497702,
+      "targets": 80,
+      "max_ik_error_m": 0.0009965425843269358,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 413,
+        "success": true,
+        "tip_travel_m": 9.50450032842365,
+        "max_path_deviation_m": 0.0675812042087863
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 235,
+        "success": true,
+        "tip_travel_m": 0.845609594690174,
+        "max_path_deviation_m": 0.0054238094779782454
+      }
+    },
+    {
+      "seed": 107211,
+      "width": 0.20856524462767412,
+      "targets": 80,
+      "max_ik_error_m": 0.000997355526857278,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 742,
+        "success": true,
+        "tip_travel_m": 19.219995793010526,
+        "max_path_deviation_m": 0.10504045832828385
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 286,
+        "success": true,
+        "tip_travel_m": 1.0329097523301292,
+        "max_path_deviation_m": 0.004568494170682398
+      }
+    },
+    {
+      "seed": 107212,
+      "width": 0.24284271378150843,
+      "targets": 80,
+      "max_ik_error_m": 0.000992720680510554,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 635,
+        "success": true,
+        "tip_travel_m": 13.66353649674665,
+        "max_path_deviation_m": 0.062373536511769224
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 326,
+        "success": true,
+        "tip_travel_m": 1.2070706930363402,
+        "max_path_deviation_m": 0.00473193933408901
+      }
+    },
+    {
+      "seed": 107213,
+      "width": 0.148633339454686,
+      "targets": 80,
+      "max_ik_error_m": 0.0009948214097689968,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 296,
+        "success": true,
+        "tip_travel_m": 5.930382867017337,
+        "max_path_deviation_m": 0.059756126137097944
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 204,
+        "success": true,
+        "tip_travel_m": 0.74662570033728,
+        "max_path_deviation_m": 0.006957869152983451
+      }
+    },
+    {
+      "seed": 107214,
+      "width": 0.23598670263262883,
+      "targets": 80,
+      "max_ik_error_m": 0.0009988950870474021,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 680,
+        "success": true,
+        "tip_travel_m": 15.494473869248399,
+        "max_path_deviation_m": 0.06062688932151458
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 322,
+        "success": true,
+        "tip_travel_m": 1.170881281120448,
+        "max_path_deviation_m": 0.004768703569068267
+      }
+    },
+    {
+      "seed": 107215,
+      "width": 0.23504555670972963,
+      "targets": 80,
+      "max_ik_error_m": 0.0009995876006416696,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 602,
+        "success": true,
+        "tip_travel_m": 14.841555367436532,
+        "max_path_deviation_m": 0.07931719949507446
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 322,
+        "success": true,
+        "tip_travel_m": 1.1661948250548018,
+        "max_path_deviation_m": 0.004750740535115881
+      }
+    },
+    {
+      "seed": 107216,
+      "width": 0.17772371969897952,
+      "targets": 80,
+      "max_ik_error_m": 0.000999617933419749,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 250,
+        "success": true,
+        "tip_travel_m": 4.8718585907228995,
+        "max_path_deviation_m": 0.06147407754111675
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 245,
+        "success": true,
+        "tip_travel_m": 0.8826158216436427,
+        "max_path_deviation_m": 0.0054139705646248405
+      }
+    },
+    {
+      "seed": 107217,
+      "width": 0.16154733297103474,
+      "targets": 80,
+      "max_ik_error_m": 0.0009803136954008001,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 358,
+        "success": true,
+        "tip_travel_m": 7.905969297809614,
+        "max_path_deviation_m": 0.07316655143712225
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 219,
+        "success": true,
+        "tip_travel_m": 0.806699154677479,
+        "max_path_deviation_m": 0.006080910179160822
+      }
+    },
+    {
+      "seed": 107218,
+      "width": 0.19447711129039028,
+      "targets": 80,
+      "max_ik_error_m": 0.0009970151244597153,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 429,
+        "success": true,
+        "tip_travel_m": 9.130863741448874,
+        "max_path_deviation_m": 0.06168123696161053
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 270,
+        "success": true,
+        "tip_travel_m": 0.9657337493619041,
+        "max_path_deviation_m": 0.005093011960243244
+      }
+    },
+    {
+      "seed": 107219,
+      "width": 0.1703755044889475,
+      "targets": 80,
+      "max_ik_error_m": 0.0009991077650396082,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 413,
+        "success": true,
+        "tip_travel_m": 9.539781732676605,
+        "max_path_deviation_m": 0.06790208960997615
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 235,
+        "success": true,
+        "tip_travel_m": 0.8478380760228994,
+        "max_path_deviation_m": 0.005440416725189529
+      }
+    },
+    {
+      "seed": 107220,
+      "width": 0.15637308065006933,
+      "targets": 80,
+      "max_ik_error_m": 0.000994128428804092,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 362,
+        "success": true,
+        "tip_travel_m": 7.6294024523830135,
+        "max_path_deviation_m": 0.0606219609386615
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 213,
+        "success": true,
+        "tip_travel_m": 0.7813193666976729,
+        "max_path_deviation_m": 0.006522335905916463
+      }
+    },
+    {
+      "seed": 107221,
+      "width": 0.1766354316756237,
+      "targets": 80,
+      "max_ik_error_m": 0.0009949598568981125,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 498,
+        "success": true,
+        "tip_travel_m": 11.129541814924718,
+        "max_path_deviation_m": 0.07314857993403649
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 242,
+        "success": true,
+        "tip_travel_m": 0.8779098044487108,
+        "max_path_deviation_m": 0.005279937997316699
+      }
+    },
+    {
+      "seed": 107222,
+      "width": 0.182079195692032,
+      "targets": 80,
+      "max_ik_error_m": 0.0009981145093957069,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 370,
+        "success": true,
+        "tip_travel_m": 8.603649190868975,
+        "max_path_deviation_m": 0.0654420610421847
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 249,
+        "success": true,
+        "tip_travel_m": 0.9029077429518708,
+        "max_path_deviation_m": 0.005352320998146233
+      }
+    },
+    {
+      "seed": 107223,
+      "width": 0.14104394980894258,
+      "targets": 80,
+      "max_ik_error_m": 0.0009953140653243377,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 400,
+        "success": true,
+        "tip_travel_m": 8.148929311784809,
+        "max_path_deviation_m": 0.06554452159988192
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 191,
+        "success": true,
+        "tip_travel_m": 0.7161812708483853,
+        "max_path_deviation_m": 0.00949639754222932
+      }
+    },
+    {
+      "seed": 107224,
+      "width": 0.24623015046986219,
+      "targets": 80,
+      "max_ik_error_m": 0.0009998800040720433,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 728,
+        "success": true,
+        "tip_travel_m": 17.553152282144328,
+        "max_path_deviation_m": 0.08715661821386456
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 335,
+        "success": true,
+        "tip_travel_m": 1.22412656535369,
+        "max_path_deviation_m": 0.004599031758071127
+      }
+    },
+    {
+      "seed": 107225,
+      "width": 0.236582636675572,
+      "targets": 80,
+      "max_ik_error_m": 0.0009988630218396206,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 747,
+        "success": true,
+        "tip_travel_m": 17.857300215877515,
+        "max_path_deviation_m": 0.08143648955368618
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 322,
+        "success": true,
+        "tip_travel_m": 1.1735866087559146,
+        "max_path_deviation_m": 0.004780066365792695
+      }
+    },
+    {
+      "seed": 107226,
+      "width": 0.1805838759063183,
+      "targets": 80,
+      "max_ik_error_m": 0.0009898629580581408,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 297,
+        "success": true,
+        "tip_travel_m": 6.476782991973449,
+        "max_path_deviation_m": 0.0622742764886894
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 248,
+        "success": true,
+        "tip_travel_m": 0.8957444879696108,
+        "max_path_deviation_m": 0.005297393420848628
+      }
+    },
+    {
+      "seed": 107227,
+      "width": 0.18934236033733862,
+      "targets": 80,
+      "max_ik_error_m": 0.0009979332444270195,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 321,
+        "success": true,
+        "tip_travel_m": 7.49946115937108,
+        "max_path_deviation_m": 0.07389826731171345
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 260,
+        "success": true,
+        "tip_travel_m": 0.9377441454333526,
+        "max_path_deviation_m": 0.004863979868698305
+      }
+    },
+    {
+      "seed": 107228,
+      "width": 0.2440725647487903,
+      "targets": 80,
+      "max_ik_error_m": 0.0009991307927026988,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 719,
+        "success": true,
+        "tip_travel_m": 16.29252629585873,
+        "max_path_deviation_m": 0.06912585683172143
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 329,
+        "success": true,
+        "tip_travel_m": 1.21326848377026,
+        "max_path_deviation_m": 0.004765495256843419
+      }
+    },
+    {
+      "seed": 107229,
+      "width": 0.23241723545630705,
+      "targets": 80,
+      "max_ik_error_m": 0.0009981400459094319,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 732,
+        "success": true,
+        "tip_travel_m": 16.554931036662474,
+        "max_path_deviation_m": 0.0672594551494879
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 318,
+        "success": true,
+        "tip_travel_m": 1.1533712666431617,
+        "max_path_deviation_m": 0.00471739433452785
+      }
+    },
+    {
+      "seed": 107230,
+      "width": 0.1745719093866112,
+      "targets": 80,
+      "max_ik_error_m": 0.000992582882303507,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 399,
+        "success": true,
+        "tip_travel_m": 8.254513372800828,
+        "max_path_deviation_m": 0.0680372682313539
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 241,
+        "success": true,
+        "tip_travel_m": 0.8677212082899537,
+        "max_path_deviation_m": 0.005137852401210521
+      }
+    },
+    {
+      "seed": 107231,
+      "width": 0.20225061044132692,
+      "targets": 80,
+      "max_ik_error_m": 0.0009977834087404717,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 654,
+        "success": true,
+        "tip_travel_m": 15.181647771618644,
+        "max_path_deviation_m": 0.07018091779725964
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 280,
+        "success": true,
+        "tip_travel_m": 1.0020588289636505,
+        "max_path_deviation_m": 0.004889298622782178
+      }
+    },
+    {
+      "seed": 107232,
+      "width": 0.2294550394768797,
+      "targets": 80,
+      "max_ik_error_m": 0.0009988120727937506,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 460,
+        "success": true,
+        "tip_travel_m": 10.271489493231394,
+        "max_path_deviation_m": 0.058594602242445726
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 314,
+        "success": true,
+        "tip_travel_m": 1.1390706202109875,
+        "max_path_deviation_m": 0.004722845085520555
+      }
+    },
+    {
+      "seed": 107233,
+      "width": 0.17358039484906268,
+      "targets": 80,
+      "max_ik_error_m": 0.000992891222732911,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 392,
+        "success": true,
+        "tip_travel_m": 8.80784291814306,
+        "max_path_deviation_m": 0.07320851047834061
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 239,
+        "success": true,
+        "tip_travel_m": 0.8633819407400567,
+        "max_path_deviation_m": 0.005594022909021809
+      }
+    },
+    {
+      "seed": 107234,
+      "width": 0.24458568646832585,
+      "targets": 80,
+      "max_ik_error_m": 0.0009995276382223901,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 708,
+        "success": true,
+        "tip_travel_m": 16.44938654970877,
+        "max_path_deviation_m": 0.07207132735603876
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 329,
+        "success": true,
+        "tip_travel_m": 1.2159205628367173,
+        "max_path_deviation_m": 0.004782776358151679
+      }
+    },
+    {
+      "seed": 107235,
+      "width": 0.14180698992110635,
+      "targets": 80,
+      "max_ik_error_m": 0.0009888051838748016,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 416,
+        "success": true,
+        "tip_travel_m": 8.590672727270018,
+        "max_path_deviation_m": 0.06701846940819024
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 191,
+        "success": true,
+        "tip_travel_m": 0.7197846654904176,
+        "max_path_deviation_m": 0.009248466492351374
+      }
+    },
+    {
+      "seed": 107236,
+      "width": 0.22184954762782375,
+      "targets": 80,
+      "max_ik_error_m": 0.0009972104452051526,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 563,
+        "success": true,
+        "tip_travel_m": 13.658164620865765,
+        "max_path_deviation_m": 0.08143874814223986
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 305,
+        "success": true,
+        "tip_travel_m": 1.1018155408738193,
+        "max_path_deviation_m": 0.00473588308889316
+      }
+    },
+    {
+      "seed": 107237,
+      "width": 0.23800460415023927,
+      "targets": 80,
+      "max_ik_error_m": 0.0009991912575106766,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 497,
+        "success": true,
+        "tip_travel_m": 12.88736769634006,
+        "max_path_deviation_m": 0.10035436316677215
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 322,
+        "success": true,
+        "tip_travel_m": 1.1806645608692683,
+        "max_path_deviation_m": 0.0048089437094554046
+      }
+    },
+    {
+      "seed": 107238,
+      "width": 0.14756296760652812,
+      "targets": 80,
+      "max_ik_error_m": 0.0009978861882140612,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 296,
+        "success": true,
+        "tip_travel_m": 5.9032336086181685,
+        "max_path_deviation_m": 0.05954675288282903
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 203,
+        "success": true,
+        "tip_travel_m": 0.7412449215724133,
+        "max_path_deviation_m": 0.006908971865254213
+      }
+    },
+    {
+      "seed": 107239,
+      "width": 0.17649025578449087,
+      "targets": 80,
+      "max_ik_error_m": 0.0009940070632429826,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 454,
+        "success": true,
+        "tip_travel_m": 9.516791827176608,
+        "max_path_deviation_m": 0.057176945120921495
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 242,
+        "success": true,
+        "tip_travel_m": 0.8771872419974553,
+        "max_path_deviation_m": 0.005274529947451404
+      }
+    },
+    {
+      "seed": 107240,
+      "width": 0.21491117762447792,
+      "targets": 80,
+      "max_ik_error_m": 0.0009969314781824816,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 719,
+        "success": true,
+        "tip_travel_m": 16.544410810192396,
+        "max_path_deviation_m": 0.07176762722177979
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 294,
+        "success": true,
+        "tip_travel_m": 1.0639715507388192,
+        "max_path_deviation_m": 0.004776615224044717
+      }
+    },
+    {
+      "seed": 107241,
+      "width": 0.16929151006374496,
+      "targets": 80,
+      "max_ik_error_m": 0.000998080639430178,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 329,
+        "success": true,
+        "tip_travel_m": 7.203227498177086,
+        "max_path_deviation_m": 0.06106696009435963
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 235,
+        "success": true,
+        "tip_travel_m": 0.8422613894133821,
+        "max_path_deviation_m": 0.0053692274430878935
+      }
+    },
+    {
+      "seed": 107242,
+      "width": 0.16256850056698033,
+      "targets": 80,
+      "max_ik_error_m": 0.0009865144750307538,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 418,
+        "success": true,
+        "tip_travel_m": 9.379347151115754,
+        "max_path_deviation_m": 0.07386674050255608
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 219,
+        "success": true,
+        "tip_travel_m": 0.8118208587855451,
+        "max_path_deviation_m": 0.006121379370490498
+      }
+    },
+    {
+      "seed": 107243,
+      "width": 0.16102800444252752,
+      "targets": 80,
+      "max_ik_error_m": 0.0009985156664986193,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 355,
+        "success": true,
+        "tip_travel_m": 7.781332823292259,
+        "max_path_deviation_m": 0.07282088008034923
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 219,
+        "success": true,
+        "tip_travel_m": 0.8040185636543127,
+        "max_path_deviation_m": 0.006056791588421494
+      }
+    },
+    {
+      "seed": 107244,
+      "width": 0.18609134631187804,
+      "targets": 80,
+      "max_ik_error_m": 0.00099951209562389,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 470,
+        "success": true,
+        "tip_travel_m": 10.879932194887644,
+        "max_path_deviation_m": 0.07149425357080791
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 256,
+        "success": true,
+        "tip_travel_m": 0.9221642507072643,
+        "max_path_deviation_m": 0.004937846057321731
+      }
+    },
+    {
+      "seed": 107245,
+      "width": 0.1708395665569864,
+      "targets": 80,
+      "max_ik_error_m": 0.000987330970638246,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 335,
+        "success": true,
+        "tip_travel_m": 7.40641782975629,
+        "max_path_deviation_m": 0.06186178606269986
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 235,
+        "success": true,
+        "tip_travel_m": 0.8500718281071289,
+        "max_path_deviation_m": 0.005451136363072955
+      }
+    },
+    {
+      "seed": 107246,
+      "width": 0.2198140355408482,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996831258603067,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 636,
+        "success": true,
+        "tip_travel_m": 14.761414285051792,
+        "max_path_deviation_m": 0.08024253125837562
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 299,
+        "success": true,
+        "tip_travel_m": 1.0919011988668117,
+        "max_path_deviation_m": 0.004912670844833194
+      }
+    },
+    {
+      "seed": 107247,
+      "width": 0.2091102553486171,
+      "targets": 80,
+      "max_ik_error_m": 0.0009960542936214626,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 455,
+        "success": true,
+        "tip_travel_m": 10.795508163266774,
+        "max_path_deviation_m": 0.07234567902382852
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 287,
+        "success": true,
+        "tip_travel_m": 1.0355757452886274,
+        "max_path_deviation_m": 0.004609641979419734
+      }
+    },
+    {
+      "seed": 107248,
+      "width": 0.20874079505497567,
+      "targets": 80,
+      "max_ik_error_m": 0.0009983612720753418,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 455,
+        "success": true,
+        "tip_travel_m": 10.760663780433699,
+        "max_path_deviation_m": 0.07209281850925896
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 286,
+        "success": true,
+        "tip_travel_m": 1.033727166564399,
+        "max_path_deviation_m": 0.004598073312271971
+      }
+    },
+    {
+      "seed": 107249,
+      "width": 0.21291349035441537,
+      "targets": 80,
+      "max_ik_error_m": 0.0009997482312404762,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 403,
+        "success": true,
+        "tip_travel_m": 9.452033499400667,
+        "max_path_deviation_m": 0.07424766541198116
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 292,
+        "success": true,
+        "tip_travel_m": 1.0540822806015717,
+        "max_path_deviation_m": 0.004686664858357073
+      }
+    },
+    {
+      "seed": 107250,
+      "width": 0.2413336284594093,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996362940491608,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 563,
+        "success": true,
+        "tip_travel_m": 12.526221961745701,
+        "max_path_deviation_m": 0.07384522554568508
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 324,
+        "success": true,
+        "tip_travel_m": 1.196147376542687,
+        "max_path_deviation_m": 0.004689171026733071
+      }
+    },
+    {
+      "seed": 107251,
+      "width": 0.16481920986179993,
+      "targets": 80,
+      "max_ik_error_m": 0.0009999828793014396,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 430,
+        "success": true,
+        "tip_travel_m": 9.645516563787288,
+        "max_path_deviation_m": 0.06764874397884069
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 228,
+        "success": true,
+        "tip_travel_m": 0.8190950696879445,
+        "max_path_deviation_m": 0.005476291447487006
+      }
+    },
+    {
+      "seed": 107252,
+      "width": 0.21386801976881065,
+      "targets": 80,
+      "max_ik_error_m": 0.0009973569671948923,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 531,
+        "success": true,
+        "tip_travel_m": 13.160028438174699,
+        "max_path_deviation_m": 0.07514583032543475
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 292,
+        "success": true,
+        "tip_travel_m": 1.0588504627209847,
+        "max_path_deviation_m": 0.00471675924140289
+      }
+    },
+    {
+      "seed": 107253,
+      "width": 0.19261225186270348,
+      "targets": 80,
+      "max_ik_error_m": 0.0009939503612156927,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 406,
+        "success": true,
+        "tip_travel_m": 9.109443163687125,
+        "max_path_deviation_m": 0.07541738187229523
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 267,
+        "success": true,
+        "tip_travel_m": 0.9567894168457213,
+        "max_path_deviation_m": 0.005014854856866059
+      }
+    },
+    {
+      "seed": 107254,
+      "width": 0.1821155000120171,
+      "targets": 80,
+      "max_ik_error_m": 0.0009983150072007546,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 370,
+        "success": true,
+        "tip_travel_m": 8.606317710294261,
+        "max_path_deviation_m": 0.06546263580121431
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 249,
+        "success": true,
+        "tip_travel_m": 0.9030880526882021,
+        "max_path_deviation_m": 0.005353657623241907
+      }
+    },
+    {
+      "seed": 107255,
+      "width": 0.2004774052542396,
+      "targets": 80,
+      "max_ik_error_m": 0.0009901473529161189,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 641,
+        "success": true,
+        "tip_travel_m": 13.647179772969002,
+        "max_path_deviation_m": 0.06604731100974151
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 279,
+        "success": true,
+        "tip_travel_m": 0.9935353871593309,
+        "max_path_deviation_m": 0.004833940679986568
+      }
+    },
+    {
+      "seed": 107256,
+      "width": 0.17190576530879836,
+      "targets": 80,
+      "max_ik_error_m": 0.0009937338494990379,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 492,
+        "success": true,
+        "tip_travel_m": 10.89689687877841,
+        "max_path_deviation_m": 0.07190187508131947
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 238,
+        "success": true,
+        "tip_travel_m": 0.855065160503937,
+        "max_path_deviation_m": 0.005533084824088068
+      }
+    },
+    {
+      "seed": 107257,
+      "width": 0.19143719441462873,
+      "targets": 80,
+      "max_ik_error_m": 0.000987495766116538,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 314,
+        "success": true,
+        "tip_travel_m": 6.440684738547053,
+        "max_path_deviation_m": 0.07480495338287685
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 265,
+        "success": true,
+        "tip_travel_m": 0.9511871070031119,
+        "max_path_deviation_m": 0.004976156393570194
+      }
+    },
+    {
+      "seed": 107258,
+      "width": 0.1801577926380969,
+      "targets": 80,
+      "max_ik_error_m": 0.0009875140228212138,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 297,
+        "success": true,
+        "tip_travel_m": 6.458514998553188,
+        "max_path_deviation_m": 0.06206233573683448
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 248,
+        "success": true,
+        "tip_travel_m": 0.8936080138218486,
+        "max_path_deviation_m": 0.00528838017509526
+      }
+    },
+    {
+      "seed": 107259,
+      "width": 0.2016058711231524,
+      "targets": 80,
+      "max_ik_error_m": 0.0009964948563182274,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 384,
+        "success": true,
+        "tip_travel_m": 8.161496937843106,
+        "max_path_deviation_m": 0.07186338250555649
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 280,
+        "success": true,
+        "tip_travel_m": 0.998854861753409,
+        "max_path_deviation_m": 0.004869135496449191
+      }
+    },
+    {
+      "seed": 107260,
+      "width": 0.14604745325670013,
+      "targets": 80,
+      "max_ik_error_m": 0.0009952678729562264,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 295,
+        "success": true,
+        "tip_travel_m": 5.815949596366411,
+        "max_path_deviation_m": 0.05886517137311515
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 201,
+        "success": true,
+        "tip_travel_m": 0.7342424686102513,
+        "max_path_deviation_m": 0.00734616767936672
+      }
+    },
+    {
+      "seed": 107261,
+      "width": 0.19497486366511163,
+      "targets": 80,
+      "max_ik_error_m": 0.0009969003467946642,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 365,
+        "success": true,
+        "tip_travel_m": 7.6138486318852845,
+        "max_path_deviation_m": 0.06343708062318706
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 270,
+        "success": true,
+        "tip_travel_m": 0.968293227971887,
+        "max_path_deviation_m": 0.005106026264959915
+      }
+    },
+    {
+      "seed": 107262,
+      "width": 0.2089301219438074,
+      "targets": 80,
+      "max_ik_error_m": 0.0009994465920920485,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 455,
+        "success": true,
+        "tip_travel_m": 10.776830097815894,
+        "max_path_deviation_m": 0.07221357533610379
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 286,
+        "success": true,
+        "tip_travel_m": 1.034666945287803,
+        "max_path_deviation_m": 0.004603530499493559
+      }
+    },
+    {
+      "seed": 107263,
+      "width": 0.20735905614934125,
+      "targets": 80,
+      "max_ik_error_m": 0.0009937152459013007,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 534,
+        "success": true,
+        "tip_travel_m": 13.203559562346232,
+        "max_path_deviation_m": 0.0712153455786195
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 284,
+        "success": true,
+        "tip_travel_m": 1.0273357350665577,
+        "max_path_deviation_m": 0.004820080524075169
+      }
+    },
+    {
+      "seed": 107264,
+      "width": 0.21226009092320358,
+      "targets": 80,
+      "max_ik_error_m": 0.0009989709892729447,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 658,
+        "success": true,
+        "tip_travel_m": 15.501991851728175,
+        "max_path_deviation_m": 0.08569668620808096
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 292,
+        "success": true,
+        "tip_travel_m": 1.0507583535824367,
+        "max_path_deviation_m": 0.004642405604251562
+      }
+    },
+    {
+      "seed": 107265,
+      "width": 0.17281619023636716,
+      "targets": 80,
+      "max_ik_error_m": 0.0009992059273334038,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 386,
+        "success": true,
+        "tip_travel_m": 8.627870820974874,
+        "max_path_deviation_m": 0.07253616793574891
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 238,
+        "success": true,
+        "tip_travel_m": 0.8596001988852258,
+        "max_path_deviation_m": 0.00556937624218187
+      }
+    },
+    {
+      "seed": 107266,
+      "width": 0.23790822591269972,
+      "targets": 80,
+      "max_ik_error_m": 0.0009985418483342925,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 497,
+        "success": true,
+        "tip_travel_m": 12.875105029057398,
+        "max_path_deviation_m": 0.10030251967516451
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 322,
+        "success": true,
+        "tip_travel_m": 1.1801847866803556,
+        "max_path_deviation_m": 0.004807104174903549
+      }
+    },
+    {
+      "seed": 107267,
+      "width": 0.21706149276512063,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996460574049576,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 562,
+        "success": true,
+        "tip_travel_m": 12.777504337895637,
+        "max_path_deviation_m": 0.0685813391714555
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 298,
+        "success": true,
+        "tip_travel_m": 1.077984528903023,
+        "max_path_deviation_m": 0.004841078307924397
+      }
+    },
+    {
+      "seed": 107268,
+      "width": 0.1906279688708852,
+      "targets": 80,
+      "max_ik_error_m": 0.000999592394445701,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 314,
+        "success": true,
+        "tip_travel_m": 6.414818826579824,
+        "max_path_deviation_m": 0.07464122564400535
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 263,
+        "success": true,
+        "tip_travel_m": 0.9439575287843154,
+        "max_path_deviation_m": 0.004953831735625722
+      }
+    },
+    {
+      "seed": 107269,
+      "width": 0.24305328963175837,
+      "targets": 80,
+      "max_ik_error_m": 0.0009938138129381119,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 635,
+        "success": true,
+        "tip_travel_m": 13.67670635153738,
+        "max_path_deviation_m": 0.06247873469679785
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 326,
+        "success": true,
+        "tip_travel_m": 1.2081219939434407,
+        "max_path_deviation_m": 0.004737936387895531
+      }
+    },
+    {
+      "seed": 107270,
+      "width": 0.17235598101536995,
+      "targets": 80,
+      "max_ik_error_m": 0.0009964393118993358,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 373,
+        "success": true,
+        "tip_travel_m": 8.489115828759225,
+        "max_path_deviation_m": 0.07221515563121811
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 238,
+        "success": true,
+        "tip_travel_m": 0.8573077809332365,
+        "max_path_deviation_m": 0.005551018523149101
+      }
+    },
+    {
+      "seed": 107271,
+      "width": 0.16154401202114244,
+      "targets": 80,
+      "max_ik_error_m": 0.0009802935300682325,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 358,
+        "success": true,
+        "tip_travel_m": 7.9057565608845985,
+        "max_path_deviation_m": 0.0731642779460524
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 219,
+        "success": true,
+        "tip_travel_m": 0.8066825144753614,
+        "max_path_deviation_m": 0.006080758414475192
+      }
+    },
+    {
+      "seed": 107272,
+      "width": 0.14868354492062788,
+      "targets": 80,
+      "max_ik_error_m": 0.0009951822339971587,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 296,
+        "success": true,
+        "tip_travel_m": 5.9325817765514675,
+        "max_path_deviation_m": 0.05977904930209071
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 204,
+        "success": true,
+        "tip_travel_m": 0.7468780849098561,
+        "max_path_deviation_m": 0.0069600930847653
+      }
+    },
+    {
+      "seed": 107273,
+      "width": 0.16580094600208864,
+      "targets": 80,
+      "max_ik_error_m": 0.0009995666441266428,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 341,
+        "success": true,
+        "tip_travel_m": 7.370932865188681,
+        "max_path_deviation_m": 0.05923207865045758
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 229,
+        "success": true,
+        "tip_travel_m": 0.8237435232369418,
+        "max_path_deviation_m": 0.005515837267627937
+      }
+    },
+    {
+      "seed": 107274,
+      "width": 0.1433489730257843,
+      "targets": 80,
+      "max_ik_error_m": 0.0009986022040832038,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 244,
+        "success": true,
+        "tip_travel_m": 4.551129792603968,
+        "max_path_deviation_m": 0.06602428609269081
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 194,
+        "success": true,
+        "tip_travel_m": 0.7257760877744404,
+        "max_path_deviation_m": 0.009345745397203157
+      }
+    },
+    {
+      "seed": 107275,
+      "width": 0.20550860083127503,
+      "targets": 80,
+      "max_ik_error_m": 0.0009917099276422164,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 509,
+        "success": true,
+        "tip_travel_m": 11.264397725075487,
+        "max_path_deviation_m": 0.07085440168128858
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 284,
+        "success": true,
+        "tip_travel_m": 1.0191807274186109,
+        "max_path_deviation_m": 0.0047643499782305315
+      }
+    },
+    {
+      "seed": 107276,
+      "width": 0.1453320758581257,
+      "targets": 80,
+      "max_ik_error_m": 0.0009959750727984984,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 295,
+        "success": true,
+        "tip_travel_m": 5.778682656273333,
+        "max_path_deviation_m": 0.0584779440626277
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 197,
+        "success": true,
+        "tip_travel_m": 0.7331938589405536,
+        "max_path_deviation_m": 0.00816955503515662
+      }
+    },
+    {
+      "seed": 107277,
+      "width": 0.1843463938388396,
+      "targets": 80,
+      "max_ik_error_m": 0.0009999306509850374,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 496,
+        "success": true,
+        "tip_travel_m": 11.90833568896208,
+        "max_path_deviation_m": 0.06856803498640085
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 252,
+        "success": true,
+        "tip_travel_m": 0.914656514536218,
+        "max_path_deviation_m": 0.005181266182733279
+      }
+    },
+    {
+      "seed": 107278,
+      "width": 0.16838281188878093,
+      "targets": 80,
+      "max_ik_error_m": 0.0009959209168313326,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 329,
+        "success": true,
+        "tip_travel_m": 7.147638727598586,
+        "max_path_deviation_m": 0.06063735144946382
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 233,
+        "success": true,
+        "tip_travel_m": 0.8356158482082996,
+        "max_path_deviation_m": 0.005337695252683142
+      }
+    },
+    {
+      "seed": 107279,
+      "width": 0.18388261759177907,
+      "targets": 80,
+      "max_ik_error_m": 0.0009998812900986393,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 496,
+        "success": true,
+        "tip_travel_m": 11.85142452127139,
+        "max_path_deviation_m": 0.06817997248934043
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 252,
+        "success": true,
+        "tip_travel_m": 0.9123520816276476,
+        "max_path_deviation_m": 0.00516415909397815
+      }
+    },
+    {
+      "seed": 107280,
+      "width": 0.18436285830406063,
+      "targets": 80,
+      "max_ik_error_m": 0.0009935506072917,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 496,
+        "success": true,
+        "tip_travel_m": 11.90423676039956,
+        "max_path_deviation_m": 0.0685553260151892
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 252,
+        "success": true,
+        "tip_travel_m": 0.9147467160607209,
+        "max_path_deviation_m": 0.0051818466169082575
+      }
+    },
+    {
+      "seed": 107281,
+      "width": 0.1946614313524977,
+      "targets": 80,
+      "max_ik_error_m": 0.0009981678354398173,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 365,
+        "success": true,
+        "tip_travel_m": 7.605536889663855,
+        "max_path_deviation_m": 0.06334864556059398
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 270,
+        "success": true,
+        "tip_travel_m": 0.9667355633508128,
+        "max_path_deviation_m": 0.005095608103382841
+      }
+    },
+    {
+      "seed": 107282,
+      "width": 0.20745204739719594,
+      "targets": 80,
+      "max_ik_error_m": 0.0009942556978527705,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 534,
+        "success": true,
+        "tip_travel_m": 13.215443804504822,
+        "max_path_deviation_m": 0.07127418880792902
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 284,
+        "success": true,
+        "tip_travel_m": 1.0281400862846795,
+        "max_path_deviation_m": 0.004822882262142314
+      }
+    },
+    {
+      "seed": 107283,
+      "width": 0.2426357291413279,
+      "targets": 80,
+      "max_ik_error_m": 0.000999230443600911,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 635,
+        "success": true,
+        "tip_travel_m": 13.64072239712798,
+        "max_path_deviation_m": 0.062251178579854204
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 326,
+        "success": true,
+        "tip_travel_m": 1.2060361094997354,
+        "max_path_deviation_m": 0.0047260696388413456
+      }
+    },
+    {
+      "seed": 107284,
+      "width": 0.1460620439665346,
+      "targets": 80,
+      "max_ik_error_m": 0.0009953682144031879,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 295,
+        "success": true,
+        "tip_travel_m": 5.816588761877323,
+        "max_path_deviation_m": 0.05887189102531081
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 201,
+        "success": true,
+        "tip_travel_m": 0.734315881689374,
+        "max_path_deviation_m": 0.0073468602562030486
+      }
+    },
+    {
+      "seed": 107285,
+      "width": 0.2437389082253915,
+      "targets": 80,
+      "max_ik_error_m": 0.0009973854803172954,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 719,
+        "success": true,
+        "tip_travel_m": 16.27201110580628,
+        "max_path_deviation_m": 0.06895109512187934
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 329,
+        "success": true,
+        "tip_travel_m": 1.2116024772910645,
+        "max_path_deviation_m": 0.0047559454103652515
+      }
+    },
+    {
+      "seed": 107286,
+      "width": 0.19850618324483388,
+      "targets": 80,
+      "max_ik_error_m": 0.0009934514006752744,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 344,
+        "success": true,
+        "tip_travel_m": 7.096292166435884,
+        "max_path_deviation_m": 0.06504961291148549
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 272,
+        "success": true,
+        "tip_travel_m": 0.9847195748001305,
+        "max_path_deviation_m": 0.0052148123321404715
+      }
+    },
+    {
+      "seed": 107287,
+      "width": 0.16901852149172228,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996759342389486,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 329,
+        "success": true,
+        "tip_travel_m": 7.185445699061875,
+        "max_path_deviation_m": 0.06100945598216753
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 235,
+        "success": true,
+        "tip_travel_m": 0.8408975708541697,
+        "max_path_deviation_m": 0.005362400614503225
+      }
+    },
+    {
+      "seed": 107288,
+      "width": 0.21465707980571297,
+      "targets": 80,
+      "max_ik_error_m": 0.0009986363419075095,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 570,
+        "success": true,
+        "tip_travel_m": 13.276864048169056,
+        "max_path_deviation_m": 0.07161003408992739
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 294,
+        "success": true,
+        "tip_travel_m": 1.062623545862872,
+        "max_path_deviation_m": 0.0047634434741322795
+      }
+    },
+    {
+      "seed": 107289,
+      "width": 0.19448216595607376,
+      "targets": 80,
+      "max_ik_error_m": 0.0009970467241103478,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 365,
+        "success": true,
+        "tip_travel_m": 7.597345202104108,
+        "max_path_deviation_m": 0.06327583213843038
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 270,
+        "success": true,
+        "tip_travel_m": 0.9657589011679247,
+        "max_path_deviation_m": 0.005093180362310699
+      }
+    },
+    {
+      "seed": 107290,
+      "width": 0.1984663548624997,
+      "targets": 80,
+      "max_ik_error_m": 0.0009930784327788573,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 344,
+        "success": true,
+        "tip_travel_m": 7.09497166460886,
+        "max_path_deviation_m": 0.06503250453384879
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 272,
+        "success": true,
+        "tip_travel_m": 0.9845215149684692,
+        "max_path_deviation_m": 0.0052134647172436205
+      }
+    },
+    {
+      "seed": 107291,
+      "width": 0.2470708790578823,
+      "targets": 80,
+      "max_ik_error_m": 0.000996985349781355,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 714,
+        "success": true,
+        "tip_travel_m": 17.688676558561962,
+        "max_path_deviation_m": 0.08794418587378645
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 335,
+        "success": true,
+        "tip_travel_m": 1.2284282289308832,
+        "max_path_deviation_m": 0.004611823400361313
+      }
+    },
+    {
+      "seed": 107292,
+      "width": 0.14440034089510995,
+      "targets": 80,
+      "max_ik_error_m": 0.0009997885245603534,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 295,
+        "success": true,
+        "tip_travel_m": 5.735865927715023,
+        "max_path_deviation_m": 0.058077440965992516
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 197,
+        "success": true,
+        "tip_travel_m": 0.7286078987643707,
+        "max_path_deviation_m": 0.008204561253413595
+      }
+    },
+    {
+      "seed": 107293,
+      "width": 0.23879516578999105,
+      "targets": 80,
+      "max_ik_error_m": 0.0009870885620330814,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 363,
+        "success": true,
+        "tip_travel_m": 9.281170735341085,
+        "max_path_deviation_m": 0.10079204657889194
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 322,
+        "success": true,
+        "tip_travel_m": 1.1845157051798754,
+        "max_path_deviation_m": 0.0048240265532537374
+      }
+    },
+    {
+      "seed": 107294,
+      "width": 0.16574965053195426,
+      "targets": 80,
+      "max_ik_error_m": 0.0009992453497429598,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 341,
+        "success": true,
+        "tip_travel_m": 7.367792463926461,
+        "max_path_deviation_m": 0.059202573867392055
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 229,
+        "success": true,
+        "tip_travel_m": 0.8234883486917227,
+        "max_path_deviation_m": 0.005513754995728088
+      }
+    },
+    {
+      "seed": 107295,
+      "width": 0.20897413385700597,
+      "targets": 80,
+      "max_ik_error_m": 0.0009996989878484303,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 455,
+        "success": true,
+        "tip_travel_m": 10.780591317331176,
+        "max_path_deviation_m": 0.07224166527679542
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 286,
+        "success": true,
+        "tip_travel_m": 1.0348854123002191,
+        "max_path_deviation_m": 0.004604799552592855
+      }
+    },
+    {
+      "seed": 107296,
+      "width": 0.21826165310504397,
+      "targets": 80,
+      "max_ik_error_m": 0.0009980246916478305,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 504,
+        "success": true,
+        "tip_travel_m": 10.91014616369665,
+        "max_path_deviation_m": 0.068149695590958
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 299,
+        "success": true,
+        "tip_travel_m": 1.084158138398536,
+        "max_path_deviation_m": 0.0048661643181193886
+      }
+    },
+    {
+      "seed": 107297,
+      "width": 0.2022185819526681,
+      "targets": 80,
+      "max_ik_error_m": 0.0009999490133107954,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 654,
+        "success": true,
+        "tip_travel_m": 15.182095940528319,
+        "max_path_deviation_m": 0.07016954598878025
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 280,
+        "success": true,
+        "tip_travel_m": 1.0018975554515106,
+        "max_path_deviation_m": 0.00488830681371721
+      }
+    },
+    {
+      "seed": 107298,
+      "width": 0.24665866251713847,
+      "targets": 80,
+      "max_ik_error_m": 0.0009990072380874917,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 755,
+        "success": true,
+        "tip_travel_m": 18.120106023502977,
+        "max_path_deviation_m": 0.08766967014083107
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 335,
+        "success": true,
+        "tip_travel_m": 1.226306720250402,
+        "max_path_deviation_m": 0.004611439218211499
+      }
+    },
+    {
+      "seed": 107299,
+      "width": 0.20911144500330459,
+      "targets": 80,
+      "max_ik_error_m": 0.000996060383153605,
+      "joint_limits": true,
+      "baseline": {
+        "reached": 80,
+        "physics_steps": 455,
+        "success": true,
+        "tip_travel_m": 10.795610006406852,
+        "max_path_deviation_m": 0.07234643838886937
+      },
+      "tuned": {
+        "reached": 80,
+        "physics_steps": 287,
+        "success": true,
+        "tip_travel_m": 1.0355816513829317,
+        "max_path_deviation_m": 0.004609676574823626
+      }
+    }
+  ]
+}

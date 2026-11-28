@@ -9,7 +9,7 @@ def generate_quintic_spline_waypoints(start, end, num_points):
     return start + np.expand_dims(time_scale, axis=-1) * (end - start)
 
 
-def pid_control(tracking_error_history, timestep, Kp=150.0, Ki=0.0, Kd=0.01):
+def pid_control(tracking_error_history, timestep, Kp=10.0, Ki=0.0, Kd=0.25):
     errors = np.asarray(tracking_error_history)
     if errors.shape[0] == 0:
         raise ValueError("tracking_error_history must contain at least one error")

@@ -14,7 +14,21 @@ from hw2_robot_control_mdps.exercises.ex2 import generate_quintic_spline_waypoin
 from env.so100_tracking_env import SO100TrackEnv
 assets=hw/"so101_gym/assets"
 
-def control(which, max_width):
+def path_metrics(keypoints, tips):
+    """Measure the tip travel and its largest 3-D distance to the closed path."""
+    tips = np.asarray(tips)
+    segments = np.roll(keypoints, -1, axis=0) - keypoints
+    offsets = tips[:, None, :] - keypoints
+    fractions = np.sum(offsets * segments, axis=2) / np.sum(segments**2, axis=1)
+    residuals = offsets - np.clip(fractions, 0, 1)[:, :, None] * segments
+    nearest_distance = np.linalg.norm(residuals, axis=2).min(axis=1)
+    return {
+        "tip_travel_m": float(np.linalg.norm(np.diff(tips, axis=0), axis=1).sum()),
+        "max_path_deviation_m": float(nearest_distance.max()),
+    }
+
+
+def control(which, max_width, pid_gains=()):
     xml="so100_torque_ctrl.xml" if which==2 else "so100_pos_ctrl.xml"
     model=mujoco.MjModel.from_xml_path(str(assets/xml))
     rows=[]
@@ -38,18 +52,22 @@ def control(which, max_width):
         else:
             sim=mujoco.MjData(model);sim.qpos[:]=commands[0];mujoco.mj_forward(model,sim)
             reached=0;steps=0
+            tips = []
             for target,q in zip(route,commands):
                 history=[]
                 for _ in range(3000):
                     sim.mocap_pos[0]=target
                     history.append(q-sim.qpos)
                     if len(history)>10: history.pop(0)
-                    sim.ctrl[:]=pid_control(np.asarray(history),model.opt.timestep)
+                    sim.ctrl[:]=pid_control(np.asarray(history), model.opt.timestep, *pid_gains)
                     mujoco.mj_step(model,sim);steps+=1
-                    if np.linalg.norm(sim.site("ee_site").xpos-target)<.03:
+                    tip = sim.site("ee_site").xpos.copy()
+                    tips.append(tip)
+                    if np.linalg.norm(tip-target)<.03:
                         reached+=1;break
                 else: break
             row.update(reached=reached,physics_steps=steps,success=reached==len(route) and limits and all(w.number==0 for w in sim.warning))
+            row.update(path_metrics(points, tips))
         rows.append(row)
     return rows
 
@@ -72,7 +90,12 @@ def ppo():
     finally:env.close()
     return rows
 
-p=argparse.ArgumentParser();p.add_argument("exercise",type=int,choices=(1,2,3));p.add_argument('--max-width', type=float, default=.20);a=p.parse_args()
-rows=ppo() if a.exercise==3 else control(a.exercise, a.max_width)
+p=argparse.ArgumentParser();p.add_argument("exercise",type=int,choices=(1,2,3));p.add_argument('--max-width', type=float, default=.20)
+p.add_argument("--pid-gains", nargs=3, type=float, metavar=("KP", "KI", "KD"),
+               help="override the default gains for the Ex2 comparison")
+a=p.parse_args()
+if a.pid_gains is not None and a.exercise != 2:
+    p.error("--pid-gains applies to exercise 2")
+rows=ppo() if a.exercise==3 else control(a.exercise, a.max_width, a.pid_gains or ())
 with open(f"ex{a.exercise}.json","x") as f:json.dump(dict(success=sum(x["success"] for x in rows),total=len(rows),rows=rows),f,indent=2)
 print(a.exercise,sum(x["success"] for x in rows),len(rows))
